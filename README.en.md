@@ -17,17 +17,16 @@ Image models, vector software, medical atlases, and human reviewers are supplied
 
 ## Install
 
-Ask Codex's `$skill-installer` to install:
+Paste these two lines into Codex:
 
 ```text
-Repository: wilbert-MD-PhD/medical-illustration
-Ref: v1.0.0-rc.3
-Skill path: plugins/medical-illustration/skills/medical-illustration
-Destination: ~/.agents/skills/medical-illustration
-Keep the whole directory and do not overwrite an existing installation.
+Use $skill-installer to install this Skill into my personal skills directory and verify the installation:
+https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.0.0-rc.4/plugins/medical-illustration/skills/medical-illustration
 ```
 
-Or download the [standalone Skill ZIP](https://github.com/wilbert-MD-PhD/medical-illustration/releases/download/v1.0.0-rc.3/medical-illustration-1.0.0-rc.3.zip) and copy its `medical-illustration/` folder to `~/.agents/skills/` (Windows: `%USERPROFILE%\.agents\skills\`). For project scope, use `<project>/.agents/skills/`.
+Use `$medical-illustration` on your next turn; restart Codex if the skill list has not refreshed. This local installation route requires a desktop, CLI or IDE environment with local file and GitHub access. [Shareable installation guide](INSTALL.md).
+
+Or download the [standalone Skill ZIP](https://github.com/wilbert-MD-PhD/medical-illustration/releases/download/v1.0.0-rc.4/medical-illustration-1.0.0-rc.4.zip) and copy its `medical-illustration/` folder to `~/.agents/skills/` (Windows: `%USERPROFILE%\.agents\skills\`). For project scope, use `<project>/.agents/skills/`.
 
 Repository source archives contain the Marketplace layout: copy only the complete Skill directory at `plugins/medical-illustration/skills/medical-illustration/`. Restart Codex if it does not appear.
 

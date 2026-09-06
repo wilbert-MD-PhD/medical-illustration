@@ -52,6 +52,20 @@ class ReleaseTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'UTF-8'):
             release.verify_archive(archive)
 
+    def test_nested_manifest_named_file_cannot_bypass_integrity(self):
+        skill = self.base/'skill'
+        shutil.copytree(release.ROOT/release.REL, skill)
+        nested = skill/'scripts/SHA256SUMS'
+        nested.write_text('undeclared extra file', encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'Manifest mismatch'):
+            release.verify_manifest(skill)
+        release.write_manifest(skill)
+        self.assertIn('scripts/SHA256SUMS', release.hashes(skill))
+        release.verify_manifest(skill)
+        nested.write_text('modified after manifest', encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'Manifest mismatch'):
+            release.verify_manifest(skill)
+
     def test_corrupted_content_is_rejected(self):
         skill = self.base/'skill'
         shutil.copytree(release.ROOT/release.REL, skill)

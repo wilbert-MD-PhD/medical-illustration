@@ -35,9 +35,20 @@ AI、自检脚本、工具运行成功和视觉相似度都不属于人工签字
 
 必须保留整个 `medical-illustration/` 目录，不要只复制 `SKILL.md`。
 
+### 通过 Codex 对话安装（推荐）
+
+将包含版本与子目录的完整链接发给 `$skill-installer`：
+
+```text
+请使用 $skill-installer 将下面这个 Skill 安装到我的个人技能目录，并检查安装结果：
+https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.0.0-rc.4/plugins/medical-illustration/skills/medical-illustration
+```
+
+适用于可访问本地文件与 GitHub 的 Codex 环境。安装器应保留完整 Skill 文件夹，报告实际安装路径；安装器本身不会自动覆盖已有同名目录。使用者有旧版本时先核对路径和本地改动，再按其更新请求处理。安装完成后下一轮尝试调用；列表未刷新时重启 Codex。安装器默认路径随环境版本可能不同，以当前环境实际可发现的个人技能目录为准。
+
 ### 从 GitHub 下载
 
-下载 v1.0.0-rc.3 或更新版 Release 的独立 Skill ZIP（不要使用有缺陷的 rc.2），或从仓库 Code → Download ZIP 下载源码。独立 Skill ZIP 的根文件夹是 `medical-illustration/`；源码 ZIP 内的 Skill 位于 `plugins/medical-illustration/skills/medical-illustration/`。解压后找到同时包含 `SKILL.md`、`agents/`、`references/`、`scripts/` 和许可文件的目录；将该目录整体复制并命名为 `medical-illustration`。不要只复制主文件，也不要将外层压缩包目录嵌套成两层同名 Skill。
+下载 v1.0.0-rc.4 或更新版 Release 的独立 Skill ZIP（不要使用有缺陷的 rc.2），或从仓库 Code → Download ZIP 下载源码。独立 Skill ZIP 的根文件夹是 `medical-illustration/`；源码 ZIP 内的 Skill 位于 `plugins/medical-illustration/skills/medical-illustration/`。解压后找到同时包含 `SKILL.md`、`agents/`、`references/`、`scripts/` 和许可文件的目录；将该目录整体复制并命名为 `medical-illustration`。不要只复制主文件，也不要将外层压缩包目录嵌套成两层同名 Skill。
 
 ### 项目级安装
 

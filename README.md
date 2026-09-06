@@ -31,25 +31,23 @@
 
 ## 下载安装
 
-选择下面一种方式，避免同时安装多个同名版本。
-
-### 方式一：让 Codex 安装 Skill
-
-把这段话复制给支持 `$skill-installer` 的 Codex：
+**最简单：在 Codex 对话框中粘贴下面两行。** 无需自己输入终端命令或寻找安装文件夹。
 
 ```text
-使用 $skill-installer 安装以下 GitHub Skill：
-仓库：wilbert-MD-PhD/medical-illustration
-版本：v1.0.0-rc.3
-子目录：plugins/medical-illustration/skills/medical-illustration
-安装到个人技能目录 ~/.agents/skills/medical-illustration。
-保留完整目录；如有同名版本先核对，不直接覆盖。
-安装后验证 SKILL.md、相对资源和 SHA256SUMS，告诉我实际加载路径。
+请使用 $skill-installer 将下面这个 Skill 安装到我的个人技能目录，并检查安装结果：
+https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.0.0-rc.4/plugins/medical-illustration/skills/medical-illustration
 ```
+
+安装完成后，在下一轮对话中使用 `$medical-illustration`；技能列表未刷新时重启 Codex。适用于能访问本地文件和 GitHub 的 Codex 桌面端、CLI 或 IDE 环境。已有同名版本时先核对实际路径，避免重复安装或覆盖自己的改动。
+
+**给朋友分享：[简明安装说明](INSTALL.md)。** 链接已包含版本和准确的 Skill 子目录；这一步安装的是工作流程，绘图工具按任务需要由使用环境提供。
+
+<details>
+<summary>其他安装方式：手动 ZIP / Marketplace</summary>
 
 ### 方式二：下载 ZIP，手动安装
 
-1. **[下载 v1.0.0-rc.3 独立 Skill ZIP](https://github.com/wilbert-MD-PhD/medical-illustration/releases/download/v1.0.0-rc.3/medical-illustration-1.0.0-rc.3.zip)**，或前往 [Releases](https://github.com/wilbert-MD-PhD/medical-illustration/releases) 选择更新版本。
+1. **[下载 v1.0.0-rc.4 独立 Skill ZIP](https://github.com/wilbert-MD-PhD/medical-illustration/releases/download/v1.0.0-rc.4/medical-illustration-1.0.0-rc.4.zip)**，或前往 [Releases](https://github.com/wilbert-MD-PhD/medical-illustration/releases) 选择更新版本。
 2. 解压后将完整 `medical-illustration/` 文件夹放到下面任一位置。
 3. 确认目录里直接存在 `SKILL.md`，刷新技能列表；未显示时重新启动 Codex。
 
@@ -61,7 +59,7 @@
 
 如果使用 **Code → Download ZIP** 或 Release 的 **Source code**，下载的是整个仓库。需要复制的 Skill 在 `plugins/medical-illustration/skills/medical-illustration/`。只复制 `SKILL.md` 会缺少必要资源。
 
-**旧版说明：** `v1.0.0-rc.2` 的标签只有 README，附件 ZIP 也存在中文文件名编码缺陷。请使用 `rc.3` 或更新版本，详见 [发布说明](docs/release-notes.md)。
+**旧版说明：** `v1.0.0-rc.2` 的标签只有 README，附件 ZIP 也存在中文文件名编码缺陷。请使用 `rc.4` 或更新版本，详见 [发布说明](docs/release-notes.md)。
 
 ### 方式三：通过 Codex Marketplace 安装插件
 
@@ -77,6 +75,8 @@ codex plugin add medical-illustration@medical-illustration-marketplace
 GitHub 仓库 Marketplace 是明确指定来源的安装方式；公共插件目录按名称发现需要另行上架。
 
 [完整安装、依赖与验收说明](plugins/medical-illustration/skills/medical-illustration/references/dependencies-installation.md)
+
+</details>
 
 ## 开始使用
 

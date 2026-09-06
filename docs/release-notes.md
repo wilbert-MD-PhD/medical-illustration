@@ -1,16 +1,13 @@
-# v1.0.0-rc.3
+# v1.0.0-rc.4
 
-本版修复安装与发布一致性，并补充首页和可编辑示例。
+本版补充返修规则，并把面向 Codex 使用者的安装简化为一个准确链接。
 
-- 版本标签包含完整 Marketplace 与 Skill；独立 ZIP 从标签内的同一 Skill 目录生成。
-- 修复中文 ZIP 文件名编码，增加默认解压、校验清单、相对链接和附件/源码一致性检查。
-- 统一插件根、Skill 根和独立 ZIP 的安装说明；提供固定版本的安装器示例及两步插件命令。
-- 合格的本地参考包可以核验后复用；缺项时再联网补齐。医学核验与人工审核要求保留。
-- 增加无字 SVG、可编辑排字 SVG、PNG 预览和 PDF 审阅稿。示例无医学论断，状态为草稿。
-- 加入三平台验证与从版本标签自动发布、下载附件回验的工作流。
+- 首页优先展示“在 Codex 中粘贴两行文字”的安装方式，提供可转发的 INSTALL.md；ZIP 与 Marketplace 保留在展开说明中。
+- 纯文字、标签和气泡返修明确读取排字规范；医学变更只使受影响内容的批准失效。
+- 缺少医学母版时，允许在已授权范围内依据合格参考重建待审线稿；参考不足时只阻断依赖它的部分，不以位图补丁代替重建。
+- 修复校验清单忽略子目录同名 SHA256SUMS 文件的问题，增加“多余文件与后续篡改均被发现”的回归测试。
+- 保留 rc.3 的 Unicode ZIP、源码/附件一致性与跨平台检查。
 
-**下载：** 手动安装选择 `medical-illustration-1.0.0-rc.3.zip`。自动 Source code 包含整个 Marketplace 仓库，Skill 位于 `plugins/medical-illustration/skills/medical-illustration/`。
+手动安装选择 `medical-illustration-1.0.0-rc.4.zip`。Source code 包含完整 Marketplace 仓库，Skill 位于 `plugins/medical-illustration/skills/medical-illustration/`。
 
-**验证范围：** 初始化器 12 项回归测试，另有发布边界测试、文件校验和链接检查。实际运行结果见 Actions 与仓库 docs/validation.md。完整医学图像生成、Illustrator 原生 .ai 和独立新会话行为仍需对应验证，不以软件测试代替医学审核。
-
-**旧版已知问题：** rc.2 标签只含 README，其上传 ZIP 的 4 个中文文件名缺少 UTF-8 标记；不要继续使用该标签或附件安装。旧标签保留以维持历史可追溯性。
+验证包括初始化器、发布边界、文件校验、资源链接和公开附件回验；运行结果见 Actions。完整医学制图、原生 .ai 和独立新会话行为仍按 docs/validation.md 的范围分别验收，软件测试不能代替人工医学批准。

@@ -15,7 +15,8 @@ description: Create, revise, audit, and prepare publication-grade medical popula
 
 - **完整项目**：从选题、证据到印前交付。读取 [workflow.md](references/workflow.md)、[copy-and-lettering.md](references/copy-and-lettering.md)、[templates.md](references/templates.md)、[generation-and-assets.md](references/generation-and-assets.md)、[revision-and-prompting.md](references/revision-and-prompting.md) 和 [qa-and-prepress.md](references/qa-and-prepress.md)。
 - **单幅或单页制作**：仍须完成风险分级、证据绑定、空间规格和相应审核。含文字时同时读取 `copy-and-lettering.md`。
-- **审稿或返修**：不重做无关区域。读取 `revision-and-prompting.md` 和 `qa-and-prepress.md`，先建立编辑合同和变更集，再修改并检查保护区。
+- **审稿或返修**：不重做无关区域。读取 [revision-and-prompting.md](references/revision-and-prompting.md) 和 [qa-and-prepress.md](references/qa-and-prepress.md)，先建立编辑合同和变更集，再修改并检查保护区。
+- **仅改文字、标签或气泡**：读取 [copy-and-lettering.md](references/copy-and-lettering.md) 和上述返修规则。复用底图，区分文案变化与纯排版变化；按实际变化执行语义、落点、溢出和保护区检查。
 - **印前交付**：以出版社书面规格为准。读取 `qa-and-prepress.md`。
 
 先记录当前请求的范围、阶段和载体，只执行适用门禁。不适用项记录理由，不虚构证据、母版或签字：L 级生活场景可无医学论断与解剖母版；单幅无连续角色时不要求角色系统；纯文字返修不重走图像生成。草稿可使用注明待确认的尺寸；出版社规格只阻断印前锁定和印刷交付，不阻断合规草稿。数字交付读取 [数字交付检查](references/qa-and-prepress.md)，完成医学和编辑审核后另记发布决定。
@@ -108,7 +109,7 @@ python3 scripts/init_medical_project.py <项目目录>
 
 文件名使用 `[项目]-[页码]-[内容]-[阶段]-V[主版本].[次版本]-[状态].[扩展名]`，例如 `通用示例-P01-就诊信息整理-分镜-V1.0-草稿.svg`。
 
-修改任何医学结构、侧别、动作、器械、影像、诊疗文字或含医学内容的生成区域，原 `医学通过` 状态立即失效；重新检查修改对象、邻近结构、方向、标签、正文、人物和跨页连续性。
+修改任何医学结构、侧别、动作、器械、影像、诊疗文字或含医学内容的生成区域，受影响内容的原 `医学通过` 状态失效；保留不受影响内容的有效批准及范围记录，重新检查修改对象、邻近结构、方向、标签、正文、人物和跨页连续性。
 
 ## 停止条件
 
