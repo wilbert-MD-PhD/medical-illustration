@@ -47,7 +47,7 @@ Create a page brief, risk classification, and structured prompt.
 Keep this as a draft; do not generate an image yet.
 ```
 
-See the [editable lettering example](plugins/medical-illustration/skills/medical-illustration/examples/editable-lettering/README.md) and [installation details](plugins/medical-illustration/skills/medical-illustration/references/dependencies-installation.md).
+See the [two-page TFCC comic showcase](docs/showcase/tfcc/README.md), including blank bases and a lettered PDF review copy, and [installation details](plugins/medical-illustration/skills/medical-illustration/references/dependencies-installation.md).
 
 ## License
 

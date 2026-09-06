@@ -23,11 +23,24 @@
 
 ## 看看实际产物
 
-![就诊前信息整理：可编辑排字示例](plugins/medical-illustration/skills/medical-illustration/examples/editable-lettering/preview.png)
+**TFCC 医学科普漫画：从无字底板到填字后的 PDF 审阅稿。** 以下两页由作者提供，展示场景叙事、人物连续性和中文排字效果。
 
-**从无字版面到可编辑文字，再到 PDF 审阅稿。** 这是本仓库新建的低风险排字示范，主题是整理想表达的信息，无疾病、诊断、治疗或解剖论断。它展示文件组织与排字结果，状态为草稿。
+| 第一页 · 受伤场景 | 第二页 · 日常动作 |
+|:---:|:---:|
+| [![第一页填字效果](docs/showcase/tfcc/page-1.jpg)](docs/showcase/tfcc/page-1.jpg) | [![第二页填字效果](docs/showcase/tfcc/page-2.jpg)](docs/showcase/tfcc/page-2.jpg) |
 
-[打开可编辑 SVG](plugins/medical-illustration/skills/medical-illustration/examples/editable-lettering/lettered.svg) · [下载 PDF 审阅稿](plugins/medical-illustration/skills/medical-illustration/examples/editable-lettering/review.pdf) · [查看无字底版](plugins/medical-illustration/skills/medical-illustration/examples/editable-lettering/base.svg) · [输入、输出与检查记录](plugins/medical-illustration/skills/medical-illustration/examples/editable-lettering/README.md)
+[**查看两页 PDF 审阅稿**](docs/showcase/tfcc/review.pdf) · [第一页无字底板](docs/showcase/tfcc/base-1.png) · [第二页无字底板](docs/showcase/tfcc/base-2.png) · [示例说明](docs/showcase/tfcc/README.md)
+
+<details>
+<summary>展开对比：两页无字底板</summary>
+
+| 第一页 · 无字底板 | 第二页 · 无字底板 |
+|:---:|:---:|
+| [![第一页无字底板](docs/showcase/tfcc/base-1.png)](docs/showcase/tfcc/base-1.png) | [![第二页无字底板](docs/showcase/tfcc/base-2.png)](docs/showcase/tfcc/base-2.png) |
+
+</details>
+
+示例保留 PDF 审阅稿状态，用于展示制作效果。
 
 ## 下载安装
 
