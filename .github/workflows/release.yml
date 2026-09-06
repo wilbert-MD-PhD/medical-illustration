@@ -1,0 +1,56 @@
+name: Release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Verify tag matches package version
+        shell: python
+        run: |
+          import os
+          from pathlib import Path
+          version = Path('plugins/medical-illustration/skills/medical-illustration/VERSION').read_text().strip()
+          assert os.environ['GITHUB_REF_NAME'] == 'v' + version, 'Tag/VERSION mismatch'
+      - run: python scripts/release.py check
+      - run: python plugins/medical-illustration/skills/medical-illustration/scripts/test_init_medical_project.py
+      - run: python scripts/test_release.py
+  publish:
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python scripts/release.py build
+      - name: Publish the verified tag package
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        shell: bash
+        run: |
+          prerelease=()
+          if [[ "$RELEASE_TAG" == *-* ]]; then prerelease=(--prerelease); fi
+          gh release create "$RELEASE_TAG" dist/* --verify-tag --title "Medical Illustration $RELEASE_TAG" --notes-file docs/release-notes.md "${prerelease[@]}"
+      - name: Download and verify the published attachment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        shell: bash
+        run: |
+          gh release download "$RELEASE_TAG" --pattern '*.zip' --dir downloaded
+          python scripts/release.py verify --archive "downloaded/medical-illustration-${RELEASE_TAG#v}.zip"

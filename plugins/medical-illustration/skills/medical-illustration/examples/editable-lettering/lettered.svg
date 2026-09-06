@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-labelledby="title desc">
+<title id="title">就诊前信息整理：可编辑排字草稿</title>
+<desc id="desc">无医学论断的便签版面，包含独立背景、图形、文字和审校组。作者 wilbert，CC BY-NC-SA 4.0。</desc>
+<style>text {font-family: 'Source Han Sans CN', 'Noto Sans CJK SC', sans-serif; fill:#163b3c;} .muted{fill:#526c6a;} .white{fill:#fffdf7;}</style>
+<g id="background" inkscape:groupmode="layer" inkscape:label="背景"><rect width="800" height="1000" fill="#f6f3e9"/></g><g id="artwork" inkscape:groupmode="layer" inkscape:label="版面与气泡">
+<rect x="48" y="50" width="48" height="5" rx="2.5" fill="#d2924c"/>
+<path d="M603 76h77v105h-77z" fill="#e4ebe2" stroke="#163b3c" stroke-width="2"/>
+<path d="M592 90h77v105h-77z" fill="#fffdf7" stroke="#163b3c" stroke-width="2"/>
+<path d="M610 119h42m-42 17h42m-42 17h25" stroke="#8aaba1" stroke-width="3" stroke-linecap="round"/>
+<rect x="48" y="277" width="704" height="156" rx="20" fill="#ead9b5"/>
+<path d="M111 433l-19 27 62-27" fill="#ead9b5"/>
+<path d="M75 319h-5q-12 0-12 17v18h22v-23H70q0-9 5-12m36 0h-5q-12 0-12 17v18h22v-23h-10q0-9 5-12" fill="#b78544" transform="translate(35 2)"/>
+<rect x="48" y="484" width="704" height="112" rx="12" fill="#fffdf7" stroke="#d7dfd4" stroke-width="1.5"/>
+<circle cx="88" cy="521" r="15" fill="#e5eee8"/>
+<path d="M125 560h574" stroke="#d7dfd4" stroke-width="1.5" stroke-dasharray="3 5"/>
+<rect x="48" y="620" width="704" height="112" rx="12" fill="#fffdf7" stroke="#d7dfd4" stroke-width="1.5"/>
+<circle cx="88" cy="657" r="15" fill="#e5eee8"/>
+<path d="M125 696h574" stroke="#d7dfd4" stroke-width="1.5" stroke-dasharray="3 5"/>
+<rect x="48" y="756" width="704" height="112" rx="12" fill="#fffdf7" stroke="#d7dfd4" stroke-width="1.5"/>
+<circle cx="88" cy="793" r="15" fill="#e5eee8"/>
+<path d="M125 832h574" stroke="#d7dfd4" stroke-width="1.5" stroke-dasharray="3 5"/>
+</g><g id="lettering" inkscape:groupmode="layer" inkscape:label="可编辑文字">
+<text x="112" y="62" font-size="14" letter-spacing="2">MEDICAL ILLUSTRATION</text>
+<text x="48" y="133" font-size="28" class="muted">就诊前</text>
+<text x="48" y="202" font-size="48" font-weight="700">整理想说的话</text>
+<text x="48" y="244" font-size="19" class="muted">把想表达的信息，写在自己的便签上。</text>
+<text x="169" y="337" font-size="27"><tspan x="169">我想先写下来，</tspan><tspan x="169" dy="43">再慢慢说明白。</tspan></text>
+<text x="88" y="527" font-size="15" text-anchor="middle">1</text><text x="125" y="528" font-size="23">我想说的事</text>
+<text x="88" y="663" font-size="15" text-anchor="middle">2</text><text x="125" y="664" font-size="23">我想问的问题</text>
+<text x="88" y="799" font-size="15" text-anchor="middle">3</text><text x="125" y="800" font-size="23">留给自己的备注</text>
+</g><g id="review" inkscape:groupmode="layer" inkscape:label="审校说明"><path d="M48 913h704" stroke="#c8d1c6"/><text x="48" y="944" font-size="14" class="muted">草稿示例 · 无医学论断 · 可编辑 SVG</text><text x="752" y="944" text-anchor="end" font-size="13" class="muted">wilbert · CC BY-NC-SA 4.0</text></g></svg>
