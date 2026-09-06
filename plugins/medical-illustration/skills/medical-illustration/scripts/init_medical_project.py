@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 
 
-SKILL_VERSION = "1.0.0-rc.3"
+SKILL_VERSION = "1.0.0-rc.4"
 
 TEMPLATE_NOTICE = (
     "\n---\n模板来源：medical-illustration；作者：wilbert；"

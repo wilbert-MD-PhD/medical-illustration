@@ -23,7 +23,7 @@ def payload(root):
             raise ValueError(f'Symlink in package: {p}')
         if '__pycache__' in p.parts or p.name == '.DS_Store' or p.suffix in ('.pyc', '.pyo'):
             continue
-        if p.is_file() and p.name != 'SHA256SUMS':
+        if p.is_file() and p != root/'SHA256SUMS':
             paths.append(p)
     return sorted(paths, key=lambda p: p.relative_to(root).as_posix())
 

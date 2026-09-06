@@ -10,7 +10,7 @@
 |---|---|
 | Skill 名称、描述、版本、插件入口与本地链接 | scripts/release.py check；本机 Codex quick_validate 补充检查 |
 | 初始化器保留用户数据、异常路径与中文编码 | 12 项初始化器回归测试 |
-| 中文文件名、默认解压、损坏文件和越界路径 | scripts/test_release.py |
+| 中文文件名、默认解压、损坏文件、越界路径和子目录同名校验文件 | 7 项发布回归测试（scripts/test_release.py） |
 | 无字底版与排字版的保护层保持一致 | SVG XML 结构对比 |
 | 独立 ZIP 与 Skill 源码一致 | 构建后默认解压，检查清单与全部文件哈希 |
 | 发布标签与版本一致 | Release 工作流从标签检出，核对 VERSION 后再发布 |
