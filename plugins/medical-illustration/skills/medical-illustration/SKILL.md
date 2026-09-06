@@ -9,7 +9,7 @@ description: Create, revise, audit, and prepare publication-grade medical popula
 
 **流程可迁移，但医学审核责任不可迁移。** 复制、安装或修改本 skill，不代表获得原作者、原项目或原审稿人的医学批准。每个新项目必须按风险与交付用途，由实际承担责任的人员完成适用的临床、解剖、编辑和印前审核与签署。
 
-安装、迁移或验收本 skill 时，读取 [依赖、安装与验收](references/dependencies-installation.md)。不含私有角色、解剖母版或病例素材的最小示例见 [通用示例项目](examples/generic-visit-preparation/示例说明.md)。
+首次安装后、开始制作前，执行 [首次环境检查](references/first-run.md)，分别验证图像生成、中文排字与 PDF 导出。安装、迁移或验收本 skill 时，读取 [依赖、安装与验收](references/dependencies-installation.md)。不含私有角色、解剖母版或病例素材的最小示例见 [通用示例项目](examples/generic-visit-preparation/示例说明.md)。
 
 ## 先选择工作模式
 
