@@ -6,18 +6,20 @@
 
 ## 安装
 
-1. 下载 Release ZIP，或在本仓库选择 Code → Download ZIP。
-2. 解压，找到含 `SKILL.md` 的目录，完整复制并命名为 `medical-illustration`。
+1. 下载 v1.0.0-rc.3 或更新版本的独立 Skill ZIP，或在仓库选择 Code → Download ZIP。rc.2 标签缺少源码，上传 ZIP 存在中文文件名编码问题，请使用新版本。
+2. 独立 Skill ZIP：复制解压后的 `medical-illustration/`；源码 ZIP：复制 `plugins/medical-illustration/skills/medical-illustration/`。两者均须保留整个文件夹。
 3. 项目使用：放到 `<项目根目录>/.agents/skills/medical-illustration/`；个人使用：放到 `~/.agents/skills/medical-illustration/`。
 4. 查看技能列表和实际路径，确认加载的是本包。未出现时重新开启会话。已有同名版本先备份、核对，避免重复安装。
 
-兼容路径、Windows、依赖与验收步骤见 [安装说明](references/dependencies-installation.md)。当前版本见 [VERSION](VERSION)。本目录是独立发布源，仓库根目录应直接包含本 README 与 SKILL.md。
+兼容路径、Windows、依赖与验收步骤见 [安装说明](references/dependencies-installation.md)。当前版本见 [VERSION](VERSION)。本目录是 Skill 根；GitHub 仓库采用 Marketplace 布局，源码中的路径为 `plugins/medical-illustration/skills/medical-illustration/`。Release 的独立 Skill ZIP 解压后直接得到 `medical-illustration/`。
 
 ## 开始使用
 
 ```text
 使用 $medical-illustration 为一页仅用于手机阅读的科普生活场景建立页面任务卡、风险分级和结构化 prompt。当前只做草稿，不开始生成图像；无医学论断的字段注明不适用。
 ```
+
+可查看 [实际可编辑排字示例](examples/editable-lettering/README.md)，包含 SVG、PNG 和 PDF 草稿及检查记录。
 
 其他工作模式包括完整项目、单幅制作、局部返修和印前交付。无真实素材的草稿示例见 [通用示例](examples/generic-visit-preparation/示例说明.md)。纯数字作品执行数字交付检查；印刷作品在印前锁定前取得出版方书面规格。
 

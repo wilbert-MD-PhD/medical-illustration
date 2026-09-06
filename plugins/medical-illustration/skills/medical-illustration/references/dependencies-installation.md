@@ -37,7 +37,7 @@ AI、自检脚本、工具运行成功和视觉相似度都不属于人工签字
 
 ### 从 GitHub 下载
 
-下载本项目的 Release ZIP，或从仓库 Code → Download ZIP 下载源码。解压后找到同时包含 `SKILL.md`、`agents/`、`references/`、`scripts/` 和许可文件的目录；将该目录整体复制并命名为 `medical-illustration`。不要只复制主文件，也不要将外层压缩包目录嵌套成两层同名 Skill。
+下载 v1.0.0-rc.3 或更新版 Release 的独立 Skill ZIP（不要使用有缺陷的 rc.2），或从仓库 Code → Download ZIP 下载源码。独立 Skill ZIP 的根文件夹是 `medical-illustration/`；源码 ZIP 内的 Skill 位于 `plugins/medical-illustration/skills/medical-illustration/`。解压后找到同时包含 `SKILL.md`、`agents/`、`references/`、`scripts/` 和许可文件的目录；将该目录整体复制并命名为 `medical-illustration`。不要只复制主文件，也不要将外层压缩包目录嵌套成两层同名 Skill。
 
 ### 项目级安装
 
@@ -53,7 +53,7 @@ AI、自检脚本、工具运行成功和视觉相似度都不属于人工签字
 
 `VERSION` 标识这个发布包的版本；以当前下载包为安装来源，不混入其他项目的同名安装。安装前查看技能列表里的实际路径，备份旧版本并由使用者选择保留哪一份；同名技能不会自动合并。不要盲目同时安装到 `.agents` 和 `.codex`。更新后刷新技能列表，未出现时重新开启会话。
 
-验收时通过技能路径确认加载的是这个版本。GitHub 仓库应以独立的 `medical-illustration` 发布目录为根；不将宿主医学项目或个人安装目录作为打包来源。
+验收时通过技能路径确认加载的是这个版本。GitHub 仓库采用 Marketplace 布局：仓库根包含 `.agents/plugins/marketplace.json`，插件根为 `plugins/medical-illustration/`，Skill 根为其下的 `skills/medical-illustration/`。独立 ZIP 由同一版本标签中的 Skill 根生成，不混入宿主医学项目或个人安装内容。
 
 ## 验收
 
@@ -140,6 +140,6 @@ python3 scripts/test_init_medical_project.py
 
 打开 `examples/generic-visit-preparation/`，确认：
 
-- 不含 TFCC、原项目角色、病例、解剖母版、影像或授权素材；
+- 不含 TFCC、原项目角色、病例、解剖母版、影像或私有授权素材；
 - 示例状态为 `草稿`，不宣称医学通过；
 - 示例仅演示页面任务、结构化 prompt、渲染清单与审计字段。
