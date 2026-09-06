@@ -48,10 +48,10 @@
 
 ```text
 请使用 $skill-installer 将下面这个 Skill 安装到我的个人技能目录，并检查安装结果：
-https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.0.0-rc.4/plugins/medical-illustration/skills/medical-illustration
+https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.0.0-rc.5/plugins/medical-illustration/skills/medical-illustration
 ```
 
-安装完成后，在下一轮对话中使用 `$medical-illustration`；技能列表未刷新时重启 Codex。适用于能访问本地文件和 GitHub 的 Codex 桌面端、CLI 或 IDE 环境。已有同名版本时先核对实际路径，避免重复安装或覆盖自己的改动。
+先让 Codex 按 [首次环境检查](plugins/medical-illustration/skills/medical-illustration/references/first-run.md) 验证绘图、中文排字与 PDF 导出；[完整安装与依赖检查话术](INSTALL.md) 可直接转发。安装完成后，在下一轮对话中使用 `$medical-illustration`；技能列表未刷新时重启 Codex。适用于能访问本地文件和 GitHub 的 Codex 桌面端、CLI 或 IDE 环境。已有同名版本时先核对实际路径，避免重复安装或覆盖自己的改动。
 
 **给朋友分享：[简明安装说明](INSTALL.md)。** 链接已包含版本和准确的 Skill 子目录；这一步安装的是工作流程，绘图工具按任务需要由使用环境提供。
 
@@ -60,7 +60,7 @@ https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.0.0-rc.4/plugins/
 
 ### 方式二：下载 ZIP，手动安装
 
-1. **[下载 v1.0.0-rc.4 独立 Skill ZIP](https://github.com/wilbert-MD-PhD/medical-illustration/releases/download/v1.0.0-rc.4/medical-illustration-1.0.0-rc.4.zip)**，或前往 [Releases](https://github.com/wilbert-MD-PhD/medical-illustration/releases) 选择更新版本。
+1. **[下载 v1.0.0-rc.5 独立 Skill ZIP](https://github.com/wilbert-MD-PhD/medical-illustration/releases/download/v1.0.0-rc.5/medical-illustration-1.0.0-rc.5.zip)**，或前往 [Releases](https://github.com/wilbert-MD-PhD/medical-illustration/releases) 选择更新版本。
 2. 解压后将完整 `medical-illustration/` 文件夹放到下面任一位置。
 3. 确认目录里直接存在 `SKILL.md`，刷新技能列表；未显示时重新启动 Codex。
 

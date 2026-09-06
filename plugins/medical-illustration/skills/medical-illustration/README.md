@@ -10,12 +10,12 @@
 
 ```text
 请使用 $skill-installer 将下面这个 Skill 安装到我的个人技能目录，并检查安装结果：
-https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.0.0-rc.4/plugins/medical-illustration/skills/medical-illustration
+https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.0.0-rc.5/plugins/medical-illustration/skills/medical-illustration
 ```
 
 以下为手动安装步骤：
 
-1. 下载 v1.0.0-rc.4 或更新版本的独立 Skill ZIP，或在仓库选择 Code → Download ZIP。rc.2 标签缺少源码，上传 ZIP 存在中文文件名编码问题，请使用新版本。
+1. 下载 v1.0.0-rc.5 或更新版本的独立 Skill ZIP，或在仓库选择 Code → Download ZIP。rc.2 标签缺少源码，上传 ZIP 存在中文文件名编码问题，请使用新版本。
 2. 独立 Skill ZIP：复制解压后的 `medical-illustration/`；源码 ZIP：复制 `plugins/medical-illustration/skills/medical-illustration/`。两者均须保留整个文件夹。
 3. 项目使用：放到 `<项目根目录>/.agents/skills/medical-illustration/`；个人使用：放到 `~/.agents/skills/medical-illustration/`。
 4. 查看技能列表和实际路径，确认加载的是本包。未出现时重新开启会话。已有同名版本先备份、核对，避免重复安装。

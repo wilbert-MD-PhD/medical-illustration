@@ -8,7 +8,7 @@ The Skill instructions are primarily in Chinese, with English discovery metadata
 
 ## What you get
 
-- A Skill with four modes: complete project, single page, revision, and delivery.
+- Workflows for complete projects, single pages, revision, lettering, and delivery.
 - Evidence, anatomy-reference, prompt, lettering, and review templates.
 - A non-destructive Python project initializer.
 - An editable SVG lettering example, a blank base, and a PDF review copy.
@@ -21,12 +21,12 @@ Paste these two lines into Codex:
 
 ```text
 Use $skill-installer to install this Skill into my personal skills directory and verify the installation:
-https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.0.0-rc.4/plugins/medical-illustration/skills/medical-illustration
+https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.0.0-rc.5/plugins/medical-illustration/skills/medical-illustration
 ```
 
-Use `$medical-illustration` on your next turn; restart Codex if the skill list has not refreshed. This local installation route requires a desktop, CLI or IDE environment with local file and GitHub access. [Shareable installation guide](INSTALL.md).
+Follow the [first-run environment checks](plugins/medical-illustration/skills/medical-illustration/references/first-run.md) to verify image generation, Chinese lettering and PDF export. Use `$medical-illustration` on your next turn; restart Codex if the skill list has not refreshed. This local installation route requires a desktop, CLI or IDE environment with local file and GitHub access. [Shareable installation guide](INSTALL.md).
 
-Or download the [standalone Skill ZIP](https://github.com/wilbert-MD-PhD/medical-illustration/releases/download/v1.0.0-rc.4/medical-illustration-1.0.0-rc.4.zip) and copy its `medical-illustration/` folder to `~/.agents/skills/` (Windows: `%USERPROFILE%\.agents\skills\`). For project scope, use `<project>/.agents/skills/`.
+Or download the [standalone Skill ZIP](https://github.com/wilbert-MD-PhD/medical-illustration/releases/download/v1.0.0-rc.5/medical-illustration-1.0.0-rc.5.zip) and copy its `medical-illustration/` folder to `~/.agents/skills/` (Windows: `%USERPROFILE%\.agents\skills\`). For project scope, use `<project>/.agents/skills/`.
 
 Repository source archives contain the Marketplace layout: copy only the complete Skill directory at `plugins/medical-illustration/skills/medical-illustration/`. Restart Codex if it does not appear.
 
