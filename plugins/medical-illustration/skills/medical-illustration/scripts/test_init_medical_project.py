@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """Regression tests for initialization behavior. MIT License; see ../LICENSE-CODE."""
 
 from pathlib import Path
@@ -71,6 +72,8 @@ class InitializeTests(unittest.TestCase):
                 self.assertEqual(result.returncode, 1)
                 self.assertTrue(result.stderr)
                 self.assertNotIn("Traceback", result.stderr)
+                self.assertNotIn("SyntaxError", result.stderr)
+                self.assertIn("初始化失败".encode(encoding, errors="backslashreplace").decode(encoding), result.stderr)
                 self.assertEqual(list(self.root.iterdir()), [self.root / "07_审计记录"])
 
     def test_non_utf8_argparse_output(self):
@@ -94,7 +97,8 @@ class InitializeTests(unittest.TestCase):
     def assert_failed_without_writes(self, before):
         result = self.run_init()
         self.assertNotEqual(result.returncode, 0, result.stdout)
-        self.assertTrue(result.stderr)
+        self.assertIn("初始化失败", result.stderr)
+        self.assertNotIn("SyntaxError", result.stderr)
         self.assertEqual(before, sorted(str(p.relative_to(self.root)) for p in self.root.rglob("*")))
 
     def test_create_and_retain_user_edits(self):
@@ -166,6 +170,7 @@ class InitializeTests(unittest.TestCase):
         self.root.write_text("根路径已有文件", encoding="utf-8")
         result = self.run_init()
         self.assertNotEqual(result.returncode, 0)
+        self.assertIn("初始化失败", result.stderr)
         self.assertEqual(self.root.read_text(encoding="utf-8"), "根路径已有文件")
 
 
