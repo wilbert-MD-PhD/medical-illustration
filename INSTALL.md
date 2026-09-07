@@ -32,6 +32,4 @@ Skill 是工作流程。它不能为账号增加图像生成权限，也不附�
 - **.zip.sha256**：ZIP 完整性校验文件，无需作为 Skill 安装。
 - **Source code**：整个仓库，包含主页素材；不是独立 Skill ZIP。
 
-若文件右侧显示“美国／其他”等按钮，它们是浏览器下载加速扩展或用户脚本添加的镜像入口，不是本项目的版本、地区或依赖。点击原始文件名即可使用 GitHub 下载；按钮的显示由本机扩展设置控制。
-
 [主页示例](README.md#看看实际产物) · [手动下载](https://github.com/wilbert-MD-PhD/medical-illustration/releases/tag/v1.0.0-rc.5) · [官方 Skill 说明](https://developers.openai.com/codex/skills/)

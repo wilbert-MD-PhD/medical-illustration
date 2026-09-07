@@ -1,6 +1,6 @@
 # Medical Illustration v1.0.0-rc.5
 
-用于 Codex 的医学科普插画与漫画工作流程。首次使用请打开 [安装与依赖检查说明](https://github.com/wilbert-MD-PhD/medical-illustration/blob/v1.0.0-rc.5/INSTALL.md)，复制整段给 Codex。
+用于 Codex 的医学科普插画与漫画工作流程。首次使用请打开 [安装与依赖检查说明](https://github.com/wilbert-MD-PhD/medical-illustration/blob/main/INSTALL.md)，复制整段给 Codex。
 
 ## 手动下载选哪个
 
@@ -9,8 +9,6 @@
 | medical-illustration-1.0.0-rc.5.zip | 完整独立 Skill，手动安装选此文件 |
 | medical-illustration-1.0.0-rc.5.zip.sha256 | ZIP 校验文件，无需作为 Skill 安装 |
 | Source code | 完整仓库，包含主页示例；Skill 位于 plugins/medical-illustration/skills/medical-illustration/ |
-
-文件右侧若出现“美国／其他”，是本机下载加速扩展或用户脚本添加的镜像按钮，不是项目地区、版本或依赖；原始文件名是 GitHub 下载入口。
 
 ## 本版更新
 
