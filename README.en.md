@@ -4,7 +4,7 @@ An evidence-aware workflow for medical education illustrations, comics and infog
 
 The Skill instructions are primarily in Chinese, with English discovery metadata. This English page is an installation overview; it does not represent a separately validated English workflow.
 
-[中文首页](README.md) · [Releases](https://github.com/wilbert-MD-PhD/medical-illustration/releases) · [Validation scope](docs/validation.md)
+[Install](#install) · [See the output](#see-the-output) · [Try it](#try-it) · [中文首页](README.md) · [Releases](https://github.com/wilbert-MD-PhD/medical-illustration/releases) · [Validation scope](docs/validation.md)
 
 ## What you get
 
@@ -15,16 +15,44 @@ The Skill instructions are primarily in Chinese, with English discovery metadata
 
 Image models, vector software, medical atlases, and human reviewers are supplied by the user's environment. Medical approval is specific to each work and reviewer; it is never included with an installation.
 
+## See the output
+
+**A two-page TFCC education comic, from blank artwork to a lettered PDF review copy.** The following two pages show scene-based storytelling, character continuity, and Chinese lettering.
+
+| Page 1 · Injury scene | Page 2 · Everyday movements |
+|:---:|:---:|
+| [![Page 1 with lettering](docs/showcase/tfcc/page-1.jpg)](docs/showcase/tfcc/page-1.jpg) | [![Page 2 with lettering](docs/showcase/tfcc/page-2.jpg)](docs/showcase/tfcc/page-2.jpg) |
+
+[**View the two-page PDF**](docs/showcase/tfcc/review.pdf) · [Page 1 blank artwork](docs/showcase/tfcc/base-1.png) · [Page 2 blank artwork](docs/showcase/tfcc/base-2.png) · [Example notes](docs/showcase/tfcc/README.md)
+
+<details>
+<summary>Compare the two blank pages</summary>
+
+| Page 1 · Blank artwork | Page 2 · Blank artwork |
+|:---:|:---:|
+| [![Page 1 blank artwork](docs/showcase/tfcc/base-1.png)](docs/showcase/tfcc/base-1.png) | [![Page 2 blank artwork](docs/showcase/tfcc/base-2.png)](docs/showcase/tfcc/base-2.png) |
+
+</details>
+
+This example remains a review copy and demonstrates the production output.
+
 ## Install
 
-Paste these two lines into Codex:
+**Paste the following into Codex to install the Skill and check your production environment:**
 
 ```text
-Use $skill-installer to install this Skill into my personal skills directory and verify the installation:
+Use $skill-installer to install this Skill into my personal skills directory, preserving existing edits.
+Then follow references/first-run.md to check image generation, Chinese lettering and PDF export,
+and install any free dependencies needed for the task:
 https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.0.0-rc.5/plugins/medical-illustration/skills/medical-illustration
 ```
 
-Follow the [first-run environment checks](plugins/medical-illustration/skills/medical-illustration/references/first-run.md) to verify image generation, Chinese lettering and PDF export. Use `$medical-illustration` on your next turn; restart Codex if the skill list has not refreshed. This local installation route requires a desktop, CLI or IDE environment with local file and GitHub access. [Shareable installation guide](INSTALL.md).
+Requires a Codex desktop, CLI or IDE environment with local file and GitHub access. Use `$medical-illustration` on your next turn; restart Codex if it does not appear. Image generation access depends on your account and available tools.
+
+[**Share the installation and usage guide**](INSTALL.md) · [First-run checks](plugins/medical-illustration/skills/medical-illustration/references/first-run.md)
+
+<details>
+<summary>Other installation options: ZIP / Marketplace</summary>
 
 Or download the [standalone Skill ZIP](https://github.com/wilbert-MD-PhD/medical-illustration/releases/download/v1.0.0-rc.5/medical-illustration-1.0.0-rc.5.zip) and copy its `medical-illustration/` folder to `~/.agents/skills/` (Windows: `%USERPROFILE%\.agents\skills\`). For project scope, use `<project>/.agents/skills/`.
 
@@ -37,14 +65,19 @@ codex plugin marketplace add wilbert-MD-PhD/medical-illustration
 codex plugin add medical-illustration@medical-illustration-marketplace
 ```
 
-Choose one installation route to avoid duplicate skills. The old `v1.0.0-rc.2` tag lacks Skill source, and its uploaded ZIP has incorrectly marked Unicode filenames. Use `rc.3` or later.
+Choose one installation route to avoid duplicate skills. The old `v1.0.0-rc.2` tag lacks Skill source, and its uploaded ZIP has incorrectly marked Unicode filenames. Use `rc.5` or later.
+
+</details>
 
 ## Try it
 
+Replace the bracketed fields with your topic, audience, and page count.
+
 ```text
-Use $medical-illustration to plan a one-page medical education illustration.
-Create a page brief, risk classification, and structured prompt.
-Keep this as a draft; do not generate an image yet.
+Use $medical-illustration to create a [page count]-page medical education comic
+about [topic] for [audience]. Verify the evidence and plan characters and storyboards,
+then follow the applicable review steps to produce blank artwork, editable Chinese
+lettering, and a PDF review copy. Keep unreviewed medical content marked as pending review.
 ```
 
 See the [two-page TFCC comic showcase](docs/showcase/tfcc/README.md), including blank bases and a lettered PDF review copy, and [installation details](plugins/medical-illustration/skills/medical-illustration/references/dependencies-installation.md).

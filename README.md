@@ -23,7 +23,7 @@
 
 ## 看看实际产物
 
-**TFCC 医学科普漫画：从无字底板到填字后的 PDF 审阅稿。** 以下两页由作者提供，展示场景叙事、人物连续性和中文排字效果。
+**TFCC 医学科普漫画：从无字底板到填字后的 PDF 审阅稿。** 以下两页展示场景叙事、人物连续性和中文排字效果。
 
 | 第一页 · 受伤场景 | 第二页 · 日常动作 |
 |:---:|:---:|
@@ -44,21 +44,22 @@
 
 ## 下载安装
 
-**最简单：在 Codex 对话框中粘贴下面两行。** 无需自己输入终端命令或寻找安装文件夹。
+**在 Codex 对话框中粘贴以下内容，即可安装并检查制作环境。**
 
 ```text
-请使用 $skill-installer 将下面这个 Skill 安装到我的个人技能目录，并检查安装结果：
+请使用 $skill-installer 将下面这个 Skill 安装到我的个人技能目录，保留已有改动。
+安装后按 references/first-run.md 检查图片生成、中文排字与 PDF 导出，按需补齐免费依赖：
 https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.0.0-rc.5/plugins/medical-illustration/skills/medical-illustration
 ```
 
-先让 Codex 按 [首次环境检查](plugins/medical-illustration/skills/medical-illustration/references/first-run.md) 验证绘图、中文排字与 PDF 导出；[完整安装与依赖检查话术](INSTALL.md) 可直接转发。安装完成后，在下一轮对话中使用 `$medical-illustration`；技能列表未刷新时重启 Codex。适用于能访问本地文件和 GitHub 的 Codex 桌面端、CLI 或 IDE 环境。已有同名版本时先核对实际路径，避免重复安装或覆盖自己的改动。
+适用于可访问本地文件和 GitHub 的 Codex 桌面端、CLI 或 IDE。安装后在下一轮调用 `$medical-illustration`；未显示时重启 Codex。图像生成权限由当前账号与工具环境提供。
 
-**给朋友分享：[简明安装说明](INSTALL.md)。** 链接已包含版本和准确的 Skill 子目录；这一步安装的是工作流程，绘图工具按任务需要由使用环境提供。
+[**分享安装与使用说明**](INSTALL.md) · [首次环境检查](plugins/medical-illustration/skills/medical-illustration/references/first-run.md)
 
 <details>
 <summary>其他安装方式：手动 ZIP / Marketplace</summary>
 
-### 方式二：下载 ZIP，手动安装
+### 手动安装 ZIP
 
 1. **[下载 v1.0.0-rc.5 独立 Skill ZIP](https://github.com/wilbert-MD-PhD/medical-illustration/releases/download/v1.0.0-rc.5/medical-illustration-1.0.0-rc.5.zip)**，或前往 [Releases](https://github.com/wilbert-MD-PhD/medical-illustration/releases) 选择更新版本。
 2. 解压后将完整 `medical-illustration/` 文件夹放到下面任一位置。
@@ -72,9 +73,9 @@ https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.0.0-rc.5/plugins/
 
 如果使用 **Code → Download ZIP** 或 Release 的 **Source code**，下载的是整个仓库。需要复制的 Skill 在 `plugins/medical-illustration/skills/medical-illustration/`。只复制 `SKILL.md` 会缺少必要资源。
 
-**旧版说明：** `v1.0.0-rc.2` 的标签只有 README，附件 ZIP 也存在中文文件名编码缺陷。请使用 `rc.4` 或更新版本，详见 [发布说明](docs/release-notes.md)。
+**旧版说明：** `v1.0.0-rc.2` 的标签只有 README，附件 ZIP 也存在中文文件名编码缺陷。请使用 `rc.5` 或更新版本，详见 [发布说明](docs/release-notes.md)。
 
-### 方式三：通过 Codex Marketplace 安装插件
+### 通过 Codex Marketplace 安装插件
 
 使用支持 `codex plugin` 的 CLI：
 
@@ -83,7 +84,7 @@ codex plugin marketplace add wilbert-MD-PhD/medical-illustration
 codex plugin add medical-illustration@medical-illustration-marketplace
 ```
 
-第一条添加来源，第二条安装插件。也可以添加来源后，在插件目录的 **Medical Illustration Marketplace** 中安装 **Medical Illustration**。命令不支持时使用前两种方式。
+第一条添加来源，第二条安装插件。也可以添加来源后，在插件目录的 **Medical Illustration Marketplace** 中安装 **Medical Illustration**。命令不支持时使用对话安装或手动 ZIP。
 
 GitHub 仓库 Marketplace 是明确指定来源的安装方式；公共插件目录按名称发现需要另行上架。
 
@@ -93,11 +94,12 @@ GitHub 仓库 Marketplace 是明确指定来源的安装方式；公共插件目
 
 ## 开始使用
 
-**先做单页方案：**
+**制作你的第一篇漫画：** 将方括号内容替换为自己的需求。
 
 ```text
-使用 $medical-illustration 为一页医学科普插画建立页面任务卡、
-风险分级和结构化 prompt。当前只做草稿，不开始生成图像。
+使用 $medical-illustration，为[目标读者]制作[页数]页关于[主题]的医学科普漫画。
+先核验依据、规划角色和分镜，再按适用审核流程制作无字底板、
+可编辑中文文字层和 PDF 审阅稿。未完成医学审核的内容保留待审状态。
 ```
 
 **给已有画面排字：**
