@@ -1,6 +1,6 @@
 {
   "name": "medical-illustration",
-  "version": "1.0.0-rc.5",
+  "version": "1.0.0",
   "description": "Evidence, production, review, and delivery workflow for medical-science illustration, comics, and infographics.",
   "author": {
     "name": "wilbert"
@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "Medical Illustration",
     "shortDescription": "Evidence-backed medical illustration workflow.",
-    "longDescription": "Build medical-science illustrations, comics, and infographics with evidence checks, anatomy-aware source control, editable lettering, review gates, and delivery QA.",
+    "longDescription": "Create evidence-backed medical illustrations and comics with real visual references, flexible color generation, planned text space, editable lettering, and separate production and human-review records.",
     "developerName": "wilbert",
     "category": "Productivity",
     "capabilities": [],

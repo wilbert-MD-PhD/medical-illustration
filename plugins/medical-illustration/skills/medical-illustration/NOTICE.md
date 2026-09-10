@@ -12,7 +12,7 @@ CC BY-NC-SA 4.0 许可。转发或改作时须署名 `wilbert`、链接许可、
 
 ## 代码许可
 
-`scripts/` 下的可执行 Python 代码采用 MIT License，详见 `LICENSE-CODE`。
+`scripts/` 下的可执行 Python / JavaScript / JSX 代码采用 MIT License，详见 `LICENSE-CODE`。
 其中嵌入的 `DIRECTORIES`、`FILES` 和 `TEMPLATE_NOTICE` 文字模板数据及由它们生成的模板文件仍属于内容部分，
 采用 CC BY-NC-SA 4.0。
 
@@ -30,7 +30,7 @@ skill 而自动采用 CC BY-NC-SA 4.0 或 MIT License。这些作品的版权和
 本 skill 提供医学科普插画的制作、记录和质量控制流程，不构成医疗建议，不替代临床、
 解剖、编辑、法务、授权或印前审核。安装、复制、改作或使用本 skill，不表示 `wilbert`、
 原项目或原审稿人对任何新作品的医学正确性、安全性、合法性或可出版性作出保证或批准。
-新项目的使用者必须自行委任合格审稿人，并对证据、医学内容、素材授权、印前文件和发布决定负责。
+新项目的使用者对证据、医学内容、素材授权、适用人工审阅、印前文件和发布决定负责。仅缺人工签字可继续已授权制作，但不能据此宣称医学通过。
 
 ## 第三方材料
 
