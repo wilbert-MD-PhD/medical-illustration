@@ -116,7 +116,7 @@ class InitializeTests(unittest.TestCase):
     def test_restore_one_missing_template(self):
         self.assertEqual(self.run_init().returncode, 0)
         before = self.snapshot()
-        missing = self.root / "01_证据/医学事实与来源.md"
+        missing = self.root / "01_证据/证据矩阵.md"
         missing.unlink()
         self.assertEqual(self.run_init().returncode, 0)
         self.assertEqual(before, self.snapshot())
@@ -134,7 +134,7 @@ class InitializeTests(unittest.TestCase):
         self.assertIn(version, notice.read_text(encoding="utf-8"))
 
     def test_directory_at_template_path_is_error_before_writes(self):
-        (self.root / "07_审计记录/问题与变更.md").mkdir(parents=True)
+        (self.root / "07_审计记录/问题清单.md").mkdir(parents=True)
         before = sorted(str(p.relative_to(self.root)) for p in self.root.rglob("*"))
         self.assert_failed_without_writes(before)
 
