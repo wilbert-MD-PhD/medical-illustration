@@ -2,7 +2,7 @@
 
 A six-page Chinese comic in which a doctor and Axuan explain wrist bones and joints. It serves as the Skill's anatomy-reference example: all five anatomical images map to specific atlas plates, textbook figures, geometric scaffolds and actual generation attachments. The records below state each source's scope and provide visual comparisons; dialogue, labels and joint annotations retain editable layouts.
 
-[Light preview](preview-light.pdf) · [Full PDF (30.05 MB)](review.pdf) · [Chinese detailed comparison](README.md) · [Credits and licenses](CREDITS.md) · [Actual reference map](reference-map.json) · [Preservation checks](preservation-check.json)
+[Light preview (0.52 MB)](preview-light.pdf) · [Full PDF (30.05 MB)](review.pdf) · [Chinese detailed comparison](README.md) · [Credits and licenses](CREDITS.md) · [Actual reference map](reference-map.json) · [Preservation checks](preservation-check.json)
 
 | Page 1 | Page 3 | Page 5 |
 |---|---|---|
@@ -46,6 +46,6 @@ Page 5 introduces wrist-bending and palm-turning demonstrations using two actual
 
 Version 1.1 revises five character scenes and retains the final close-up. Axuan remains: the user confirmed that she is not among the private assets to exclude. Dialogue order, gestures, props and external anatomical labels were revised. Five original anatomy images remain in six placements, with matching decoded pixels and placement bounds. Page 3 and complete medical regions are no longer claimed to be pixel-identical because their external annotations changed.
 
-The native Illustrator file has 88 editable text objects, including 13 area-text frames: 11 complete dialogue blocks, the opening title and one two-line medical description. Character images and locked anatomical images are separate layers; all 12 images are embedded. The native output was reopened and checked, then closed. It is delivered separately in the project. The full reading PDF retains vector text; the lightweight PDF contains the complete six-page story with vector text and compressed images (about 0.20 MB).
+The native Illustrator file has 88 editable text objects, including 13 area-text frames: 11 complete dialogue blocks, the opening title and one two-line medical description. Character images and locked anatomical images are separate layers; all 12 images are embedded. The native output was reopened and checked, then closed. It is delivered separately in the project. The full reading PDF retains vector text; the lightweight PDF contains the current six-page doctor example with vector text and compressed images (about 0.52 MB).
 
 **Human medical review remains pending.** Source traceability and preservation checks are distinct from clinical approval. Local preparation does not mean a GitHub push or Release has occurred.
