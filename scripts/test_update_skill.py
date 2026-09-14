@@ -103,7 +103,7 @@ class UpdateTests(unittest.TestCase):
         self.assertEqual(u.fingerprint(self.installed), self.before)
 
     def test_inner_manifest_tampering_rejected_even_with_valid_outer_checksum(self):
-        (self.source/'SKILL.md').write_text((self.source/'SKILL.md').read_text() + '\ntampered')
+        (self.source/'SKILL.md').write_text((self.source/'SKILL.md').read_text(encoding='utf-8') + '\ntampered', encoding='utf-8')
         with zipfile.ZipFile(self.archive, 'w') as z:
             for p in self.source.rglob('*'):
                 if p.is_file():
