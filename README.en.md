@@ -9,9 +9,6 @@ Medical Illustration is a Skill for use in Codex. Describe your topic, audience 
 
 [中文](README.md) · [Installation](INSTALL.md#english-installation) · [Releases](https://github.com/wilbert-MD-PhD/medical-illustration/releases)
 
-From 1.1.1, ask Codex to check for updates, update, or roll back Medical Illustration. Older installations need a one-time bootstrap; see [installation and updates](INSTALL.md).
-
-
 ## What you can make
 
 | Your project | How the Skill helps |
@@ -131,6 +128,8 @@ Find and use trusted medical references. Deliver a Markdown script, editable lay
 For research figures, provide your claims, papers, structural relationships and target layout. You can also supply an existing script or image for further production, lettering or revision.
 
 This is a production workflow Skill. It needs image-generation tools, available fonts and a vector/PDF editing environment. Supported outputs depend on those tools; Illustrator files require the corresponding software. See the [installation guide](INSTALL.md#english-installation) for setup.
+
+From 1.1.1, ask Codex to check for updates, update, or roll back Medical Illustration. Older installations need a one-time bootstrap; see [installation and updates](INSTALL.md).
 
 ## Checks and review status
 

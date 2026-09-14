@@ -9,9 +9,6 @@ Medical Illustration 是在 Codex 中使用的医学绘图 Skill。告诉它主�
 
 [English](README.en.md) · [安装](INSTALL.md) · [版本发布](https://github.com/wilbert-MD-PhD/medical-illustration/releases)
 
-已安装用户可说“检查医学绘图 Skill 更新”“更新医学绘图 Skill”或“回退医学绘图 Skill”。从 1.1.1 起随包提供更新器；旧版首次接入见[安装与更新说明](INSTALL.md)。
-
-
 ## 它能帮你做什么
 
 | 你想制作 | Skill 可以帮助你完成 |
@@ -131,6 +128,8 @@ Gray 图版出自 Henry Gray 的 *Anatomy of the Human Body*（1918）。教材�
 科研图可以附上研究论断、文献、结构关系和目标版式；已有脚本或图片也可以直接交给它继续制作、排字或返修。
 
 这是制作流程 Skill，需要配合图像生成工具、可用字体及矢量/PDF 编辑环境。具体输出取决于环境能力；使用 Illustrator 格式时需要相应软件。环境配置见[安装说明](INSTALL.md)。
+
+已安装用户可说“检查医学绘图 Skill 更新”“更新医学绘图 Skill”或“回退医学绘图 Skill”。从 1.1.1 起随包提供更新器；旧版首次接入见[安装与更新说明](INSTALL.md)。
 
 ## 检查与使用范围
 
