@@ -60,7 +60,7 @@ class RuntimeTests(unittest.TestCase):
         self.lock.mkdir();(self.lock/'owner.json').write_text('other owner')
         code,call=self.invoke()
         self.assertEqual(code,75);call.assert_not_called()
-        self.assertEqual((self.lock/'owner.json').read_text(),'other owner')
+        self.assertEqual((self.lock/'owner.json').read_text(encoding='utf-8'),'other owner')
     def test_success_releases_lock(self):
         code,_=self.invoke(dispatch=self.completed('OK\n'))
         self.assertEqual(code,0);self.assertFalse(self.lock.exists())
@@ -70,7 +70,7 @@ class RuntimeTests(unittest.TestCase):
     def test_timeout_retains_uncertain_lock(self):
         code,_=self.invoke(dispatch=subprocess.TimeoutExpired('host',1))
         self.assertEqual(code,2)
-        self.assertEqual(json.loads((self.lock/'owner.json').read_text())['state'],'uncertain')
+        self.assertEqual(json.loads((self.lock/'owner.json').read_text(encoding='utf-8'))['state'],'uncertain')
     def test_completion_without_host_success_retains_lock(self):
         def dispatch(argv,**kwargs):
             (self.run/'completion.txt').write_text('OK\n')
