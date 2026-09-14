@@ -27,3 +27,4 @@ jobs:
         with:
           name: skill-${{ matrix.os }}-python-${{ matrix.python }}
           path: dist/*
+          include-hidden-files: true

@@ -5,6 +5,7 @@ import argparse
 import hashlib
 import json
 import re
+import shutil
 import stat
 import tempfile
 import zipfile
@@ -14,6 +15,7 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 REL = Path('plugins/medical-illustration/skills/medical-illustration')
 NAME = 'medical-illustration'
+RETIRED_EXAMPLES = ('editable-lettering', 'generic-visit-preparation')
 
 
 def payload(root):
@@ -89,6 +91,9 @@ def check_skill(root):
 
 
 def check_repo(root):
+    for name in RETIRED_EXAMPLES:
+        if (root/REL/'examples'/name).exists():
+            raise ValueError(f'Retired example must not be distributed: {name}')
     version = check_skill(root/REL)
     plugin = json.loads((root/'plugins/medical-illustration/.codex-plugin/plugin.json').read_text(encoding='utf-8'))
     market = json.loads((root/'.agents/plugins/marketplace.json').read_text(encoding='utf-8'))
@@ -126,12 +131,41 @@ def verify_archive(archive, source=None):
     print(f'Archive round trip passed: {Path(archive).name}')
 
 
-def build(root, output):
+def validate_output(root, output):
+    skill = (root/REL).resolve()
+    if output.resolve().is_relative_to(skill):
+        raise ValueError('Build output must be outside the source Skill directory')
+
+
+def build(root, output, format='directory'):
+    validate_output(root, output)
+    if format == 'zip':
+        return build_archive(root, output)
+    if format != 'directory':
+        raise ValueError(f'Unknown build format: {format}')
+    check_repo(root)
+    skill = root/REL
+    destination = output/NAME
+    output.mkdir(parents=True, exist_ok=True)
+    destination.mkdir()  # Never overwrite an existing delivery.
+    for p in payload(skill) + [skill/'SHA256SUMS']:
+        target = destination/p.relative_to(skill)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(p, target)
+    check_skill(destination)
+    if hashes(destination) != hashes(skill):
+        raise ValueError('Directory differs from source Skill')
+    print(f'Directory build passed: {destination}')
+    return destination
+
+
+def build_archive(root, output):
+    validate_output(root, output)
     version = check_repo(root)
     skill = root/REL
     output.mkdir(parents=True, exist_ok=True)
     archive = output/f'{NAME}-{version}.zip'
-    with zipfile.ZipFile(archive, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+    with zipfile.ZipFile(archive, 'x', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as z:
         for p in sorted(payload(skill) + [skill/'SHA256SUMS'], key=lambda p: p.relative_to(skill).as_posix()):
             info = zipfile.ZipInfo(f'{NAME}/{p.relative_to(skill).as_posix()}', date_time=(1980, 1, 1, 0, 0, 0))
             info.create_system = 3
@@ -151,13 +185,14 @@ def main():
     parser.add_argument('--root', type=Path, default=ROOT)
     parser.add_argument('--output', type=Path, default=ROOT/'dist')
     parser.add_argument('--archive', type=Path)
+    parser.add_argument('--format', choices=['directory', 'zip'], default='directory')
     args = parser.parse_args()
     if args.command == 'manifest':
         write_manifest(args.root/REL)
     elif args.command == 'check':
         check_repo(args.root)
     elif args.command == 'build':
-        build(args.root, args.output)
+        build(args.root, args.output, args.format)
     elif args.archive:
         verify_archive(args.archive, args.root/REL)
     else:

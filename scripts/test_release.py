@@ -5,7 +5,6 @@ import shutil
 import tempfile
 import unittest
 import zipfile
-import xml.etree.ElementTree as ET
 from pathlib import Path
 
 spec = importlib.util.spec_from_file_location('release', Path(__file__).with_name('release.py'))
@@ -20,23 +19,74 @@ class ReleaseTests(unittest.TestCase):
         self.base = Path(self.tmp.name)
 
     def test_unicode_roundtrip_and_reproducible_build(self):
-        a = release.build(release.ROOT, self.base/'a')
-        b = release.build(release.ROOT, self.base/'b')
+        root = self.base/'fixture-repo'
+        for folder in ('plugins', '.agents'):
+            shutil.copytree(release.ROOT/folder, root/folder)
+        fixture = root/release.REL/'测试资料/中文说明.md'
+        fixture.parent.mkdir()
+        fixture.write_text('中文文件往返校验', encoding='utf-8')
+        release.write_manifest(root/release.REL)
+        a = release.build(root, self.base/'a', 'zip')
+        b = release.build(root, self.base/'b', 'zip')
         self.assertEqual(a.read_bytes(), b.read_bytes())
         with zipfile.ZipFile(a) as z:
-            name = 'medical-illustration/examples/generic-visit-preparation/示例说明.md'
+            name = 'medical-illustration/测试资料/中文说明.md'
             self.assertTrue(z.getinfo(name).flag_bits & 0x800)
-            self.assertIn('通用示例', z.read(name).decode('utf-8'))
+            self.assertEqual('中文文件往返校验', z.read(name).decode('utf-8'))
 
-    def test_lettering_preserves_protected_artwork_and_editable_text(self):
-        folder = release.ROOT/release.REL/'examples/editable-lettering'
-        base = ET.parse(folder/'base.svg').getroot()
-        lettered = ET.parse(folder/'lettered.svg').getroot()
-        for group in ('background', 'artwork', 'review'):
-            self.assertEqual(ET.tostring(base.find(f".//*[@id='{group}']")), ET.tostring(lettered.find(f".//*[@id='{group}']")))
-        ns = {'s': 'http://www.w3.org/2000/svg'}
-        self.assertGreater(len(lettered.findall('.//s:text', ns)), len(base.findall('.//s:text', ns)))
-        self.assertFalse(lettered.findall('.//s:image', ns))
+    def test_retired_examples_cannot_be_published(self):
+        root = self.base/'repository'
+        for name in release.RETIRED_EXAMPLES:
+            folder = root/release.REL/'examples'/name
+            folder.mkdir(parents=True)
+            for format in ('directory', 'zip'):
+                with self.subTest(name=name, format=format):
+                    output = self.base/'blocked-output'
+                    with self.assertRaisesRegex(ValueError, 'Retired example'):
+                        release.build(root, output, format)
+                    self.assertFalse(output.exists())
+            folder.rmdir()
+
+    def test_default_build_is_directory_and_preserves_existing_delivery(self):
+        directory = release.build(release.ROOT, self.base/'dist')
+        self.assertTrue(directory.is_dir())
+        self.assertFalse(list(self.base.rglob('*.zip')))
+        self.assertEqual(release.hashes(directory), release.hashes(release.ROOT/release.REL))
+        marker = directory/'user-notes.txt'
+        marker.write_text('keep', encoding='utf-8')
+        with self.assertRaises(FileExistsError):
+            release.build(release.ROOT, self.base/'dist')
+        self.assertEqual(marker.read_text(encoding='utf-8'), 'keep')
+
+    def test_nested_output_is_rejected_without_modifying_source(self):
+        root = self.base/'repository'
+        skill = root/release.REL
+        shutil.copytree(release.ROOT/release.REL, skill)
+        before = release.hashes(skill)
+        for format in ('directory', 'zip'):
+            with self.subTest(format=format):
+                for output in (skill, skill/'build-output'):
+                    with self.assertRaisesRegex(ValueError, 'outside the source'):
+                        release.build(root, output, format)
+                    self.assertEqual(release.hashes(skill), before)
+                    self.assertFalse((skill/'build-output').exists())
+
+    def test_output_alias_into_source_is_rejected(self):
+        root = self.base/'repository'
+        skill = root/release.REL
+        shutil.copytree(release.ROOT/release.REL, skill)
+        alias = self.base/'output-alias'
+        try:
+            alias.symlink_to(skill, target_is_directory=True)
+        except (OSError, NotImplementedError) as error:
+            self.skipTest(f'Symlinks unavailable: {error}')
+        before = release.hashes(skill)
+        for format in ('directory', 'zip'):
+            with self.subTest(format=format):
+                with self.assertRaisesRegex(ValueError, 'outside the source'):
+                    release.build(root, alias/'new-output', format)
+        self.assertEqual(release.hashes(skill), before)
+        self.assertFalse((skill/'new-output').exists())
 
     def test_old_style_unmarked_unicode_is_rejected(self):
         archive = self.base/'old.zip'
