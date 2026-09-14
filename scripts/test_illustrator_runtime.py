@@ -127,4 +127,3 @@ class CropTests(unittest.TestCase):
             self.assertEqual(Path(row['path']).read_bytes(),b'user file')
 
 if __name__=='__main__':unittest.main(verbosity=2)
-

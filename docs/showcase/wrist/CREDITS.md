@@ -53,4 +53,3 @@ Omid Khalilzadeh、Clarissa Canella、Laura M. Fayad. *Wrist and Hand*. 2021. In
 ## 状态
 
 当前为制作示例，医学待审。图源署名、生成记录及技术检查不构成原作者背书、医学审签或印前批准。
-
