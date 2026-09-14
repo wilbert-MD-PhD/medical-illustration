@@ -13,6 +13,7 @@ python3 scripts/release.py manifest
 python3 scripts/release.py check
 python3 plugins/medical-illustration/skills/medical-illustration/scripts/test_init_medical_project.py
 python3 scripts/test_release.py
+python3 scripts/test_update_skill.py
 python3 scripts/test_illustrator_runtime.py
 python3 scripts/release.py build
 git diff --check

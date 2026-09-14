@@ -84,7 +84,7 @@ def check_skill(root):
     script = (root/'scripts/init_medical_project.py').read_text(encoding='utf-8')
     if f'SKILL_VERSION = "{version}"' not in script:
         raise ValueError('Initializer version mismatch')
-    for dependency in ('illustrator_run.py', 'illustrator_preflight.py', 'illustrator_session.jsx', 'illustrator_assets.py'):
+    for dependency in ('update_skill.py', 'illustrator_run.py', 'illustrator_preflight.py', 'illustrator_session.jsx', 'illustrator_assets.py'):
         if not (root/'scripts'/dependency).is_file():
             raise ValueError(f'Missing Illustrator runtime dependency: {dependency}')
     check_links(root)

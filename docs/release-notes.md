@@ -1,34 +1,24 @@
-# Medical Illustration v1.1.0
+# Medical Illustration v1.1.1
 
-加入科研绘图独立分支与可追溯腕骨漫画示例，并补齐 Illustrator 自动化随包依赖。漫画脚本与科研机制图各走适用流程。
+为已经安装 Skill 的用户加入“检查更新、更新、回退”三个入口，减少重复安装报错和手工覆盖风险。原有漫画、科研图与 Illustrator 工作流保留。
 
-- 以医生《腕骨与关节组成》v1.1 展示5幅解剖图的来源对应，提供具体图版/页码、实际附件、五组局部对照及原始参考预览。主页移除创可贴参考图表，保留漫画和来源档案。
-- 改善对照图中英文字符宽度、图注间距和留白，恢复双语主页验证与 Release 入口。
-- 新增科研图规格、结构与关系证据记录、连线语义和可选 JSON 检查；漫画任务不自动载入科研记录。
-- 随包提供 macOS Illustrator 运行器、静态预检、文档会话库和可选 Pillow 裁切工具，删除个人路径与私有项目配置依赖。
-- 排字库接入显式文档登记、原生 AI 检查点、嵌入链接和 finally 收尾；保留已有文档，超时保留未确认锁。
-- 保持非覆盖初始化、Unicode 路径、目录构建与校验；新增运行组件及关系记录测试。
+- 随包 `update_skill.py` 默认查询最新正式 GitHub Release，核验独立 ZIP、SHA-256、内部清单和版本；支持离线包。
+- GitHub 匿名 API 返回 403/429 时，自动尝试已登录 GitHub CLI 的只读查询；不提取令牌、启动登录或输出认证调试信息。CLI为可选依赖，不可用时保留原安装并提示重试/离线方式。
+- 检测本地修改及缺少 VERSION/清单的旧安装，默认保留现场。用户明确选择后完整备份并替换，不静默合并或丢弃修改。
+- 更新前后核对文件哈希，提供安装锁、完整旧版备份、失败恢复和可逆回退；历史备份保存在技能扫描目录之外。
+- 遇到多个安装位置、插件管理目录、损坏包、路径异常或备份被修改时拒绝相关操作。网络失败不误报为最新。
+- 增加更新器回归测试，并纳入 Validate 与 Release 的跨平台 CI。磁盘验收不代表宿主已刷新。
 
-## 升级与安装
+## 安装与旧版升级
 
-见[1.1.0 安装说明](https://github.com/wilbert-MD-PhD/medical-illustration/blob/v1.1.0/INSTALL.md)。保留实际安装目录的修改；不迁移或删除旧项目模板，不移动既有 v1.0.0 标签。
+本版本实际发布后，见[安装说明](https://github.com/wilbert-MD-PhD/medical-illustration/blob/v1.1.1/INSTALL.md)。1.1.0 及更早版本没有更新器，需要先从完整新包取得脚本并指向实际旧安装目录；接入一次后可直接使用内置更新入口。已有漫画项目和模板不迁移。
 
-macOS 自动派发需 Illustrator 和正常系统自动化权限；Windows/Linux 可静态预检或使用 SVG/矢量工作流。图像服务、字体和商业软件许可不在安装包内。[本版本验证范围](https://github.com/wilbert-MD-PhD/medical-illustration/blob/v1.1.0/docs/validation.md)。
+独立附件为 `medical-illustration-1.1.1.zip` 与同名 `.sha256`；GitHub Source code 是完整仓库。插件管理或缓存副本应通过宿主更新，本脚本不覆盖。
 
-软件版本不构成医学审签或印前批准。腕骨示例仍医学待审；来源与文件匹配不保证所有医学细节均正确。
-
-## 下载附件
-
-创建本版本 Release 后提供：
-
-- `medical-illustration-1.1.0.zip`：独立 Skill 安装包。
-- `medical-illustration-1.1.0.zip.sha256`：安装包校验值。
-- Source code：完整仓库，包括主页、展示图片及维护工具。
+[验证范围](https://github.com/wilbert-MD-PhD/medical-illustration/blob/v1.1.1/docs/validation.md)区分本地测试、远端 CI 与宿主实测。软件更新不构成医学审签或印前批准。
 
 ## English
 
-Version 1.1.0 adds a separate research-figure workflow, explicit mechanism evidence records and a consistency checker. A six-page doctor comic documents five anatomy assets, exact reference locations, actual generation inputs and five detail comparisons. The bilingual homepages restore status links and improve comparison typography.
+Version 1.1.1 adds built-in check, update and rollback commands for standalone installations. Updates verify the release archive, checksums and version, preserve a complete backup, and restore the original after a caught replacement failure. Local edits and unknown legacy baselines require an explicit backup-and-replace choice; project files are untouched.
 
-The package includes the macOS Illustrator dispatcher, preflight, document-session library and optional Pillow crop helper. The lettering library uses explicit ownership and native AI checkpoints. Existing documents remain protected; uncertain timeouts retain the shared lock. Windows/Linux support static preflight and the SVG/vector workflow, not automatic Illustrator dispatch through this adapter.
-
-Preserve local edits when upgrading. After release, install the complete Skill from `medical-illustration-1.1.0.zip` and verify its checksum. Package checks, host execution, visual inspection and human medical approval are distinct; the comic remains pending medical review.
+Older installations bootstrap once from a complete new package. Plugin-managed copies must use their host updater. Offline packages are supported. On anonymous API HTTP 403/429, the updater can reuse an existing authenticated GitHub CLI session without extracting credentials or prompting for login. Refresh the host and verify the loaded path/version after disk installation; package validation does not prove host discovery or medical approval.

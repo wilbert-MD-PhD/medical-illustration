@@ -9,6 +9,9 @@ Medical Illustration 是在 Codex 中使用的医学绘图 Skill。告诉它主�
 
 [English](README.en.md) · [安装](INSTALL.md) · [版本发布](https://github.com/wilbert-MD-PhD/medical-illustration/releases)
 
+已安装用户可说“检查医学绘图 Skill 更新”“更新医学绘图 Skill”或“回退医学绘图 Skill”。从 1.1.1 起随包提供更新器；旧版首次接入见[安装与更新说明](INSTALL.md)。
+
+
 ## 它能帮你做什么
 
 | 你想制作 | Skill 可以帮助你完成 |

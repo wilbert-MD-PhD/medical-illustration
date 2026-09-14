@@ -9,6 +9,9 @@ Medical Illustration is a Skill for use in Codex. Describe your topic, audience 
 
 [中文](README.md) · [Installation](INSTALL.md#english-installation) · [Releases](https://github.com/wilbert-MD-PhD/medical-illustration/releases)
 
+From 1.1.1, ask Codex to check for updates, update, or roll back Medical Illustration. Older installations need a one-time bootstrap; see [installation and updates](INSTALL.md).
+
+
 ## What you can make
 
 | Your project | How the Skill helps |

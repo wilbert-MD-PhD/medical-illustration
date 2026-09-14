@@ -2,13 +2,15 @@
 
 安装完整 `medical-illustration/` 文件夹，包括 SKILL、references、scripts、agents、示例及许可；只复制 SKILL.md 会缺少资源。本 Skill 是工作流程，不捆绑图像模型、医学图谱、字体二进制或商业软件许可证。
 
+已有安装请使用[内置检查更新、更新与回退](updating.md)。`skill-installer` 用于首次安装，遇到同名目录会拒绝，不是覆盖升级器。1.1.0 及更早版本首次接入更新器的办法也见该页。
+
 ## 对话安装
 
-1.1.0 标签与附件实际可用后，可在支持 Skill 安装的 Codex 中发送：
+1.1.1 标签与附件实际可用后，可在支持 Skill 安装的 Codex 中发送：
 
 ```text
 请使用 $skill-installer 安装：
-https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.1.0/plugins/medical-illustration/skills/medical-illustration
+https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.1.1/plugins/medical-illustration/skills/medical-illustration
 先核对实际技能目录，保留已有同名版本的本地改动，避免重复安装。
 安装后读取 references/first-run.md，按当前任务检查所需制作能力。
 ```
