@@ -14,7 +14,9 @@ var ComicPage = (function () {
         var W = options.width, H = options.height, X = 0, pages = [], rows = [];
         var regular = app.textFonts.getByName(options.fontRegular || 'LXGWWenKai-Regular');
         var medium = app.textFonts.getByName(options.fontMedium || 'LXGWWenKai-Medium');
-        var doc = app.documents.add(DocumentColorSpace.RGB, W, H);
+        if (typeof IllustratorSession === 'undefined' || !IllustratorSession.current) throw Error('Run this library inside an IllustratorSession.');
+        var session = IllustratorSession.current;
+        var doc = session.create(DocumentColorSpace.RGB, W, H);
         var art = doc.layers[0]; art.name = '原始无字画面';
         var bubbles = doc.layers.add(); bubbles.name = '半透明气泡';
         var labels = doc.layers.add(); labels.name = '医学标签与箭头';
@@ -43,7 +45,7 @@ var ComicPage = (function () {
                     item.remove();
                     throw Error('Image/page aspect ratio differs. Design the crop explicitly; do not stretch anatomy.');
                 }
-                item.width = W; item.height = H; item.position = [X, H]; item.embed();
+                item.width = W; item.height = H; item.position = [X, H]; // saveOutputs embeds links in the native AI.
             }
             return doc.artboards[pages.length - 1];
         }
@@ -102,13 +104,7 @@ var ComicPage = (function () {
             if (File(aiPath).exists || (pdfPath && File(pdfPath).exists)) throw Error('Output exists; choose a new version.');
             if (!File(aiPath).parent.exists || (pdfPath && !File(pdfPath).parent.exists)) throw Error('Create output folders first.');
             art.locked = true;
-            var ai = new IllustratorSaveOptions(); ai.pdfCompatible = true; ai.embedLinkedFiles = true;
-            doc.saveAs(File(aiPath), ai);
-            if (pdfPath) {
-                var pdf = new PDFSaveOptions(); pdf.preserveEditability = false;
-                pdf.artboardRange = '1-' + pages.length;
-                doc.saveAs(File(pdfPath), pdf);
-            }
+            session.saveOutputs(doc, aiPath, pdfPath, '1-' + pages.length);
         }
         return {doc:doc,page:page,text:text,line:line,bubble:bubble,save:save,pages:pages,textRecords:rows};
     }

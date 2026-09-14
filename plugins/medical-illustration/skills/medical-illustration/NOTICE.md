@@ -13,6 +13,7 @@ CC BY-NC-SA 4.0 许可。转发或改作时须署名 `wilbert`、链接许可、
 ## 代码许可
 
 `scripts/` 下的可执行 Python / JavaScript / JSX 代码采用 MIT License，详见 `LICENSE-CODE`。
+运行器、预检、会话和裁切组件从作者既有本机实现整理为随包代码；无第三方运行库内嵌。Illustrator 与可选 Pillow 由使用者环境提供，按各自许可使用。
 其中嵌入的 `DIRECTORIES`、`FILES` 和 `TEMPLATE_NOTICE` 文字模板数据及由它们生成的模板文件仍属于内容部分，
 采用 CC BY-NC-SA 4.0。
 

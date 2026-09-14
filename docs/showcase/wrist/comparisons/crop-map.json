@@ -1,0 +1,197 @@
+[
+  {
+    "board": "hand",
+    "source": "artwork/B01.png",
+    "source_sha256": "9291f6978cd440dc2a285911e8d3eb9954543f54cb230c381ff3b009ec12b9e4",
+    "normalized_clip": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "purpose": "display_only_not_original_generation_attachment",
+    "transform": "PDF clipping and proportional display; no rotation or mirror"
+  },
+  {
+    "board": "hand",
+    "source": "scaffolds/M01.png",
+    "source_sha256": "bc29ecbd7542cbec4be093181c8417952459da060c4976fd08c54f3fcfd4405f",
+    "normalized_clip": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "purpose": "display_only_not_original_generation_attachment",
+    "transform": "PDF clipping and proportional display; no rotation or mirror"
+  },
+  {
+    "board": "hand",
+    "source": "references/gray219.jpg",
+    "source_sha256": "2f12148d6fdc5b321ac9f2f935b150f030c823593290687e5d24d94c9b0655f1",
+    "normalized_clip": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "purpose": "display_only_not_original_generation_attachment",
+    "transform": "PDF clipping and proportional display; no rotation or mirror"
+  },
+  {
+    "board": "rows",
+    "source": "artwork/B02.png",
+    "source_sha256": "f1b168b1ad0b4d2d581097f3210383d3ae39d5a631aba561d40258709582f7fc",
+    "normalized_clip": [
+      0.12,
+      0.2,
+      0.72,
+      0.66
+    ],
+    "purpose": "display_only_not_original_generation_attachment",
+    "transform": "PDF clipping and proportional display; no rotation or mirror"
+  },
+  {
+    "board": "rows",
+    "source": "scaffolds/M02.png",
+    "source_sha256": "1bfea29ad8ebe4f8c296fe0b684c33fa17b941baf336c2344ba20564b023cf89",
+    "normalized_clip": [
+      0.12,
+      0.2,
+      0.72,
+      0.66
+    ],
+    "purpose": "display_only_not_original_generation_attachment",
+    "transform": "PDF clipping and proportional display; no rotation or mirror"
+  },
+  {
+    "board": "rows",
+    "source": "references/gray219.jpg",
+    "source_sha256": "2f12148d6fdc5b321ac9f2f935b150f030c823593290687e5d24d94c9b0655f1",
+    "normalized_clip": [
+      0.27,
+      0,
+      0.75,
+      0.29
+    ],
+    "purpose": "display_only_not_original_generation_attachment",
+    "transform": "PDF clipping and proportional display; no rotation or mirror"
+  },
+  {
+    "board": "dorsal",
+    "source": "artwork/B03.png",
+    "source_sha256": "f8166523831f8bcfd9c206b58b4fc58f8b4300d07c03b8ee064eb3b9e7b9c850",
+    "normalized_clip": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "purpose": "display_only_not_original_generation_attachment",
+    "transform": "PDF clipping and proportional display; no rotation or mirror"
+  },
+  {
+    "board": "dorsal",
+    "source": "scaffolds/M03.png",
+    "source_sha256": "707f92cc89354da45bff7d6abd1ded8a2615073d37269cf9db6f7b1d737e9239",
+    "normalized_clip": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "purpose": "display_only_not_original_generation_attachment",
+    "transform": "PDF clipping and proportional display; no rotation or mirror"
+  },
+  {
+    "board": "dorsal",
+    "source": "references/springer-p52.png",
+    "source_sha256": "3c6a792948004f9a984345296aa003f8e3538aad178b2a10bf59c61d1bba25b4",
+    "normalized_clip": [
+      0.086,
+      0.073,
+      0.491,
+      0.386
+    ],
+    "purpose": "display_only_not_original_generation_attachment",
+    "transform": "PDF clipping and proportional display; no rotation or mirror"
+  },
+  {
+    "board": "pisiform",
+    "source": "artwork/B04.png",
+    "source_sha256": "7e9b26b41ec902331b1990fc062e28af654c40298673aca6f25f377233f001fd",
+    "normalized_clip": [
+      0.19,
+      0.22,
+      0.44,
+      0.5
+    ],
+    "purpose": "display_only_not_original_generation_attachment",
+    "transform": "PDF clipping and proportional display; no rotation or mirror"
+  },
+  {
+    "board": "pisiform",
+    "source": "scaffolds/M04.png",
+    "source_sha256": "916e85fa959ab8d28685604e1bf093f1e9813b62d1ba0311cb81c331da7b989c",
+    "normalized_clip": [
+      0.19,
+      0.22,
+      0.44,
+      0.5
+    ],
+    "purpose": "display_only_not_original_generation_attachment",
+    "transform": "PDF clipping and proportional display; no rotation or mirror"
+  },
+  {
+    "board": "pisiform",
+    "source": "references/springer-p52.png",
+    "source_sha256": "3c6a792948004f9a984345296aa003f8e3538aad178b2a10bf59c61d1bba25b4",
+    "normalized_clip": [
+      0.086,
+      0.389,
+      0.491,
+      0.7
+    ],
+    "purpose": "display_only_not_original_generation_attachment",
+    "transform": "PDF clipping and proportional display; no rotation or mirror"
+  },
+  {
+    "board": "interfaces",
+    "source": "artwork/B05.png",
+    "source_sha256": "cd7c88f31705ce656a45f35b985380aecb75681b2f81a22ff78fafdee43cbe62",
+    "normalized_clip": [
+      0.24,
+      0.36,
+      0.86,
+      0.73
+    ],
+    "purpose": "display_only_not_original_generation_attachment",
+    "transform": "PDF clipping and proportional display; no rotation or mirror"
+  },
+  {
+    "board": "interfaces",
+    "source": "scaffolds/M06.png",
+    "source_sha256": "250e56aa4612d330369b4f19296d99c8774bf24c46ff99aa5a531e0f7818a4d9",
+    "normalized_clip": [
+      0.24,
+      0.36,
+      0.86,
+      0.73
+    ],
+    "purpose": "display_only_not_original_generation_attachment",
+    "transform": "PDF clipping and proportional display; no rotation or mirror"
+  },
+  {
+    "board": "interfaces",
+    "source": "references/gray336.png",
+    "source_sha256": "496b530cb8d6f2bff9529e4ddffb83b946bcef8bf5ed88316178e94bae33b28b",
+    "normalized_clip": [
+      0.19,
+      0.14,
+      0.72,
+      0.52
+    ],
+    "purpose": "display_only_not_original_generation_attachment",
+    "transform": "PDF clipping and proportional display; no rotation or mirror"
+  }
+]

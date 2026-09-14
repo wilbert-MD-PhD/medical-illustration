@@ -1,0 +1,174 @@
+{
+  "version": "WR-002 human-doctor showcase v1.1",
+  "reference_audit_date": "2026-09-10",
+  "scope": "Original anatomy attachment records below remain unchanged. v1.1 revises five character scenes, dialogue layout and external labels; all five anatomy images in six placements retain decoded image pixels and bounds. P5 introduces motion demonstrations supported by two actual photo attachments.",
+  "assets": [
+    {
+      "asset": "B01",
+      "pages": [
+        1
+      ],
+      "generation_prompt": "Use case: scientific-educational. Asset: standalone text-free medical watercolor comic insert. One complete RIGHT hand skeleton with short distal forearm, palmar view, fingertips UP and thumb on viewer RIGHT, matching first reference exactly. 5 metacarpals, 14 phalanges (2 thumb, 3 per other finger), 8 carpals with normal real overlaps. Ivory bone color. Keep entire fingertips and short forearm visible. Image 1 is a real BodyParts3D mesh render and is the exact immutable geometric scaffold. Image 2 is a historical LEFT-hand palmar anatomical reference, ONLY to crosscheck bone counts/relationships; never copy or mirror it for our camera. Image 3 is an independently published anatomy reference page for spatial crosscheck ONLY. Make a polished medical ink-and-watercolor rendering over the geometry of image 1: smooth natural bone surfaces, fine warm-gray contour lines, subtle watercolor shading, no faceted polygon look. Do not change geometry, do not invent hidden structures. White background. Do not add captions, labels, leader lines, arrows, letters, symbols, skin, tendons, ligaments, diseased changes, or extra bones. Preserve image 1 orientation. No decorative border. High resolution.",
+      "actual_input_files": [
+        {
+          "path": "scaffolds/M01.png",
+          "role": "geometry scaffold: rendered mesh",
+          "sha256": "bc29ecbd7542cbec4be093181c8417952459da060c4976fd08c54f3fcfd4405f"
+        },
+        {
+          "path": "references/gray219.jpg",
+          "role": "independent anatomical visual cross-check; image attached at original generation",
+          "sha256": "2f12148d6fdc5b321ac9f2f935b150f030c823593290687e5d24d94c9b0655f1"
+        },
+        {
+          "path": "references/springer-p52.png",
+          "role": "independent anatomical visual cross-check; image attached at original generation",
+          "sha256": "3c6a792948004f9a984345296aa003f8e3538aad178b2a10bf59c61d1bba25b4"
+        }
+      ],
+      "generated_artwork": {
+        "path": "artwork/B01.png",
+        "sha256": "9291f6978cd440dc2a285911e8d3eb9954543f54cb230c381ff3b009ec12b9e4"
+      }
+    },
+    {
+      "asset": "B02",
+      "pages": [
+        2
+      ],
+      "generation_prompt": "Use case: scientific-educational. Asset: standalone text-free medical watercolor comic insert. One close view RIGHT wrist palmar skeleton matching first reference exactly: distal/metacarpals UP, broad distal radius lower RIGHT, ulna lower LEFT, thumb metacarpal upper RIGHT. 8 carpals: scaphoid/lunate/triquetrum soft teal, pisiform warm coral where it overlaps the PALMAR surface of triquetrum at left; 4 distal carpals soft pale blue-gray. Metacarpals and radius/ulna ivory. Preserve every bone outline, irregular arrangement, adjacency, count, and overlap from first image. Cropped shafts may end at canvas boundary. Image 1 is a real BodyParts3D mesh render and is the exact immutable geometric scaffold. Image 2 is a historical LEFT-hand palmar anatomical reference, ONLY to crosscheck bone counts/relationships; never copy or mirror it for our camera. Image 3 is an independently published anatomy reference page for spatial crosscheck ONLY. Make a polished medical ink-and-watercolor rendering over the geometry of image 1: smooth natural bone surfaces, fine warm-gray contour lines, subtle watercolor shading, no faceted polygon look. Do not change geometry, do not invent hidden structures. White background. Do not add captions, labels, leader lines, arrows, letters, symbols, skin, tendons, ligaments, diseased changes, or extra bones. Preserve image 1 orientation. No decorative border. High resolution.",
+      "actual_input_files": [
+        {
+          "path": "scaffolds/M02.png",
+          "role": "geometry scaffold: rendered mesh",
+          "sha256": "1bfea29ad8ebe4f8c296fe0b684c33fa17b941baf336c2344ba20564b023cf89"
+        },
+        {
+          "path": "references/gray219.jpg",
+          "role": "independent anatomical visual cross-check; image attached at original generation",
+          "sha256": "2f12148d6fdc5b321ac9f2f935b150f030c823593290687e5d24d94c9b0655f1"
+        },
+        {
+          "path": "references/springer-p52.png",
+          "role": "independent anatomical visual cross-check; image attached at original generation",
+          "sha256": "3c6a792948004f9a984345296aa003f8e3538aad178b2a10bf59c61d1bba25b4"
+        }
+      ],
+      "generated_artwork": {
+        "path": "artwork/B02.png",
+        "sha256": "f1b168b1ad0b4d2d581097f3210383d3ae39d5a631aba561d40258709582f7fc"
+      }
+    },
+    {
+      "asset": "B03",
+      "pages": [
+        3
+      ],
+      "generation_prompt": "Create a text-free polished medical watercolor insert of the RIGHT wrist DORSAL view exactly using image 1's BodyParts3D projection. Image 1 is the immutable medical geometric base: distal toward TOP, thumb/radius on LEFT, ulna RIGHT. Preserve exact bone outlines and overlaps; distal row pale blue-gray, proximal row muted teal, ivory radius/ulna/metacarpals. The pisiform is in FRONT of the triquetrum on the palm, so from this BACK view it is almost entirely hidden, only the exact tiny coral edge visible in image 1 may remain. Absolutely no added exposed pisiform at the back. Images 2/3 are independent anatomical crosschecks, with different orientations: do not transfer their orientation or lettering. Refine only polygon facets into smooth natural surfaces with warm-gray ink edges and delicate watercolor, white background. No labels, no lines, no text, no arrows. High resolution.",
+      "actual_input_files": [
+        {
+          "path": "scaffolds/M03.png",
+          "role": "geometry scaffold: rendered mesh",
+          "sha256": "707f92cc89354da45bff7d6abd1ded8a2615073d37269cf9db6f7b1d737e9239"
+        },
+        {
+          "path": "references/gray220.jpg",
+          "role": "independent anatomical visual cross-check; image attached at original generation",
+          "sha256": "ad470e900ad60db6b02d0df91739a74dcf76fb9c3756b005adb301f078f92c1e"
+        },
+        {
+          "path": "references/springer-p52.png",
+          "role": "independent anatomical visual cross-check; image attached at original generation",
+          "sha256": "3c6a792948004f9a984345296aa003f8e3538aad178b2a10bf59c61d1bba25b4"
+        }
+      ],
+      "generated_artwork": {
+        "path": "artwork/B03.png",
+        "sha256": "f8166523831f8bcfd9c206b58b4fc58f8b4300d07c03b8ee064eb3b9e7b9c850"
+      }
+    },
+    {
+      "asset": "B04",
+      "pages": [
+        3
+      ],
+      "generation_prompt": "Create one text-free medical watercolor insert: RIGHT wrist seen obliquely from the PALMAR-ULNAR side. Image 1 is the exact BodyParts3D geometry and color base. Preserve every bone and its location and overlap EXACTLY; DO NOT move or separate bones. Forearm below, metacarpals above, pisiform coral located in front of teal triquetrum at upper-left of cluster; other proximal carpals teal; distal carpals blue-gray; other bones ivory. Smooth only triangular surface facets into natural bone contours, fine warm-gray ink with soft watercolor wash. Images 2 and 3 are independent published palmar ulnar anatomy references, crosscheck pisiform/triquetrum relationship but do not copy ligaments/text, do not change image1 viewpoint. White background, no labels, no arrows, no numbers, no letters, no tendons, no ligaments, no skin. Keep original framing. High resolution.",
+      "actual_input_files": [
+        {
+          "path": "scaffolds/M04.png",
+          "role": "geometry scaffold: rendered mesh",
+          "sha256": "916e85fa959ab8d28685604e1bf093f1e9813b62d1ba0311cb81c331da7b989c"
+        },
+        {
+          "path": "references/springer-p52.png",
+          "role": "independent anatomical visual cross-check; image attached at original generation",
+          "sha256": "3c6a792948004f9a984345296aa003f8e3538aad178b2a10bf59c61d1bba25b4"
+        },
+        {
+          "path": "references/springer-p53.png",
+          "role": "independent anatomical visual cross-check; image attached at original generation",
+          "sha256": "d87a842a9746158b735838a14395874b81ab17936eba8e1951f182324bfb1e44"
+        }
+      ],
+      "generated_artwork": {
+        "path": "artwork/B04.png",
+        "sha256": "7e9b26b41ec902331b1990fc062e28af654c40298673aca6f25f377233f001fd"
+      }
+    },
+    {
+      "asset": "B05",
+      "pages": [
+        4,
+        5
+      ],
+      "generation_prompt": "Color-refine the FIRST attached approved-for-production draft line image without changing ANY outline or bone position. This is a right-wrist educational coronal overview viewed from dorsal, distal/metacarpals UP, radius LEFT, ulna RIGHT. Match final fourth image watercolor style: thin warm grey ink, ivory shaft bones, muted teal PROXIMAL row, pale blue-grey DISTAL row, clean white background. Preserve exact bone silhouettes and naturally unequal joints from line drawing. The small thin wedge between distal ulna at bottom-right and ulnar carpus directly above it is the articular disc region: pale coral soft tissue, follow its existing two thin line boundaries exactly; do NOT extend this tissue across entire distal radius or fill DRUJ gap. Do not add ligaments, nerves, cartilage blankets, hands, labels, arrows, text, bubbles or decorative elements. Other attached independent original Gray1918 section and Springer Fig4.19 book53 are structure crosscheck only and may not share same orientation. First line sets geometry. Do not mirror. Keep entire first line composition and generous white margins.",
+      "actual_input_files": [
+        {
+          "path": "scaffolds/M06.png",
+          "role": "geometry scaffold: interpretive coronal line drawing",
+          "sha256": "250e56aa4612d330369b4f19296d99c8774bf24c46ff99aa5a531e0f7818a4d9"
+        },
+        {
+          "path": "references/gray336.png",
+          "role": "independent anatomical visual cross-check; image attached at original generation",
+          "sha256": "496b530cb8d6f2bff9529e4ddffb83b946bcef8bf5ed88316178e94bae33b28b"
+        },
+        {
+          "path": "references/springer-p53.png",
+          "role": "independent anatomical visual cross-check; image attached at original generation",
+          "sha256": "d87a842a9746158b735838a14395874b81ab17936eba8e1951f182324bfb1e44"
+        },
+        {
+          "path": "artwork/B02.png",
+          "role": "color and illustration-style reference only",
+          "sha256": "f1b168b1ad0b4d2d581097f3210383d3ae39d5a631aba561d40258709582f7fc"
+        }
+      ],
+      "generated_artwork": {
+        "path": "artwork/B05.png",
+        "sha256": "cd7c88f31705ce656a45f35b985380aecb75681b2f81a22ff78fafdee43cbe62"
+      }
+    }
+  ],
+  "motion_reference_attachments": [
+    {
+      "page": 5,
+      "path": "references/motion-delva-fig1.jpg",
+      "citation": "Delva et al. 2020, Fig.1",
+      "source_url": "https://doi.org/10.1186/s12938-020-00789-w",
+      "sha256": "0bad6839f042f1cb65dc02d64a9e5f9be1b815e8733cc352a84a28631159c9ac",
+      "license": "CC BY 4.0",
+      "role": "actual image-generation attachment: visible wrist flexion vs forearm rotation; no reproduction of subject identity"
+    },
+    {
+      "page": 5,
+      "path": "references/motion-zhang-fig1.jpg",
+      "citation": "Zhang et al. 2024, Fig.1",
+      "source_url": "https://doi.org/10.3390/s24227198",
+      "sha256": "84f47b04063005a442978d012d776eaf54e0db538d4e2994ce4d8b0c089e37f1",
+      "license": "CC BY 4.0",
+      "role": "actual image-generation attachment: visible wrist flexion vs forearm rotation; no reproduction of subject identity"
+    }
+  ],
+  "public_asset_scope": "Axuan is retained: the user explicitly confirmed that she is not among the private assets to exclude. Original leopard mascot images remain excluded."
+}

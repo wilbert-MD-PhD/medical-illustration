@@ -1,6 +1,6 @@
 MIT License
 
-Scope: the executable Python code under scripts/. Textual project-template
+Scope: the executable Python, JavaScript and JSX code under scripts/. Textual project-template
 data embedded in that code is excluded and is licensed under
 LICENSE-CONTENT.md.
 

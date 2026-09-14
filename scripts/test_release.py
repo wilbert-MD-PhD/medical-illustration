@@ -34,6 +34,14 @@ class ReleaseTests(unittest.TestCase):
             self.assertTrue(z.getinfo(name).flag_bits & 0x800)
             self.assertEqual('中文文件往返校验', z.read(name).decode('utf-8'))
 
+    def test_runtime_dependency_cannot_be_omitted_with_a_new_manifest(self):
+        skill = self.base/'skill'
+        shutil.copytree(release.ROOT/release.REL, skill)
+        (skill/'scripts/illustrator_preflight.py').unlink()
+        release.write_manifest(skill)
+        with self.assertRaisesRegex(ValueError, 'Missing Illustrator runtime dependency'):
+            release.check_skill(skill)
+
     def test_retired_examples_cannot_be_published(self):
         root = self.base/'repository'
         for name in release.RETIRED_EXAMPLES:

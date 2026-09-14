@@ -4,11 +4,11 @@
 
 ## 对话安装
 
-V1.0 标签发布后，可在支持 Skill 安装的 Codex 中发送：
+1.1.0 标签与附件实际可用后，可在支持 Skill 安装的 Codex 中发送：
 
 ```text
 请使用 $skill-installer 安装：
-https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.0.0/plugins/medical-illustration/skills/medical-illustration
+https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.1.0/plugins/medical-illustration/skills/medical-illustration
 先核对实际技能目录，保留已有同名版本的本地改动，避免重复安装。
 安装后读取 references/first-run.md，按当前任务检查所需制作能力。
 ```
@@ -22,7 +22,7 @@ https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.0.0/plugins/medic
 - 初始化器和发布校验：Python 3.9+，仅标准库。初始化器不是使用 Skill 的必需步骤。
 - 图像生成/编辑：实际可调用且满足本次输入需求的工具。可附入合规真实参考直接生成彩色画面；复杂结构按需约束。
 - 医学内容：匹配的真实参考、实际查看及用途核验；图像证据与文字论断分别核对。
-- 可编辑排字：Illustrator 或保留真实文字对象的矢量工具。指定 `.ai` 时需原生格式实际验收。
+- 可编辑排字：Illustrator 或保留真实文字对象的矢量工具。指定 `.ai` 时需原生格式实际验收。macOS 运行器、预检与会话库已随包提供，见[调用及平台限制](illustrator-runtime.md)；可选裁切另需 Pillow。
 - 中文字体和 PDF：使用环境中实际可用、许可与用途匹配的字体及导出器；实际导出并看图。
 - `humanize-writing`、`baoyu-comic`、三维工具、影像工具：可选，仅遇到对应任务才使用。缺失时用包内流程，不批量安装。
 - 人工审阅：建议按内容邀请相关专家；仅缺签字可继续已授权制作并保持医学待审，明确先审后做时遵从。

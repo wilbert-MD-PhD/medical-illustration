@@ -1,8 +1,8 @@
 interface:
   display_name: "医学绘图"
-  short_description: "医学科普插画与漫画的证据核验、绘制、审校和出版交付"
+  short_description: "医学插画、科普漫画及科研机制图的结构核验、可编辑绘制与交付"
   brand_color: "#176B87"
-  default_prompt: "使用 $medical-illustration 制作一套具有医学证据链和出版质检记录的医学科普插画。"
+  default_prompt: "使用 $medical-illustration 制作含医学结构与机制证据的可编辑科研示意图。"
 
 policy:
   allow_implicit_invocation: true
