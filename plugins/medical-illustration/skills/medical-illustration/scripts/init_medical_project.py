@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Create a non-destructive medical-illustration project scaffold."""
+"""Create a non-destructive comic or medical-illustration project scaffold."""
 
 # License boundary:
 # - Executable Python code in this file: MIT License (see ../LICENSE-CODE).
@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 
 
-SKILL_VERSION = "1.1.1"
+SKILL_VERSION = "1.1.2"
 
 TEMPLATE_NOTICE = (
     "\n---\n模板来源：medical-illustration；作者：wilbert；"
@@ -30,7 +30,8 @@ FILES = {
     '00_项目规范/项目说明.md': """# 项目说明
 
 - 项目名称：
-- 图型：科研机制 / 解剖教学 / 科普叙事
+- 图型：解剖教学插画 / 科普漫画 / 其他医学插画
+- 本初始化器用于漫画与医学插画；独立科研示意图按 Skill 的 references/research-workflow.md 组织，不使用本模板。
 - 读者与项目目标：
 - 当前主稿与视觉/角色基准：
 - 工作规格与出版规格状态：
@@ -134,7 +135,7 @@ def main() -> int:
         if callable(reconfigure):
             reconfigure(errors="backslashreplace")
     parser = argparse.ArgumentParser(
-        description="创建医学插画与科研示意图项目目录；保留已有文件，拒绝类型冲突与项目内符号链接。"
+        description="创建漫画与医学插画项目目录；独立科研图请使用 references/research-workflow.md。保留已有文件，拒绝类型冲突与项目内符号链接。"
     )
     parser.add_argument("project_dir", type=Path, help="目标项目目录")
     args = parser.parse_args()

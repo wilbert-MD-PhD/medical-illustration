@@ -1,8 +1,8 @@
-# Medical Illustration 1.1.1 · 医学绘图
+# Medical Illustration 1.1.2 · 医学绘图
 
 面向医学插画、科普漫画及涉及医学结构的科研示意图，组织真实参考、内容设计、彩色生成、可编辑排字和交付检查。科学论断须有来源，探索性机制不得画成已证实因果；本包不提供实验数据分析或模型服务。
 
-从 [SKILL.md](SKILL.md) 开始，按任务读取对应分支。新项目先查[环境](references/first-run.md)，需要最小目录时运行 `python3 scripts/init_medical_project.py <项目目录>`；已有项目继续使用当前主稿。
+从 [SKILL.md](SKILL.md) 开始，按任务读取对应分支。新项目按需查[环境](references/first-run.md)。新漫画或医学插画需要最小目录时运行 `python3 scripts/init_medical_project.py <项目目录>`；独立科研图按[科研流程](references/research-workflow.md)组织，不调用漫画初始化器。已有项目继续使用当前主稿。
 
 真实参考 → 视觉设计与文字空间 → 彩色无字画面 → 正常字号试排 → 可编辑排字 → 逐页检查与交付。线稿、三维和拆层按内容选用。仅缺人工签字可继续已授权制作，保持医学待审；真实证据和已知错误仍需处理。
 

@@ -49,7 +49,7 @@ description: "制作、返修或审阅医学插画、科普漫画与涉及医学
 | 审阅、返修、交付 | [质量检查与印前](references/qa-and-prepress.md) |
 | 缺少过程记录 | [最小模板](references/templates.md)；优先项目现有模板 |
 
-不要一次载入所有分支。新独立项目尚无组织方式时，可运行本技能目录下 `scripts/init_medical_project.py <项目目录>`；不对已有项目另建平行目录与主稿。
+不要一次载入所有分支。新独立漫画或医学插画项目尚无组织方式时，可运行本技能目录下 `scripts/init_medical_project.py <项目目录>`；不对已有项目另建平行目录与主稿。
 
 ## 控制随医学风险变化
 

@@ -24,7 +24,7 @@ python3 "<更新器>" rollback --install-dir "<安装目录>"
 
 输出为 JSON：检查返回本地版本、`clean/modified/unknown`、差异文件、已发现副本、可回退 ID 及远端版本。未知旧版的 `version` 和 `update_available` 为 `null`，不能解释为已是最新。网络/API/附件失败返回非零退出码，不把失败当成没有更新。
 
-默认 `/releases/latest` 仅选正式公开发布，要求独立 ZIP 和同名 `.sha256` 都存在。需指定版本时用 `--version 1.1.1`；RC 需明确版本并加 `--allow-prerelease`。不自动降级、跟踪 main 或安装草稿版本。显式选择本地包时由调用者确认其版本及来源。
+默认 `/releases/latest` 仅选正式公开发布，要求独立 ZIP 和同名 `.sha256` 都存在。需指定版本时用 `--version 1.1.2`；RC 需明确版本并加 `--allow-prerelease`。不自动降级、跟踪 main 或安装草稿版本。显式选择本地包时由调用者确认其版本及来源。
 
 匿名 GitHub API 返回 403/429 时，自动尝试 PATH 中已安装且已登录的 GitHub CLI（可选依赖），通过固定 github.com 仓库只读查询。输出 metadata_source 区分 github-api 与 gh-cli。不读取或输出令牌，不自动启动登录，禁用交互提示及认证调试日志；CLI缺失、登录失效、超时或仍被限流时明确报错并保留原安装，可稍后重试或使用离线包。其他HTTP错误不使用该回退。
 

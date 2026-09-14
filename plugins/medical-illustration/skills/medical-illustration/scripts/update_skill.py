@@ -409,7 +409,7 @@ def main(argv=None):
     parser.add_argument('command', choices=['check', 'update', 'rollback'])
     parser.add_argument('--install-dir', type=Path, help='Actually loaded standalone Skill directory')
     parser.add_argument('--offline', action='store_true', help='Check local state without networking')
-    parser.add_argument('--version', help='Explicit release version, e.g. 1.1.1')
+    parser.add_argument('--version', help='Explicit release version, e.g. 1.1.2')
     parser.add_argument('--allow-prerelease', action='store_true')
     parser.add_argument('--archive', type=Path, help='Offline update using a complete release ZIP')
     parser.add_argument('--sha256', type=Path, help='Matching local checksum file')

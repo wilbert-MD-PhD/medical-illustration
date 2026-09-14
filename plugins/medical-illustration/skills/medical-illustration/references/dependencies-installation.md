@@ -6,11 +6,11 @@
 
 ## 对话安装
 
-1.1.1 标签与附件实际可用后，可在支持 Skill 安装的 Codex 中发送：
+1.1.2 标签与附件实际可用后，可在支持 Skill 安装的 Codex 中发送：
 
 ```text
 请使用 $skill-installer 安装：
-https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.1.1/plugins/medical-illustration/skills/medical-illustration
+https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.1.2/plugins/medical-illustration/skills/medical-illustration
 先核对实际技能目录，保留已有同名版本的本地改动，避免重复安装。
 安装后读取 references/first-run.md，按当前任务检查所需制作能力。
 ```
@@ -40,6 +40,6 @@ python3 scripts/test_init_medical_project.py
 python3 scripts/init_medical_project.py /path/to/new-project
 ```
 
-默认建立 5 个必要目录、5 份轻量模板（含来源与许可），不另建固定线稿或多轮审核目录。重复运行保留用户文件，补齐缺失模板；目录/文件冲突和根目录以下的符号链接在写入前拒绝。用户选择的根路径会解析到真实位置；不要在初始化同时改动目录结构，磁盘故障不保证事务回滚。
+仅用于新漫画或医学插画；独立科研图按[科研流程](research-workflow.md)组织，不调用此初始化器。默认建立 5 个必要目录、5 份轻量模板（含来源与许可），不另建固定线稿或多轮审核目录。重复运行保留用户文件，补齐缺失模板；目录/文件冲突和根目录以下的符号链接在写入前拒绝。用户选择的根路径会解析到真实位置；不要在初始化同时改动目录结构，磁盘故障不保证事务回滚。
 
 旧版 13 份模板不会被迁移或删除；沿用已有项目主稿即可，不为升级重建平行目录。
