@@ -33,3 +33,7 @@
 工作流已加入运行组件测试。各提交的六项跨平台结果见[Validate](https://github.com/wilbert-MD-PhD/medical-illustration/actions/workflows/validate.yml)，正式标签的三平台验证、附件构建及下载核验见[Release](https://github.com/wilbert-MD-PhD/medical-illustration/actions/workflows/release.yml)。本地测试与远端结果分别记录，判断发布状态时核对具体提交及标签。
 
 尚未实测：全新环境安装/自动发现、Marketplace、Windows/Linux原生 Illustrator 自动化、所有图像模型行为、第三方字体和插件组合。随包自动派发仅支持 macOS；其他平台可静态预检或使用 SVG/矢量路径。发布前本地通过不表示已经创建标签、上传附件或获得人工医学批准。
+
+## 发布后轻量预览更新（2026-09-14）
+
+主页链接统一为“轻量预览”。新PDF由完整阅读稿压缩图片生成，保留全部六页和矢量文字，201,603字节，较旧版960,490字节缩小79.0%。逐页核对文字内容和页面尺寸，并实际查看全部六页；故事顺序、对白和结尾保留。完整阅读稿及其余原始资产不变。

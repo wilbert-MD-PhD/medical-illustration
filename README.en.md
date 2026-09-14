@@ -30,7 +30,7 @@ A doctor and Axuan start with eight counters on a table, then explore the two ca
 |---|---|---|
 | [![Page 1](docs/showcase/wrist/pages/page-1.jpg)](docs/showcase/wrist/pages/page-1.jpg) | [![Page 3](docs/showcase/wrist/pages/page-3.jpg)](docs/showcase/wrist/pages/page-3.jpg) | [![Page 5](docs/showcase/wrist/pages/page-5.jpg)](docs/showcase/wrist/pages/page-5.jpg) |
 
-[Light six-page preview (0.96 MB)](docs/showcase/wrist/preview-light.pdf) · [Full PDF (30.05 MB)](docs/showcase/wrist/review.pdf) · [Illustration-to-reference comparison](docs/showcase/wrist/README.en.md) · [Credits and licenses](docs/showcase/wrist/CREDITS.md)
+[Light preview](docs/showcase/wrist/preview-light.pdf) · [Full PDF (30.05 MB)](docs/showcase/wrist/review.pdf) · [Illustration-to-reference comparison](docs/showcase/wrist/README.en.md) · [Credits and licenses](docs/showcase/wrist/CREDITS.md)
 
 
 <!-- wrist-showcase:end -->

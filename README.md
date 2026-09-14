@@ -30,7 +30,7 @@ Medical Illustration 是在 Codex 中使用的医学绘图 Skill。告诉它主�
 |---|---|---|
 | [![第1页](docs/showcase/wrist/pages/page-1.jpg)](docs/showcase/wrist/pages/page-1.jpg) | [![第3页](docs/showcase/wrist/pages/page-3.jpg)](docs/showcase/wrist/pages/page-3.jpg) | [![第5页](docs/showcase/wrist/pages/page-5.jpg)](docs/showcase/wrist/pages/page-5.jpg) |
 
-[轻量六页预览（0.96 MB）](docs/showcase/wrist/preview-light.pdf) · [完整 PDF（30.05 MB）](docs/showcase/wrist/review.pdf) · [逐幅成图与真实参考对照](docs/showcase/wrist/README.md) · [来源与许可](docs/showcase/wrist/CREDITS.md)
+[轻量预览](docs/showcase/wrist/preview-light.pdf) · [完整 PDF（30.05 MB）](docs/showcase/wrist/review.pdf) · [逐幅成图与真实参考对照](docs/showcase/wrist/README.md) · [来源与许可](docs/showcase/wrist/CREDITS.md)
 
 
 <!-- wrist-showcase:end -->
