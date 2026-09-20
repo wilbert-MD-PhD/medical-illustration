@@ -2,6 +2,14 @@
 
 将完整 `medical-illustration/` 目录提供给所用 Agent，再按本次任务配置工具。本包采用 [Agent Skills 格式](https://agentskills.io/specification)，接入方式由宿主能力决定。
 
+## 一句话安装
+
+将下面这一句话复制给 Codex、Claude Code 等具备联网和文件操作能力的 Agent：
+
+```text
+请从 https://github.com/wilbert-MD-PhD/medical-illustration 安装最新正式版 medical-illustration Skill，按仓库 INSTALL.md 选择适合当前 Agent 的安装方式，保留已有本地修改，并核验版本与文件完整性。
+```
+
 ## 选择接入方式
 
 | 环境 | 做法 |
@@ -18,9 +26,9 @@
 
 - 本地源码：`plugins/medical-illustration/skills/medical-illustration/`。
 - 本地构建：在仓库根运行 `python3 scripts/release.py build`，生成 `dist/medical-illustration/`。已有输出会保留，可用 `--output` 指定新目录。
-- 正式 Release：[发布列表](https://github.com/wilbert-MD-PhD/medical-illustration/releases)。本版标签与附件可用后，使用 `medical-illustration-1.2.0.zip` 及同名 `.sha256`。GitHub Source code 是完整仓库，Skill 位于上述源码路径。
+- 正式 Release：[发布列表](https://github.com/wilbert-MD-PhD/medical-illustration/releases)。当前正式版为 [v1.2.0](https://github.com/wilbert-MD-PhD/medical-illustration/releases/tag/v1.2.0)，下载 `medical-illustration-1.2.0.zip` 及同名 `.sha256`。GitHub Source code 是完整仓库，Skill 位于上述源码路径。
 
-1.2.0 的本地构建与远端发布分别记录。本地验收直接使用源码构建的完整目录。包内 `VERSION` 应为 `1.2.0`。
+安装后，包内 `VERSION` 应为 `1.2.0`。使用随包更新器离线检查文件完整性，命令见下文。
 
 ## 开始使用
 
@@ -57,9 +65,15 @@ python3 "<实际安装目录>/scripts/update_skill.py" rollback --install-dir "<
 
 ## English installation
 
+Copy this one-line instruction to Codex, Claude Code or another agent with network and file access:
+
+```text
+Install the latest stable medical-illustration Skill from https://github.com/wilbert-MD-PhD/medical-illustration using the method in INSTALL.md that fits your current agent, preserve existing local edits, and verify the installed version and file integrity.
+```
+
 Provide the complete `medical-illustration/` folder to your agent. A native Skills host can load it from its configured skills location. Other agents can read `SKILL.md` and task-specific references through files, attachments, resource tools or injected context. Point to the actual entrypoint in your request. See [Agent Skills integration](https://agentskills.io/client-implementation/adding-skills-support) for the underlying loading model.
 
-Use the source directory `plugins/medical-illustration/skills/medical-illustration/` or build a standalone folder with `python3 scripts/release.py build`. Once version 1.2.0 is published, its Release ZIP and `.sha256` provide the standalone package. Keep existing edits and verify the loaded VERSION. Local builds and remote publication are tracked separately.
+Use the source directory `plugins/medical-illustration/skills/medical-illustration/` or build a standalone folder with `python3 scripts/release.py build`. The published [v1.2.0 Release](https://github.com/wilbert-MD-PhD/medical-illustration/releases/tag/v1.2.0) provides the standalone ZIP and `.sha256`. Keep existing edits and verify the loaded VERSION. Local builds and remote publication are tracked separately.
 
 `agents/openai.yaml` is optional host UI metadata. Other agents can ignore it while retaining the distributed files for checksum verification. The outer Codex plugin layout is a compatibility adapter. Native invocation syntax and installer names depend on the host; direct file/resource loading is also supported.
 

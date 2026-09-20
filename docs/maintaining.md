@@ -6,7 +6,7 @@
 
 运行组件回归测试需 Pillow；优先使用已有项目运行时，缺少时在专用虚拟环境安装。CI 会显式安装该依赖。测试覆盖派发/锁的模拟边界，实际 Illustrator 验收仍另做。
 
-版本变化同步 VERSION、初始化器 SKILL_VERSION、plugin.json、安装和发布说明。双语主页面向首次访问者，只介绍用途、效果、参考使用和上手方法；版本新增、修复和迁移信息集中到 Release 文案。然后运行：
+版本变化同步 VERSION、初始化器 SKILL_VERSION、plugin.json、安装和发布说明。正式发布后同步 `docs/assets/release-badge.svg` 的可见版本、双语主页徽标的替代文字及 Release 链接，并核对 GitHub About 的 Agent 适用范围。双语主页面向首次访问者，只介绍用途、效果、参考使用和上手方法；版本新增、修复和迁移信息集中到 Release 文案。然后运行：
 
 ```bash
 python3 scripts/release.py manifest

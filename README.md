@@ -2,10 +2,10 @@
 
 **把医学知识画成读得懂的故事，把结构与机制画成看得清的图。**
 
-Medical Illustration 是面向不同 AI Agent 的医学绘图 Skill。支持原生 Skill 的宿主可加载完整目录，其他 Agent 可读取 `SKILL.md` 及相关资源，按自身工具能力执行。告诉它主题、读者和用途，它会帮助你查找医学参考、编写脚本、设计画面、生成插图，再完成可编辑排字和检查。
+Medical Illustration 是面向 Codex、Claude Code 等 AI Agent 的医学绘图 Skill。支持原生 Skill 的宿主可加载完整目录，其他 Agent 可读取 `SKILL.md` 及相关资源，按自身工具能力执行。告诉它主题、读者和用途，它会帮助你查找医学参考、编写脚本、设计画面、生成插图，再完成可编辑排字和检查。
 
 [![Validation](https://github.com/wilbert-MD-PhD/medical-illustration/actions/workflows/validate.yml/badge.svg)](https://github.com/wilbert-MD-PhD/medical-illustration/actions/workflows/validate.yml)
-[![Release](https://img.shields.io/github/v/release/wilbert-MD-PhD/medical-illustration?include_prereleases)](https://github.com/wilbert-MD-PhD/medical-illustration/releases)
+[![Release v1.2.0](docs/assets/release-badge.svg)](https://github.com/wilbert-MD-PhD/medical-illustration/releases/tag/v1.2.0)
 
 [English](README.en.md) · [安装](INSTALL.md) · [版本发布](https://github.com/wilbert-MD-PhD/medical-illustration/releases)
 
@@ -117,7 +117,13 @@ Gray 图版出自 Henry Gray 的 *Anatomy of the Human Body*（1918）。教材�
 
 ## 开始使用
 
-按[安装说明](INSTALL.md)接入后，可以把这样的请求发给所用 Agent：
+将下面这一句话复制给 Codex、Claude Code 等具备联网和文件操作能力的 Agent：
+
+```text
+请从 https://github.com/wilbert-MD-PhD/medical-illustration 安装最新正式版 medical-illustration Skill，按仓库 INSTALL.md 选择适合当前 Agent 的安装方式，保留已有本地修改，并核验版本与文件完整性。
+```
+
+详细步骤见[安装说明](INSTALL.md)。安装后，可以直接提出制作请求：
 
 ```text
 使用 medical-illustration，为没有医学背景的读者制作一页关于伤口愈合的科普漫画。

@@ -2,10 +2,10 @@
 
 **Turn medical knowledge into readable stories and clear illustrations of anatomy and mechanisms.**
 
-Medical Illustration is a medical drawing Skill for AI agents. Hosts with native Skill support can load the complete folder. Other agents can read `SKILL.md` and the relevant resources, then use their available tools. Describe your topic, audience and intended use. It helps you find medical references, write a script, design and generate artwork, then add editable text and check the result.
+Medical Illustration is a medical drawing Skill for Codex, Claude Code and other AI agents. Hosts with native Skill support can load the complete folder. Other agents can read `SKILL.md` and the relevant resources, then use their available tools. Describe your topic, audience and intended use. It helps you find medical references, write a script, design and generate artwork, then add editable text and check the result.
 
 [![Validation](https://github.com/wilbert-MD-PhD/medical-illustration/actions/workflows/validate.yml/badge.svg)](https://github.com/wilbert-MD-PhD/medical-illustration/actions/workflows/validate.yml)
-[![Release](https://img.shields.io/github/v/release/wilbert-MD-PhD/medical-illustration?include_prereleases)](https://github.com/wilbert-MD-PhD/medical-illustration/releases)
+[![Release v1.2.0](docs/assets/release-badge.svg)](https://github.com/wilbert-MD-PhD/medical-illustration/releases/tag/v1.2.0)
 
 [中文](README.md) · [Installation](INSTALL.md#english-installation) · [Releases](https://github.com/wilbert-MD-PhD/medical-illustration/releases)
 
@@ -117,7 +117,13 @@ The Gray plates come from Henry Gray's *Anatomy of the Human Body* (1918). The t
 
 ## Get started
 
-Follow the [installation guide](INSTALL.md#english-installation), then give your agent a request such as:
+Copy this one-line instruction to Codex, Claude Code or another agent with network and file access:
+
+```text
+Install the latest stable medical-illustration Skill from https://github.com/wilbert-MD-PhD/medical-illustration using the method in INSTALL.md that fits your current agent, preserve existing local edits, and verify the installed version and file integrity.
+```
+
+See the [installation guide](INSTALL.md#english-installation) for details. Once installed, give your agent a request such as:
 
 ```text
 Use medical-illustration to create a one-page comic about wound healing for readers without a medical background.
