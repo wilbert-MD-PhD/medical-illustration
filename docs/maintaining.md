@@ -1,6 +1,6 @@
 # 维护与发布
 
-仓库根保留 Marketplace；插件根为 `plugins/medical-illustration/`，唯一 Skill 源为其下 `skills/medical-illustration/`。独立目录和可选 ZIP 都从这一份源构建，不从个人安装目录临时打包。
+通用载荷以 `SKILL.md`、相对资源和按能力选择工具为入口。`agents/openai.yaml` 是可选界面适配，现有分发仍保留并校验它。仓库根保留可选 Marketplace，插件根为 `plugins/medical-illustration/`，唯一 Skill 源为其下 `skills/medical-illustration/`。独立目录和可选 ZIP 都从这一份源构建，不从个人安装目录临时打包。
 
 ## 本地检查
 

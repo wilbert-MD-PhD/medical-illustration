@@ -1,23 +1,20 @@
 # 安装、依赖与更新
 
-安装完整 `medical-illustration/` 文件夹，包括 SKILL、references、scripts、agents、示例及许可；只复制 SKILL.md 会缺少资源。本 Skill 是工作流程，不捆绑图像模型、医学图谱、字体二进制或商业软件许可证。
+本 Skill 面向可读取指令及相关资源的 Agent，按[适配说明](agent-integration.md)映射工具。安装完整 `medical-illustration/` 文件夹，保留 SKILL.md、references、scripts、版本清单及许可文件。`agents/` 为可选宿主界面元数据，其他宿主可忽略。图像模型、医学图谱、字体二进制与商业软件许可证按任务准备。
 
-已有安装请使用[内置检查更新、更新与回退](updating.md)。`skill-installer` 用于首次安装，遇到同名目录会拒绝，不是覆盖升级器。1.1.0 及更早版本首次接入更新器的办法也见该页。
+## 安装与加载
 
-## 对话安装
+- 原生支持 Skill：使用宿主实际可用的安装器或复制完整目录到其配置位置。先检查同名目录，保留已有修改，避免重复加载。
+- 有文件/资源访问能力：完整目录放到可访问位置，在请求中指定 `SKILL.md` 的实际路径或资源标识。
+- 仅附件或文本：提供入口和本次所需分支，按适配说明交接图像、文件执行与视觉检查。
 
-1.1.2 标签与附件实际可用后，可在支持 Skill 安装的 Codex 中发送：
+本版 VERSION 为 `1.2.0`。远端标签及附件可用后，从项目对应 Release 取得完整包并核验同名 `.sha256`。源码中的 Skill 位于 `plugins/medical-illustration/skills/medical-illustration/`，本地独立构建输出为 `medical-illustration/`。现有插件目录布局继续作为唯一维护源。
 
-```text
-请使用 $skill-installer 安装：
-https://github.com/wilbert-MD-PhD/medical-illustration/tree/v1.1.2/plugins/medical-illustration/skills/medical-illustration
-先核对实际技能目录，保留已有同名版本的本地改动，避免重复安装。
-安装后读取 references/first-run.md，按当前任务检查所需制作能力。
-```
+安装路径采用宿主配置或实际安装结果。刷新后核对加载路径与 VERSION。对于直接读取方式，重新读取入口及本次使用的资源。只有支持相应语法的宿主才使用 `$medical-illustration` 或 `$skill-installer`，自然语言和明确路径是通用入口。
 
-个人安装路径依实际环境而定：以当前技能目录或安装器返回路径为准，不同时向多个位置复制同名版本。项目级目录可由宿主配置为 `.agents/skills/medical-illustration/`。安装后下一轮显式调用；未被发现时按宿主刷新或重启。文件可读不等于已验证自动发现。
+## 更新
 
-手动安装时，从仓库 `plugins/medical-illustration/skills/medical-illustration/` 或本地独立构建目录复制完整文件夹。保留旧版快照；新旧目录先比较并合并用户改动，不盲目覆盖。默认交付为普通文件夹；只有明确选择 ZIP 发布附件时才压缩。
+已有独立安装使用[内置更新与回退](updating.md)，显式指定实际安装目录。插件管理的副本由宿主更新。1.1.0 及更早版本可从完整新包取得更新器后指向旧安装，处理本地差异并完整备份。默认交付普通目录，ZIP 按发布需要构建。
 
 ## 依赖按任务选择
 

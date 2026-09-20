@@ -75,9 +75,9 @@ def check_skill(root):
     front = text.split('---', 2)[1]
     if not re.search(r'^name: medical-illustration$', front, re.M) or not re.search(r'^description: .+', front, re.M):
         raise ValueError('Invalid Skill name or description')
-    ui = (root/'agents/openai.yaml').read_text(encoding='utf-8')
-    if '$medical-illustration' not in ui:
-        raise ValueError('Missing explicit invocation in UI prompt')
+    ui_path = root/'agents/openai.yaml'
+    if ui_path.exists() and '$medical-illustration' not in ui_path.read_text(encoding='utf-8'):
+        raise ValueError('Missing explicit invocation in optional OpenAI UI prompt')
     version = (root/'VERSION').read_text(encoding='utf-8').strip()
     if not re.fullmatch(r'\d+\.\d+\.\d+(?:-rc\.\d+)?', version):
         raise ValueError('Invalid VERSION')

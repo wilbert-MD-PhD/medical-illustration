@@ -222,6 +222,36 @@ class UpdateTests(unittest.TestCase):
                 u.locate(None)
             self.assertEqual(u.locate(self.installed)[0], self.installed)
 
+    def test_package_without_host_metadata_updates_and_rolls_back(self):
+        (self.source/'agents/openai.yaml').unlink()
+        self.pack(self.source)
+        self.update()
+        self.assertEqual(u.local_info(self.installed)['integrity'], 'clean')
+        self.assertFalse((self.installed/'agents/openai.yaml').exists())
+        u.rollback(self.installed)
+        self.assertEqual(u.fingerprint(self.installed), self.before)
+
+    def test_missing_shipped_host_metadata_is_still_corruption(self):
+        (self.source/'agents/openai.yaml').unlink()
+        with self.assertRaisesRegex(u.UpdateError, 'Package SHA256SUMS mismatch'):
+            u.validate_package(self.source)
+
+    def test_self_discovery_and_cli_at_arbitrary_agent_location(self):
+        with patch.object(u, '__file__', str(self.installed/'scripts/update_skill.py')):
+            with patch.object(u.Path, 'home', return_value=self.base/'empty-home'):
+                with patch.object(u.Path, 'cwd', return_value=self.base/'empty-workspace'):
+                    with patch.dict(u.os.environ, {'CODEX_HOME': str(self.base/'empty-codex')}):
+                        self.assertEqual(u.candidates(), [str(self.installed)])
+                        self.assertEqual(u.locate(None)[0], self.installed)
+                        self.assertEqual(u.locate(self.installed)[1], [str(self.installed)])
+        result = subprocess.run([sys.executable, str(self.installed/'scripts/update_skill.py'),
+            'check', '--offline', '--install-dir', str(self.installed)],
+            cwd=self.base, capture_output=True, encoding='utf-8')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        data = json.loads(result.stdout)
+        self.assertEqual(data['install_dir'], str(self.installed))
+        self.assertIn(str(self.installed), data['candidates'])
+
     def test_managed_plugin_copy_is_not_overwritten(self):
         plugin = self.installed.parent.parent/'.codex-plugin'
         plugin.mkdir()

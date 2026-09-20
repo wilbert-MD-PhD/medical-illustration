@@ -2,7 +2,7 @@
 
 **把医学知识画成读得懂的故事，把结构与机制画成看得清的图。**
 
-Medical Illustration 是在 Codex 中使用的医学绘图 Skill。告诉它主题、读者和用途，它会帮助你查找医学参考、编写脚本、设计画面、生成插图，再完成可编辑排字和检查。
+Medical Illustration 是面向不同 AI Agent 的医学绘图 Skill。支持原生 Skill 的宿主可加载完整目录，其他 Agent 可读取 `SKILL.md` 及相关资源，按自身工具能力执行。告诉它主题、读者和用途，它会帮助你查找医学参考、编写脚本、设计画面、生成插图，再完成可编辑排字和检查。
 
 [![Validation](https://github.com/wilbert-MD-PhD/medical-illustration/actions/workflows/validate.yml/badge.svg)](https://github.com/wilbert-MD-PhD/medical-illustration/actions/workflows/validate.yml)
 [![Release](https://img.shields.io/github/v/release/wilbert-MD-PhD/medical-illustration?include_prereleases)](https://github.com/wilbert-MD-PhD/medical-illustration/releases)
@@ -117,17 +117,17 @@ Gray 图版出自 Henry Gray 的 *Anatomy of the Human Body*（1918）。教材�
 
 ## 开始使用
 
-按[安装说明](INSTALL.md)安装后，可以把这样的请求发给 Codex：
+按[安装说明](INSTALL.md)接入后，可以把这样的请求发给所用 Agent：
 
 ```text
-使用 $medical-illustration，为没有医学背景的读者制作一页关于伤口愈合的科普漫画。
+使用 medical-illustration，为没有医学背景的读者制作一页关于伤口愈合的科普漫画。
 从一个生活小故事开始，画面明亮清晰，对白自然。
 请查找并使用可信医学参考，交付 Markdown 脚本、可编辑排版文件和 PDF。
 ```
 
 科研图可以附上研究论断、文献、结构关系和目标版式；已有脚本或图片也可以直接交给它继续制作、排字或返修。
 
-这是制作流程 Skill，需要配合图像生成工具、可用字体及矢量/PDF 编辑环境。具体输出取决于环境能力；使用 Illustrator 格式时需要相应软件。环境配置见[安装说明](INSTALL.md)。
+完整制图按任务配合图像工具、字体及矢量/PDF 编辑环境，脚本与分镜可独立使用。具体工具映射、无原生 Skill 的加载方法及能力不足时的交接见[Agent 接入说明](plugins/medical-illustration/skills/medical-illustration/references/agent-integration.md)。
 
 已安装用户可说“检查医学绘图 Skill 更新”“更新医学绘图 Skill”或“回退医学绘图 Skill”。从 1.1.1 起随包提供更新器；旧版首次接入见[安装与更新说明](INSTALL.md)。
 

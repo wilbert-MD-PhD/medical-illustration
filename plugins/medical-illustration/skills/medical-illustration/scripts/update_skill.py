@@ -114,7 +114,7 @@ def validate_package(root, expected_version=None):
     if expected_version and version != expected_version:
         raise UpdateError('Release tag and package VERSION differ')
     for name in ('README.md', 'LICENSE-CODE', 'LICENSE-CONTENT.md', 'NOTICE.md',
-                 'agents/openai.yaml', 'scripts/init_medical_project.py'):
+                 'scripts/init_medical_project.py'):
         if not (root/name).is_file():
             raise UpdateError(f'Incomplete package: {name}')
     if not (root/'references').is_dir():
@@ -128,7 +128,9 @@ def validate_package(root, expected_version=None):
 
 def candidates():
     home = Path.home()
-    paths = [Path(os.environ.get('CODEX_HOME', home/'.codex'))/'skills'/NAME,
+    # Discover this package at any location; older host paths are optional hints.
+    paths = [Path(__file__).resolve().parents[1],
+             Path(os.environ.get('CODEX_HOME', home/'.codex'))/'skills'/NAME,
              home/'.agents/skills'/NAME]
     for parent in (Path.cwd(), *Path.cwd().parents):
         paths.extend((parent/'.agents/skills'/NAME, parent/'.codex/skills'/NAME))
@@ -139,9 +141,6 @@ def locate(explicit):
     found = candidates()
     if explicit:
         return safe_path(explicit), found
-    own = Path(__file__).resolve().parents[1]
-    if (own/'SKILL.md').is_file() and str(own) not in found:
-        found.append(str(own))
     if len(found) != 1:
         raise UpdateError('Select the actually loaded copy with --install-dir. Candidates: ' +
                           json.dumps(found, ensure_ascii=False))

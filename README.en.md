@@ -2,7 +2,7 @@
 
 **Turn medical knowledge into readable stories and clear illustrations of anatomy and mechanisms.**
 
-Medical Illustration is a Skill for use in Codex. Describe your topic, audience and intended use. It helps you find medical references, write a script, design and generate artwork, then add editable text and check the result.
+Medical Illustration is a medical drawing Skill for AI agents. Hosts with native Skill support can load the complete folder. Other agents can read `SKILL.md` and the relevant resources, then use their available tools. Describe your topic, audience and intended use. It helps you find medical references, write a script, design and generate artwork, then add editable text and check the result.
 
 [![Validation](https://github.com/wilbert-MD-PhD/medical-illustration/actions/workflows/validate.yml/badge.svg)](https://github.com/wilbert-MD-PhD/medical-illustration/actions/workflows/validate.yml)
 [![Release](https://img.shields.io/github/v/release/wilbert-MD-PhD/medical-illustration?include_prereleases)](https://github.com/wilbert-MD-PhD/medical-illustration/releases)
@@ -117,19 +117,19 @@ The Gray plates come from Henry Gray's *Anatomy of the Human Body* (1918). The t
 
 ## Get started
 
-Follow the [installation guide](INSTALL.md#english-installation), then give Codex a request such as:
+Follow the [installation guide](INSTALL.md#english-installation), then give your agent a request such as:
 
 ```text
-Use $medical-illustration to create a one-page comic about wound healing for readers without a medical background.
+Use medical-illustration to create a one-page comic about wound healing for readers without a medical background.
 Start with an everyday story, use bright, clear artwork and natural dialogue.
 Find and use trusted medical references. Deliver a Markdown script, editable layout files and a PDF.
 ```
 
 For research figures, provide your claims, papers, structural relationships and target layout. You can also supply an existing script or image for further production, lettering or revision.
 
-This is a production workflow Skill. It needs image-generation tools, available fonts and a vector/PDF editing environment. Supported outputs depend on those tools; Illustrator files require the corresponding software. See the [installation guide](INSTALL.md#english-installation) for setup.
+Complete artwork uses the image, font, vector and PDF tools required by the task. Scripts and storyboards can be prepared independently. See [agent integration and capability mapping](plugins/medical-illustration/skills/medical-illustration/references/agent-integration.md) for loading without native Skill support and handoff when tools are unavailable.
 
-From 1.1.1, ask Codex to check for updates, update, or roll back Medical Illustration. Older installations need a one-time bootstrap; see [installation and updates](INSTALL.md).
+From 1.1.1, ask your agent to check for updates, update, or roll back Medical Illustration. Older installations need a one-time bootstrap; see [installation and updates](INSTALL.md).
 
 ## Checks and review status
 

@@ -13,7 +13,8 @@ import time
 import uuid
 from illustrator_preflight import inspect_script
 
-# macOS uses the same lock as other installed copies and the local host adapter.
+# Keep the legacy lock name across agents and versions to serialize the same app.
+# The name is a compatibility identifier; dispatch does not depend on Codex.
 LOCK = Path('/private/tmp' if sys.platform == 'darwin' else tempfile.gettempdir()) / f'codex-illustrator-{getattr(os, "getuid", lambda: 0)()}.lock'
 
 def main():

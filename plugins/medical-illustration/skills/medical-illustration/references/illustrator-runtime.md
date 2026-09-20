@@ -46,7 +46,7 @@ d = null;
 
 ## 锁与异常
 
-macOS 锁为 `/private/tmp/codex-illustrator-<用户UID>.lock`，跨项目、跨安装副本共用。
+macOS 锁为 `/private/tmp/codex-illustrator-<用户UID>.lock`，跨 Agent、跨项目、跨安装副本共用。这是兼容已有运行器的历史文件名，不依赖 Codex。新适配器沿用同一锁，避免新旧入口同时控制 Illustrator。
 
 | 退出码 | 含义 |
 |---|---|

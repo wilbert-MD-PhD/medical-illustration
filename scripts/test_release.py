@@ -42,6 +42,21 @@ class ReleaseTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Missing Illustrator runtime dependency'):
             release.check_skill(skill)
 
+    def test_standalone_skill_without_optional_host_metadata(self):
+        skill = self.base/'medical-illustration'
+        shutil.copytree(release.ROOT/release.REL, skill)
+        (skill/'agents/openai.yaml').unlink()
+        release.write_manifest(skill)
+        version = (skill/'VERSION').read_text().strip()
+        self.assertEqual(release.check_skill(skill), version)
+
+    def test_shipped_optional_metadata_still_requires_integrity(self):
+        skill = self.base/'medical-illustration'
+        shutil.copytree(release.ROOT/release.REL, skill)
+        (skill/'agents/openai.yaml').unlink()
+        with self.assertRaisesRegex(ValueError, 'Manifest mismatch'):
+            release.check_skill(skill)
+
     def test_retired_examples_cannot_be_published(self):
         root = self.base/'repository'
         for name in release.RETIRED_EXAMPLES:
