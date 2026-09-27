@@ -2,6 +2,10 @@
 
 通用载荷以 `SKILL.md`、相对资源和按能力选择工具为入口。`agents/openai.yaml` 是可选界面适配，现有分发仍保留并校验它。仓库根保留可选 Marketplace，插件根为 `plugins/medical-illustration/`，唯一 Skill 源为其下 `skills/medical-illustration/`。独立目录和可选 ZIP 都从这一份源构建，不从个人安装目录临时打包。
 
+## 指令维护
+
+任务选择和共用医学/进度规则保留在 Skill 入口。参考充分性与实际附图由 anatomy-reference-search.md 定义，提示词/调用记录由 generation-and-assets.md 定义，漫画留白与气泡由 text-space-and-visible-copy.md 定义，修改保护与质量检查由 qa-and-prepress.md 定义，归档由 file-management.md 定义。分支、模板和格式说明引用这些规则，新增格式只补充格式特有操作与验收。
+
 ## 本地检查
 
 运行组件回归测试需 Pillow；优先使用已有项目运行时，缺少时在专用虚拟环境安装。CI 会显式安装该依赖。测试覆盖派发/锁的模拟边界，实际 Illustrator 验收仍另做。

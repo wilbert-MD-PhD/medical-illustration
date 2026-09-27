@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 
 
-SKILL_VERSION = "1.2.0"
+SKILL_VERSION = "1.3.0"
 
 TEMPLATE_NOTICE = (
     "\n---\n模板来源：medical-illustration；作者：wilbert；"
@@ -52,7 +52,7 @@ FILES = {
 | 页面 ID | 读者问题与视觉重点 | 当前脚本 | 来源/角色版本 | 生成记录 | 当前画面与检查状态 |
 |---|---|---|---|---|---|
 
-生图前记录实际可见文字、首页标题、各对白位置与预计行数；底图只留背景空间，不画气泡。生成后先按正常字号试排，再制作可编辑气泡、文字和标签。
+记录实际可见文字、标题与对白位置及预计行数，空间规划按 Skill 的 references/text-space-and-visible-copy.md。按本次格式建立可编辑文字与标注，PPTX 交付见 references/pptx-delivery.md。
 """,
     '07_审计记录/问题与变更.md': """# 问题与变更
 

@@ -1,4 +1,4 @@
-# Medical Illustration 1.2.0 · 医学绘图
+# Medical Illustration 1.3.0 · 医学绘图
 
 面向医学插画、科普漫画及涉及医学结构的科研示意图，组织真实参考、内容设计、彩色生成、可编辑排字和交付检查。科学论断须有来源，探索性机制不得画成已证实因果；本包不提供实验数据分析或模型服务。
 
@@ -10,6 +10,7 @@
 - [安装与依赖](references/dependencies-installation.md)
 - [文字空间与正文](references/text-space-and-visible-copy.md)
 - [文件与版本](references/file-management.md)
+- [PPTX 源稿与同版 PDF/PNG](references/pptx-delivery.md)
 - [可选 Illustrator 排字库](references/illustrator-lettering.md)
 - [版本变化](CHANGELOG.md)、[许可与第三方说明](NOTICE.md)
 

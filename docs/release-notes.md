@@ -1,23 +1,22 @@
-# Medical Illustration v1.2.0
+# Medical Illustration v1.3.0
 
-将医学绘图 Skill 的接入方式扩展到不同 Agent，按实际可用能力完成漫画、医学插画与科研绘图。
+本版改进参考充分性判断，新增原生 PPTX 交付路径，并合并重复制作说明。
 
-- 增加原生 Skill、直接文件/资源加载、附件或文本交接说明，提供通用自然语言入口。
-- 按来源检索、看图、生图、排字、导出和脚本执行映射工具，能力不足时交付可完成内容和具体待办。
-- 安装和首次运行说明使用宿主实际配置路径，专属调用语法、安装器与 OpenAI 界面元数据作为可选适配保留。
-- 独立包校验支持省略 OpenAI 界面元数据，继续核验清单中全部已分发文件。更新器支持任意位置的完整目录和显式安装路径，保留本地修改、备份与回退保护。
-- Illustrator 沿用历史共用锁，确保不同 Agent 和旧运行器操作同一应用时串行执行。
+- 按目标结构的覆盖范围、视角/状态匹配与冲突判断参考是否充分。单一权威来源覆盖充分时可继续制作，复杂盲区和冲突按影响范围补证。用户或项目的双来源及先审后做要求继续适用。
+- 新增可选 PPTX＋PDF＋PNG 路径，明确中文原生文字、箭头/引线、编辑范围、源稿重开修改测试与同版导出检查。
+- 入口只保留任务选择、按需读取和共用医学/进度规则。参考使用、生成记录、漫画文字空间、返修与版本管理各自维护完整定义，漫画与科研分支引用对应规则。
+- 同步模板、首次环境检查、安装说明和版本元数据，保留原有更新/回退及 Illustrator 运行保护。
 
-## 安装与升级
+## 安装与验证
 
-见[安装说明](https://github.com/wilbert-MD-PhD/medical-illustration/blob/v1.2.0/INSTALL.md)及[Agent 接入与能力映射](https://github.com/wilbert-MD-PhD/medical-illustration/blob/v1.2.0/plugins/medical-illustration/skills/medical-illustration/references/agent-integration.md)。本地构建输出完整普通目录，正式发布附件使用 `medical-illustration-1.2.0.zip` 与同名 `.sha256`。已有独立安装通过随包更新器操作，插件安装由宿主管理。
+正式附件为 `medical-illustration-1.3.0.zip` 与同名 `.sha256`，从维护源码构建并核验内部文件清单。已有独立安装使用随包更新器升级，保留本地改动与备份。
 
-医学证据、实际参考附件、可编辑交付、逐页视觉检查及人工审核状态沿用既有规则。[验证记录](https://github.com/wilbert-MD-PhD/medical-illustration/blob/v1.2.0/docs/validation.md)列出本地检查范围。各宿主的自动发现和专属工具仍需在该环境验收。
+安装与接入见 [安装说明](https://github.com/wilbert-MD-PhD/medical-illustration/blob/v1.3.0/INSTALL.md)，使用 [PPTX 路径](https://github.com/wilbert-MD-PhD/medical-illustration/blob/v1.3.0/plugins/medical-illustration/skills/medical-illustration/references/pptx-delivery.md)前按本机实际能力选择工具。[验证记录](https://github.com/wilbert-MD-PhD/medical-illustration/blob/v1.3.0/docs/validation.md)区分包级测试、实际格式验收与医学审核。
 
 ## English
 
-Version 1.2.0 makes the workflow usable across agents through native Skills loading, direct file/resource access, or task-specific context and handoff. Instructions map research, image, file, lettering and export requirements to the tools actually available.
+Version 1.3.0 evaluates anatomical reference sufficiency by coverage, matching view/state and unresolved conflicts. One verified authoritative source can support production when it covers the requested relationships. Explicit project review and multiple-source requirements still apply.
 
-OpenAI UI metadata and the existing Codex plugin layout remain optional adapters. Standalone package validation accepts packages without the UI adapter while checking every file declared in the manifest. The updater supports explicit installation paths and discovers its own complete directory wherever it is installed, retaining backup, rollback and local-edit protection.
+The optional PPTX workflow preserves native text, arrows and leader lines, tests editing after reopening, and exports PDF/PNG from the same saved source. Shared instructions now have defined homes linked from the comic and research workflows.
 
-The Illustrator dispatcher keeps its legacy shared lock for compatibility across agents and installed versions. Medical evidence, editable output and review requirements remain in force. Host discovery and actual production tools are verified in each environment, separately from local package regression tests.
+The release provides a standalone ZIP and SHA-256 file. Existing standalone installations can use the bundled updater. Package tests and the non-medical PPTX acceptance fixture have their actual validation scope recorded separately.
