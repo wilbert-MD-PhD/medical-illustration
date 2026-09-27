@@ -1,8 +1,8 @@
 # Sources and licenses / 来源与许可
 
-The reference files in `references/` retain their original licenses. They are excluded from the repository's CC BY-NC-SA content license. References were downloaded, opened and supplied as image attachments; the comic was redrawn with original characters, layout and colors. Source authors do not endorse this project.
+The reference files in `references/` retain their original licenses. They are excluded from the repository's CC BY 4.0 content license. References were downloaded, opened and supplied as image attachments; the comic was redrawn with original characters, layout and colors. Source authors do not endorse this project.
 
-`references/` 中的三张原参考图沿用各自许可，不纳入仓库的 CC BY-NC-SA 限制。必要的 WebP→PNG 转码没有改变图像内容；主页按显示宽度缩放，不裁切或重画参考图。漫画重新设计角色、构图、配色与伤口深度。
+`references/` 中的三张原参考图沿用各自许可，不纳入仓库的 CC BY 4.0 内容许可。必要的 WebP→PNG 转码没有改变图像内容；主页按显示宽度缩放，不裁切或重画参考图。漫画重新设计角色、构图、配色与伤口深度。
 
 ## Three featured references
 

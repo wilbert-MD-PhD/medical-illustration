@@ -14,4 +14,4 @@
 - [可选 Illustrator 排字库](references/illustrator-lettering.md)
 - [版本变化](CHANGELOG.md)、[许可与第三方说明](NOTICE.md)
 
-内容采用 CC BY-NC-SA 4.0，可执行代码采用 MIT；第三方材料遵循各自许可。Skill 正式版不表示产出的医学作品已获批准。
+核心 Skill、脚本和运行模板采用 MIT，作者有权授权的原创文档、漫画与展示贡献采用 CC BY 4.0。第三方材料遵循各自许可。Skill 正式版不表示产出的医学作品已获批准。

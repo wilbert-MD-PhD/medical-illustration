@@ -143,6 +143,6 @@ The workflow includes comparing structures against references, checking letterin
 
 ## Licenses and feedback
 
-Author: **wilbert**. Content, templates and examples use **CC BY-NC-SA 4.0**; executable code and CI use **MIT**. Third-party reference figures retain their own licenses; see the [wrist showcase credits](docs/showcase/wrist/CREDITS.md) and each example's source page. Independently created work does not automatically inherit the Skill's licenses. Copied templates and third-party materials remain subject to their applicable terms.
+Author: **wilbert**. Author-owned core Skill, scripts and runtime templates use **MIT**. Original documentation, comics and showcase contributions within the author’s rights use **CC BY 4.0**. Both permit commercial use. Third-party components retain their original terms, including applicable share-alike obligations. See the [third-party inventory and open items](docs/third-party-license-audit.md). New works do not automatically inherit these licenses.
 
 [License scope](LICENSE.md) · [Third-party notices](plugins/medical-illustration/skills/medical-illustration/NOTICE.md) · [Issues](https://github.com/wilbert-MD-PhD/medical-illustration/issues) · [Maintenance](docs/maintaining.md)

@@ -1,31 +1,12 @@
-# Content License
+# Content License — CC BY 4.0
 
-Copyright © 2026 wilbert
+Copyright © 2026 wilbert.
 
-Except for executable code under `scripts/` and any clearly identified
-third-party material, the content of this skill is licensed under the Creative Commons
-Attribution-NonCommercial-ShareAlike 4.0 International License
-(CC BY-NC-SA 4.0).
+Author-owned original repository documentation, comics and showcase contributions are licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0), to the extent the author holds licensable rights. Commercial sharing and adaptation are permitted with appropriate credit to wilbert, a license link and an indication of changes.
 
-This content scope expressly includes the `DIRECTORIES`, `FILES` and `TEMPLATE_NOTICE` template
-data embedded in `scripts/init_medical_project.py` and the project files
-created from that template data. The surrounding executable Python code is
-licensed under the MIT License.
+- License: https://creativecommons.org/licenses/by/4.0/
+- Legal code: https://creativecommons.org/licenses/by/4.0/legalcode
 
-You may share and adapt the licensed content provided that you:
+The operational Skill (`SKILL.md`, `references/`, `agents/`, bundled `README.md`, scripts and runtime templates, including embedded template text and copied template output) is covered by `LICENSE-CODE` (MIT), not this content license.
 
-1. give appropriate credit to `wilbert`;
-2. provide a link to the license;
-3. indicate whether changes were made;
-4. do not use the licensed content for commercial purposes without separate
-   written permission from `wilbert`; and
-5. distribute adaptations under the same license.
-
-License deed and legal code:
-
-- https://creativecommons.org/licenses/by-nc-sa/4.0/
-- https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
-
-The licenses in this package do not automatically apply to works created by
-using the skill. See `NOTICE.md` for scope, generated-work, medical-review, and
-third-party-material statements.
+Third-party material and third-party-derived components retain their original terms. Mixed showcase files must be read with their individual credits and the repository third-party audit. This license does not grant rights the author does not hold, or automatically apply to new works made using the Skill. See `NOTICE.md`.

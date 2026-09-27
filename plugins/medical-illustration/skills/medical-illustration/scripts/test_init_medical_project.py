@@ -128,7 +128,11 @@ class InitializeTests(unittest.TestCase):
         for path in templates:
             content = path.read_text(encoding="utf-8")
             self.assertIn("wilbert", content)
-            self.assertIn("https://creativecommons.org/licenses/by-nc-sa/4.0/", content)
+            self.assertIn("MIT", content)
+            self.assertNotIn("CC BY-NC-SA", content)
+        license_text = (self.root / "00_项目规范/LICENSE-CODE").read_text(encoding="utf-8")
+        self.assertIn("Permission is hereby granted, free of charge", license_text)
+        self.assertIn("Copyright (c) 2026 wilbert", license_text)
         notice = self.root / "00_项目规范/模板来源与许可说明.md"
         version = SCRIPT.parent.parent.joinpath("VERSION").read_text().strip()
         self.assertIn(version, notice.read_text(encoding="utf-8"))

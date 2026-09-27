@@ -2,11 +2,7 @@
 # -*- coding: utf-8 -*-
 """Create a non-destructive comic or medical-illustration project scaffold."""
 
-# License boundary:
-# - Executable Python code in this file: MIT License (see ../LICENSE-CODE).
-# - The DIRECTORIES, FILES and TEMPLATE_NOTICE content below: CC BY-NC-SA 4.0
-#   (see ../LICENSE-CONTENT.md). Generated copies are not relicensed merely
-#   because the MIT-licensed code writes them to disk.
+# Code and embedded runtime templates: MIT License; see ../LICENSE-CODE.
 
 from __future__ import annotations
 
@@ -19,7 +15,7 @@ SKILL_VERSION = "1.3.0"
 
 TEMPLATE_NOTICE = (
     "\n---\n模板来源：medical-illustration；作者：wilbert；"
-    "许可：[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)。\n"
+    "许可：MIT；完整版权与许可见本项目 00_项目规范/LICENSE-CODE。\n"
     "模板原文由初始化脚本复制；后续修改请记录。此声明适用于复制的模板内容，"
     "不自动覆盖使用者新增内容或独立创作作品。\n"
 )
@@ -67,16 +63,15 @@ FILES["00_项目规范/模板来源与许可说明.md"] = """# 模板来源与�
 
 - 来源：medical-illustration，版本：""" + SKILL_VERSION + """。
 - 作者：wilbert；Copyright © 2026 wilbert。
-- 复制的文字模板采用 CC BY-NC-SA 4.0：
-  https://creativecommons.org/licenses/by-nc-sa/4.0/
-- 完整法律文本：https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
-- 分享或改作这些模板内容时，保留署名、许可链接，标明修改并遵守非商业及相同方式共享条件；商业授权须另行取得。
-- 初始化器可执行代码采用 MIT；代码许可不改变文字模板许可。
+- 复制的文字模板与初始化器代码均采用 MIT，允许商业使用。
+- 分发模板副本或实质部分时，保留版权与完整许可声明，见同目录 LICENSE-CODE。
 - 使用流程创作的新插画、漫画或文档不自动继承模板许可；实际复制的模板内容和纳入的第三方素材仍按各自许可处理。
 - 脚本不覆盖已有文件，也不自动为已有模板补写署名。迁移旧项目时，请在分发复制的模板内容前核对来源声明。
 - 修改记录：初始化为原模板副本；后续修改由使用者记录。
 """
 
+
+FILES["00_项目规范/LICENSE-CODE"] = Path(__file__).resolve().parent.parent.joinpath("LICENSE-CODE").read_text(encoding="utf-8")
 
 def validate_path(root: Path, target: Path, *, directory: bool) -> None:
     """Reject conflicting types and symlinks below the selected project root."""
@@ -118,7 +113,7 @@ def initialize(root: Path) -> tuple[int, int, int]:
         try:
             # Exclusive creation also preserves a file created since preflight.
             with target.open("x", encoding="utf-8") as output:
-                output.write(content + TEMPLATE_NOTICE)
+                output.write(content if relative.endswith("/LICENSE-CODE") else content + TEMPLATE_NOTICE)
         except FileExistsError:
             validate_path(root, target, directory=False)
             skipped_files += 1

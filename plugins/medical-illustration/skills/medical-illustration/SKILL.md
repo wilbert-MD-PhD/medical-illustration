@@ -55,4 +55,4 @@ description: "制作、返修或审阅医学插画、科普漫画与涉及医学
 
 ## 许可
 
-技能文档与模板见 [LICENSE-CONTENT.md](LICENSE-CONTENT.md)，代码见 [LICENSE-CODE](LICENSE-CODE)，范围及第三方材料见 [NOTICE.md](NOTICE.md)。生成作品不自动继承技能内容许可，实际纳入素材另核用途。
+自有核心 Skill、脚本和运行模板采用 [MIT](LICENSE-CODE)。作者有权授权的原创文档、漫画与展示贡献采用 [CC BY 4.0](LICENSE-CONTENT.md)。第三方材料保留原许可，范围见 [NOTICE.md](NOTICE.md)。新作品不自动继承上述许可。

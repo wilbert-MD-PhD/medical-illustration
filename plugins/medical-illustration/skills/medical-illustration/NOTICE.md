@@ -2,27 +2,19 @@
 
 Copyright © 2026 wilbert
 
-## 内容许可
+## 核心 Skill、脚本和运行模板：MIT
 
-`SKILL.md`、`agents/`、`references/`、`examples/` 以及作者创作的文字和记录模板，采用
-CC BY-NC-SA 4.0 许可。转发或改作时须署名 `wilbert`、链接许可、标明修改，
-且改作须以相同许可分发。未经 `wilbert` 单独书面授权，不得将上述内容用于商业目的。
+自有 `SKILL.md`、`references/` 操作规则与模板、`agents/`、随包 `README.md` 和 `scripts/` 采用 [MIT](LICENSE-CODE)。`DIRECTORIES`、`FILES` 和 `TEMPLATE_NOTICE` 中的模板原文及复制生成的模板同样采用 MIT，允许商业使用并须保留版权及许可声明。
 
-详见 `LICENSE-CONTENT.md`。
+运行器、预检、会话和裁切组件从作者既有本机实现整理，无第三方运行库内嵌。Illustrator、Pillow 等外部软件按各自许可使用。
 
-## 代码许可
+## 原创文档、漫画与展示内容：CC BY 4.0
 
-`scripts/` 下的可执行 Python / JavaScript / JSX 代码采用 MIT License，详见 `LICENSE-CODE`。
-运行器、预检、会话和裁切组件从作者既有本机实现整理为随包代码；无第三方运行库内嵌。Illustrator 与可选 Pillow 由使用者环境提供，按各自许可使用。
-其中嵌入的 `DIRECTORIES`、`FILES` 和 `TEMPLATE_NOTICE` 文字模板数据及由它们生成的模板文件仍属于内容部分，
-采用 CC BY-NC-SA 4.0。
+作者有权授权的原创仓库文档、漫画、人物和展示贡献采用 [CC BY 4.0](LICENSE-CONTENT.md)，允许商用和改编，须署名、链接许可并注明修改。第三方组成部分保留原许可，包括已登记的相同方式共享要求。来源不明部分须先补齐凭据，不能由本声明代替授权。
 
 ## 生成作品
 
-使用本 skill 创作的插画、漫画、文档、prompt、工作文件和项目记录，不因使用了本
-skill 而自动采用 CC BY-NC-SA 4.0 或 MIT License。这些作品的版权和授权取决于其
-创作者、实际复制的模板内容及所纳入的字体、图像、角色、医学影像、3D 模型和其他素材的
-权利状态。
+使用本 Skill 创作的新作品不自动继承 MIT 或 CC BY 4.0。复制的模板原文保留 MIT 版权及许可声明，实际纳入的字体、图像、角色、医学影像、模型等按各自权利状态处理。授权仅覆盖作者拥有的权利，不承诺每个生成元素均存在可独占的著作权。
 
 ## 医学审核责任
 

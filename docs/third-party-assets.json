@@ -1,0 +1,293 @@
+{
+  "date": "2026-09-27",
+  "scope": "Current public showcase files; per-component licenses, not blanket clearance",
+  "files": [
+    {
+      "path": "docs/showcase/bandage/comic-v1.4.jpg",
+      "bytes": 1181788,
+      "sha256": "9f872df9ef2bf7c3447bf7b935127482ce176d2bc0c8cad220f295baea49d4a4",
+      "license_scope": "CC-BY-4.0 for author-owned contributions; references retain original terms; embedded LXGW fonts: OFL-1.1",
+      "evidence": "docs/showcase/bandage/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/bandage/references/R02_NIH_macrophage.png",
+      "bytes": 162009,
+      "sha256": "be810726be85377ba70f75415e2370c476de6bb56ed5d67852b73b9495bfeeb1",
+      "license_scope": "Public Domain",
+      "evidence": "docs/showcase/bandage/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/bandage/references/R05_Nike2022_Fig1.png",
+      "bytes": 892779,
+      "sha256": "d40ef964f95fee3e3020a140f22ba53548b512950718582f4df152031e65977f",
+      "license_scope": "CC-BY-4.0",
+      "evidence": "docs/showcase/bandage/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/bandage/references/R11_Inflammatory2022_Fig1.png",
+      "bytes": 3218393,
+      "sha256": "428e0feccf4dae51520e3ba65ffce662afdae95192d3400cdfd6f09f4117a5d8",
+      "license_scope": "CC-BY-4.0",
+      "evidence": "docs/showcase/bandage/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/bandage/review-v1.4.pdf",
+      "bytes": 3205467,
+      "sha256": "5dd598e5459e8921d49ddc0a495a42d3502b2519014b63bc70b580e18daf795c",
+      "license_scope": "CC-BY-4.0 for author-owned contributions; references retain original terms; embedded LXGW fonts: OFL-1.1",
+      "evidence": "docs/showcase/bandage/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/tfcc/base-1.png",
+      "bytes": 2066884,
+      "sha256": "b646ac1ec815c5bd6de3d415289210a58f3b959d7effc125d6ecb1c4f05feb44",
+      "license_scope": "CC-BY-4.0 for author-owned contributions; third-party provenance unresolved (U01); embedded LXGW fonts: OFL-1.1",
+      "evidence": "docs/showcase/tfcc/README.md"
+    },
+    {
+      "path": "docs/showcase/tfcc/base-2.png",
+      "bytes": 1594049,
+      "sha256": "09ef12262f3105aeb2211e27df96d878880860c6f3e8565135ae45aba83a4c2b",
+      "license_scope": "CC-BY-4.0 for author-owned contributions; third-party provenance unresolved (U01); embedded LXGW fonts: OFL-1.1",
+      "evidence": "docs/showcase/tfcc/README.md"
+    },
+    {
+      "path": "docs/showcase/tfcc/page-1.jpg",
+      "bytes": 270397,
+      "sha256": "5e2a7ef8bfd5c02f5d774d469e601021c9fa15a6c6edd1bfa727c194b1d56e77",
+      "license_scope": "CC-BY-4.0 for author-owned contributions; third-party provenance unresolved (U01); embedded LXGW fonts: OFL-1.1",
+      "evidence": "docs/showcase/tfcc/README.md"
+    },
+    {
+      "path": "docs/showcase/tfcc/page-2.jpg",
+      "bytes": 273620,
+      "sha256": "ae86328982013aac5ba1c976e638c0a052950015c353e062bbb556fda5314840",
+      "license_scope": "CC-BY-4.0 for author-owned contributions; third-party provenance unresolved (U01); embedded LXGW fonts: OFL-1.1",
+      "evidence": "docs/showcase/tfcc/README.md"
+    },
+    {
+      "path": "docs/showcase/tfcc/review.pdf",
+      "bytes": 8296581,
+      "sha256": "31801a714936ddbd54a8c798cd2ac18d0593d87edcd08de08fdbd0306dc7c64d",
+      "license_scope": "CC-BY-4.0 for author-owned contributions; third-party provenance unresolved (U01); embedded LXGW fonts: OFL-1.1",
+      "evidence": "docs/showcase/tfcc/README.md"
+    },
+    {
+      "path": "docs/showcase/wrist/artwork/B01.png",
+      "bytes": 1418983,
+      "sha256": "9291f6978cd440dc2a285911e8d3eb9954543f54cb230c381ff3b009ec12b9e4",
+      "license_scope": "CC-BY-SA-2.1-JP (recorded legacy model terms; V01)",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/artwork/B02.png",
+      "bytes": 1724416,
+      "sha256": "f1b168b1ad0b4d2d581097f3210383d3ae39d5a631aba561d40258709582f7fc",
+      "license_scope": "CC-BY-SA-2.1-JP (recorded legacy model terms; V01)",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/artwork/B03.png",
+      "bytes": 1595732,
+      "sha256": "f8166523831f8bcfd9c206b58b4fc58f8b4300d07c03b8ee064eb3b9e7b9c850",
+      "license_scope": "CC-BY-SA-2.1-JP (recorded legacy model terms; V01)",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/artwork/B04.png",
+      "bytes": 1555909,
+      "sha256": "7e9b26b41ec902331b1990fc062e28af654c40298673aca6f25f377233f001fd",
+      "license_scope": "CC-BY-SA-2.1-JP (recorded legacy model terms; V01)",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/artwork/B05.png",
+      "bytes": 1889054,
+      "sha256": "cd7c88f31705ce656a45f35b985380aecb75681b2f81a22ff78fafdee43cbe62",
+      "license_scope": "CC-BY-SA-2.1-JP (recorded legacy model terms; V01)",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/comparisons/dorsal.png",
+      "bytes": 763499,
+      "sha256": "e79ad4990176819b9b26c57be21270ca5a9f8a74c0454f8e92f53f647e03f100",
+      "license_scope": "Mixed: original contributions CC-BY-4.0; anatomy CC-BY-SA-2.1-JP; third-party references retain terms; HarmonyOS font terms pending (U02)",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/comparisons/hand.png",
+      "bytes": 641063,
+      "sha256": "3c874a876dce36f7342e4749aa12d8d603d9447b7afa04ce88463c7c69717016",
+      "license_scope": "Mixed: original contributions CC-BY-4.0; anatomy CC-BY-SA-2.1-JP; third-party references retain terms; HarmonyOS font terms pending (U02)",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/comparisons/interfaces.png",
+      "bytes": 799196,
+      "sha256": "497ff8c5634f858525ea3cebea4740223714a9b6da7a01108130d5a661e98013",
+      "license_scope": "Mixed: original contributions CC-BY-4.0; anatomy CC-BY-SA-2.1-JP; third-party references retain terms; HarmonyOS font terms pending (U02)",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/comparisons/pisiform.png",
+      "bytes": 792527,
+      "sha256": "267d5c5eb53597b489b27cd516c24d299077b2b901a38946fd17d3def3690b99",
+      "license_scope": "Mixed: original contributions CC-BY-4.0; anatomy CC-BY-SA-2.1-JP; third-party references retain terms; HarmonyOS font terms pending (U02)",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/comparisons/reference-details.pdf",
+      "bytes": 18184119,
+      "sha256": "8e44969572b5f6bdfee855e41ce70318124a6010052eddcdc78d850c2818fea9",
+      "license_scope": "Mixed: original contributions CC-BY-4.0; anatomy CC-BY-SA-2.1-JP; third-party references retain terms; HarmonyOS font terms pending (U02)",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/comparisons/rows.png",
+      "bytes": 923663,
+      "sha256": "7dcdfa21fcc69758a35793c0a2b62eeb3acecf93dddf3ce4e022cb0e97b01341",
+      "license_scope": "Mixed: original contributions CC-BY-4.0; anatomy CC-BY-SA-2.1-JP; third-party references retain terms; HarmonyOS font terms pending (U02)",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/pages/page-1.jpg",
+      "bytes": 166199,
+      "sha256": "4502474f319fd6f6b348f8ece0d8de13fe9dcc9710bc85cb934630a0f57ede1e",
+      "license_scope": "Mixed: original contributions CC-BY-4.0; anatomy CC-BY-SA-2.1-JP; third-party references retain terms; embedded LXGW fonts: OFL-1.1",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/pages/page-2.jpg",
+      "bytes": 164637,
+      "sha256": "cf4128e8ab236900c6a9a912fcdf25fb2c498c3c90e00fa65d1f5a9bb4d05a09",
+      "license_scope": "Mixed: original contributions CC-BY-4.0; anatomy CC-BY-SA-2.1-JP; third-party references retain terms; embedded LXGW fonts: OFL-1.1",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/pages/page-3.jpg",
+      "bytes": 76928,
+      "sha256": "0a66c9c789ed991cbe42d4379ca0cd2696fb499e82066d5fcf1b129c33584895",
+      "license_scope": "Mixed: original contributions CC-BY-4.0; anatomy CC-BY-SA-2.1-JP; third-party references retain terms; embedded LXGW fonts: OFL-1.1",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/pages/page-4.jpg",
+      "bytes": 162835,
+      "sha256": "150ce9d3c3d5d33c06f725ac2afbf809927347a21e334fb12ace41ef4d306dac",
+      "license_scope": "Mixed: original contributions CC-BY-4.0; anatomy CC-BY-SA-2.1-JP; third-party references retain terms; embedded LXGW fonts: OFL-1.1",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/pages/page-5.jpg",
+      "bytes": 177534,
+      "sha256": "1956d2debcf790cd3930fe6e15be3a05a221892ad416531f1a2e84323424f2c6",
+      "license_scope": "Mixed: original contributions CC-BY-4.0; anatomy CC-BY-SA-2.1-JP; third-party references retain terms; embedded LXGW fonts: OFL-1.1",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/pages/page-6.jpg",
+      "bytes": 206831,
+      "sha256": "fd67bbe4a7e16a983be992822bbfa5fbf6cfd58940412d3dfa7b5f599ba6109c",
+      "license_scope": "Mixed: original contributions CC-BY-4.0; anatomy CC-BY-SA-2.1-JP; third-party references retain terms; embedded LXGW fonts: OFL-1.1",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/preview-light.pdf",
+      "bytes": 515274,
+      "sha256": "aa565d05eaa533c261c9e0b8eb97cafb7af3e4f908fcac099d70e83180d10a91",
+      "license_scope": "Mixed: original contributions CC-BY-4.0; anatomy CC-BY-SA-2.1-JP; third-party references retain terms; embedded LXGW fonts: OFL-1.1",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/references/gray219.jpg",
+      "bytes": 161351,
+      "sha256": "2f12148d6fdc5b321ac9f2f935b150f030c823593290687e5d24d94c9b0655f1",
+      "license_scope": "Public Domain",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/references/gray220.jpg",
+      "bytes": 162943,
+      "sha256": "ad470e900ad60db6b02d0df91739a74dcf76fb9c3756b005adb301f078f92c1e",
+      "license_scope": "Public Domain",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/references/gray336.png",
+      "bytes": 49156,
+      "sha256": "496b530cb8d6f2bff9529e4ddffb83b946bcef8bf5ed88316178e94bae33b28b",
+      "license_scope": "Public Domain",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/references/motion-delva-fig1.jpg",
+      "bytes": 91691,
+      "sha256": "0bad6839f042f1cb65dc02d64a9e5f9be1b815e8733cc352a84a28631159c9ac",
+      "license_scope": "CC-BY-4.0",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/references/motion-zhang-fig1.jpg",
+      "bytes": 56182,
+      "sha256": "84f47b04063005a442978d012d776eaf54e0db538d4e2994ce4d8b0c089e37f1",
+      "license_scope": "CC-BY-4.0",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/references/springer-p52.png",
+      "bytes": 984951,
+      "sha256": "3c6a792948004f9a984345296aa003f8e3538aad178b2a10bf59c61d1bba25b4",
+      "license_scope": "CC-BY-4.0",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/references/springer-p53.png",
+      "bytes": 959209,
+      "sha256": "d87a842a9746158b735838a14395874b81ab17936eba8e1951f182324bfb1e44",
+      "license_scope": "CC-BY-4.0",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/review.pdf",
+      "bytes": 30048821,
+      "sha256": "a56a9b7a94c627bced7c600879af21c0f540ec8f762e671c8613f821c75d1d08",
+      "license_scope": "Mixed: original contributions CC-BY-4.0; anatomy CC-BY-SA-2.1-JP; third-party references retain terms; embedded LXGW fonts: OFL-1.1",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/scaffolds/M01.png",
+      "bytes": 827538,
+      "sha256": "bc29ecbd7542cbec4be093181c8417952459da060c4976fd08c54f3fcfd4405f",
+      "license_scope": "CC-BY-SA-2.1-JP (recorded legacy model terms; V01)",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/scaffolds/M02.png",
+      "bytes": 405004,
+      "sha256": "1bfea29ad8ebe4f8c296fe0b684c33fa17b941baf336c2344ba20564b023cf89",
+      "license_scope": "CC-BY-SA-2.1-JP (recorded legacy model terms; V01)",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/scaffolds/M03.png",
+      "bytes": 374001,
+      "sha256": "707f92cc89354da45bff7d6abd1ded8a2615073d37269cf9db6f7b1d737e9239",
+      "license_scope": "CC-BY-SA-2.1-JP (recorded legacy model terms; V01)",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/scaffolds/M04.png",
+      "bytes": 332066,
+      "sha256": "916e85fa959ab8d28685604e1bf093f1e9813b62d1ba0311cb81c331da7b989c",
+      "license_scope": "CC-BY-SA-2.1-JP (recorded legacy model terms; V01)",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    },
+    {
+      "path": "docs/showcase/wrist/scaffolds/M06.png",
+      "bytes": 831603,
+      "sha256": "250e56aa4612d330369b4f19296d99c8774bf24c46ff99aa5a531e0f7818a4d9",
+      "license_scope": "CC-BY-SA-2.1-JP (recorded legacy model terms; V01)",
+      "evidence": "docs/showcase/wrist/CREDITS.md"
+    }
+  ]
+}

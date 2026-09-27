@@ -1,9 +1,5 @@
 MIT License
 
-Scope: the executable Python, JavaScript and JSX code under scripts/. Textual project-template
-data embedded in that code is excluded and is licensed under
-LICENSE-CONTENT.md.
-
 Copyright (c) 2026 wilbert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

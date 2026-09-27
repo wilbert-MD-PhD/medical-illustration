@@ -143,6 +143,6 @@ Gray 图版出自 Henry Gray 的 *Anatomy of the Human Body*（1918）。教材�
 
 ## 许可与反馈
 
-作者 **wilbert**。内容、模板与示例采用 **CC BY-NC-SA 4.0**，可执行代码和 CI 采用 **MIT**。第三方参考图沿用各自原许可，见[腕骨示例署名](docs/showcase/wrist/CREDITS.md)及各示例的来源页。独立创作的新作品不因使用 Skill 自动继承许可；复制使用的模板和第三方材料按各自条款处理。
+作者 **wilbert**。自有核心 Skill、脚本和运行模板采用 **MIT**，有权授权的原创文档、漫画与展示贡献采用 **CC BY 4.0**，均允许商用。第三方素材保留原许可，含相同方式共享条款的部件继续遵守原条款。见[第三方清单与待处理项](docs/third-party-license-audit.md)。新作品不因使用 Skill 自动继承许可。
 
 [许可范围](LICENSE.md) · [第三方材料说明](plugins/medical-illustration/skills/medical-illustration/NOTICE.md) · [问题反馈](https://github.com/wilbert-MD-PhD/medical-illustration/issues) · [维护与发布](docs/maintaining.md)

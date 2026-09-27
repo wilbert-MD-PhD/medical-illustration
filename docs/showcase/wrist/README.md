@@ -46,7 +46,7 @@ v1.1重做五处人物场景，保留第6页下半幅近景；**没有把既有�
 |:---:|:---:|
 | <img src="references/springer-p52.png" width="320" alt="教材原页52"> | <img src="references/springer-p53.png" width="320" alt="教材原页53"> |
 
-BodyParts3D © DBCLS；Gray 图版为公有领域；教材图页 © The Author(s) 2021，CC BY 4.0。各资产原链接、版本、加工方式和许可边界见 [CREDITS](CREDITS.md)，这些第三方资产不适用仓库笼统的非商业许可。
+BodyParts3D © DBCLS；Gray 图版为公有领域；教材图页 © The Author(s) 2021，CC BY 4.0。各资产原链接、版本、加工方式和许可边界见 [CREDITS](CREDITS.md)，这些第三方资产继续按各自原许可处理。
 
 
 ## 结构局部对照

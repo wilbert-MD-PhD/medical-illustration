@@ -34,7 +34,7 @@ The final right-sided camera is set by the model; atlas views were not mirrored 
 | B04 | <img src="scaffolds/M04.png" width="200" alt="M04"> | <img src="artwork/B04.png" width="200" alt="B04"> |
 | B05 | <img src="scaffolds/M06.png" width="200" alt="M06"> | <img src="artwork/B05.png" width="200" alt="B05"> |
 
-The [Chinese comparison page](README.md) displays the independent atlas and textbook images alongside these relationships. Source images, mesh-derived illustrations and their appearances in the PDF retain the asset-specific terms in [CREDITS](CREDITS.md), rather than the repository's general noncommercial content license.
+The [Chinese comparison page](README.md) displays the independent atlas and textbook images alongside these relationships. Source images, mesh-derived illustrations and their appearances in the PDF retain the asset-specific terms in [CREDITS](CREDITS.md), with original contributions covered by the repository's CC BY 4.0 content license.
 
 ## Detail comparisons and motion references
 
