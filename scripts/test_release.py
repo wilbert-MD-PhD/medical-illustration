@@ -42,6 +42,14 @@ class ReleaseTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Missing Illustrator runtime dependency'):
             release.check_skill(skill)
 
+    def test_mechanism_checker_cannot_be_omitted_with_a_new_manifest(self):
+        skill = self.base/'skill'
+        shutil.copytree(release.ROOT/release.REL, skill)
+        (skill/'scripts/check_mechanism_graph.py').unlink()
+        release.write_manifest(skill)
+        with self.assertRaisesRegex(ValueError, 'Missing mechanism graph checker'):
+            release.check_skill(skill)
+
     def test_standalone_skill_without_optional_host_metadata(self):
         skill = self.base/'medical-illustration'
         shutil.copytree(release.ROOT/release.REL, skill)

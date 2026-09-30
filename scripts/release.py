@@ -87,6 +87,8 @@ def check_skill(root):
     for dependency in ('update_skill.py', 'illustrator_run.py', 'illustrator_preflight.py', 'illustrator_session.jsx', 'illustrator_assets.py'):
         if not (root/'scripts'/dependency).is_file():
             raise ValueError(f'Missing Illustrator runtime dependency: {dependency}')
+    if not (root/'scripts/check_mechanism_graph.py').is_file():
+        raise ValueError('Missing mechanism graph checker: check_mechanism_graph.py')
     check_links(root)
     count = verify_manifest(root)
     print(f'Skill {version}: {count} checksums and local links passed')
