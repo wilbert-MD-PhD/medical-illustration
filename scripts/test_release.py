@@ -162,6 +162,34 @@ class ReleaseTests(unittest.TestCase):
             release.verify_archive(archive)
         self.assertFalse((self.base/'escaped').exists())
 
+    def test_local_links_with_titles(self):
+        (self.base/'guide.md').write_text('guide', encoding='utf-8')
+        for title in ('"Usage guide"', "'Usage guide'", '(Usage guide)',
+                      '"Usage (guide)"'):
+            for target in ('guide.md', '<guide.md>'):
+                with self.subTest(title=title, target=target):
+                    (self.base/'README.md').write_text(
+                        f'[guide]({target} {title})', encoding='utf-8')
+                    release.check_links(self.base)
+
+    def test_titled_links_still_reject_missing_and_external_paths(self):
+        for target in ('missing.md', '../outside.md', '%2e%2e/outside.md'):
+            with self.subTest(target=target):
+                (self.base/'README.md').write_text(
+                    f'[guide]({target} "Usage guide")', encoding='utf-8')
+                with self.assertRaisesRegex(ValueError, 'Broken or external'):
+                    release.check_links(self.base)
+
+    def test_link_destinations_with_spaces_and_parentheses(self):
+        for name, target in (('a b.md', '<a b.md>'), ('a b.md', 'a%20b.md'),
+                             ('a(b(c)).md', 'a(b(c)).md'),
+                             ('a(b).md', r'a\(b\).md')):
+            with self.subTest(target=target):
+                (self.base/name).write_text('guide', encoding='utf-8')
+                (self.base/'README.md').write_text(
+                    f'[guide]({target} "Usage guide")', encoding='utf-8')
+                release.check_links(self.base)
+
     def test_broken_link_is_rejected(self):
         (self.base/'README.md').write_text('[missing](missing.svg)', encoding='utf-8')
         with self.assertRaisesRegex(ValueError, 'Broken'):

@@ -54,13 +54,43 @@ def verify_manifest(root):
     return len(actual)
 
 
+def inline_link_targets(text):
+    """Extract inline destinations without treating optional titles as paths."""
+    for match in re.finditer(r'\]\(\s*', text):
+        start = match.end()
+        angle = text[start:start+1] == '<'
+        if angle:
+            start += 1
+        end, depth = start, 0
+        while end < len(text):
+            char = text[end]
+            if char == '\\' and end + 1 < len(text):
+                end += 2
+                continue
+            if angle:
+                if char == '>':
+                    break
+            else:
+                if char.isspace() or (char == ')' and depth == 0):
+                    break
+                if char == '(':
+                    depth += 1
+                elif char == ')':
+                    depth -= 1
+            end += 1
+        if end == len(text) or (angle and text[end] != '>') or depth:
+            continue
+        # Markdown backslash escapes apply to ASCII punctuation only.
+        yield re.sub(r'\\([!-/:-@\[-`{-~])', r'\1', text[start:end])
+
+
 def check_links(root):
     for p in root.rglob('*.md'):
         if '.git' in p.parts:
             continue
         text = re.sub(r'```.*?```', '', p.read_text(encoding='utf-8'), flags=re.S)
-        for target in re.findall(r'\]\(([^)]+)\)', text):
-            url = urlsplit(target.strip('<>'))
+        for target in inline_link_targets(text):
+            url = urlsplit(target)
             if url.scheme or url.netloc or not url.path:
                 continue
             dest = (p.parent/unquote(url.path)).resolve()
