@@ -4,6 +4,7 @@ import hashlib
 import importlib.util
 import io
 import json
+import os
 from pathlib import Path
 import shutil
 import stat
@@ -185,6 +186,64 @@ class UpdateTests(unittest.TestCase):
             u.rollback(self.installed)
         result = u.rollback(self.installed, replace_local=True)
         self.assertEqual((Path(result['backup_dir'])/'later.txt').read_text(), 'new work')
+
+    def test_rollback_after_check_only_preserves_generated_cache_in_backup(self):
+        self.update()
+        job = self.base/'safe-job.jsx'
+        job.write_text('var s = IllustratorSession.current;\n', encoding='utf-8')
+        env = os.environ.copy()
+        env.pop('PYTHONDONTWRITEBYTECODE', None)
+        env.pop('PYTHONPYCACHEPREFIX', None)
+        result = subprocess.run([sys.executable,
+            str(self.installed/'scripts/illustrator_run.py'), str(job), '--check-only'],
+            env=env, capture_output=True, text=True, encoding='utf-8')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertTrue(list(self.installed.rglob('*.pyc')))
+        self.assertEqual(u.local_info(self.installed)['integrity'], 'clean')
+        before_rollback = u.fingerprint(self.installed)
+        result = u.rollback(self.installed)
+        self.assertEqual(u.fingerprint(self.installed), self.before)
+        self.assertEqual(u.fingerprint(Path(result['backup_dir'])), before_rollback)
+
+    def test_rollback_ignores_added_changed_and_removed_runtime_cache(self):
+        caches = ['scripts/__pycache__/old.pyc', 'scripts/legacy.pyo', '.DS_Store']
+        for name in caches:
+            path = self.installed/name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(b'old cache')
+        self.update()
+        updated = u.fingerprint(self.installed)
+        u.rollback(self.installed)
+        (self.installed/caches[0]).unlink()
+        (self.installed/caches[1]).write_bytes(b'regenerated cache')
+        (self.installed/'new.pyc').write_bytes(b'new cache')
+        (self.installed/'.DS_Store').write_bytes(b'Finder cache')
+        before = u.fingerprint(self.installed)
+        result = u.rollback(self.installed)
+        self.assertEqual(u.fingerprint(self.installed), updated)
+        self.assertEqual(u.fingerprint(Path(result['backup_dir'])), before)
+
+    def test_rollback_still_protects_real_changes_when_cache_exists(self):
+        self.update()
+        (self.installed/'generated.pyc').write_bytes(b'cache')
+        edited_skill = (self.installed/'SKILL.md').read_bytes() + b'\nUser edits\n'
+        for name, content in [('SKILL.md', edited_skill), ('README.md', None),
+                              ('notes.txt', b'user notes'), ('SHA256SUMS', b'changed manifest')]:
+            with self.subTest(name=name):
+                path = self.installed/name
+                original = path.read_bytes() if path.exists() else None
+                if content is None:
+                    path.unlink()
+                else:
+                    path.write_bytes(content)
+                before = u.fingerprint(self.installed)
+                with self.assertRaisesRegex(u.UpdateError, 'changed after'):
+                    u.rollback(self.installed)
+                self.assertEqual(u.fingerprint(self.installed), before)
+                if original is None:
+                    path.unlink()
+                else:
+                    path.write_bytes(original)
 
     def test_damaged_backup_cannot_be_restored(self):
         result = self.update()

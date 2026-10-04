@@ -46,6 +46,16 @@ def safe_path(value):
     return path
 
 
+def is_runtime_cache(name):
+    path = PurePosixPath(name)
+    return '__pycache__' in path.parts or path.name == '.DS_Store' or path.suffix in ('.pyc', '.pyo')
+
+
+def without_runtime_cache(snapshot):
+    # Filter historical snapshots too; keep SHA256SUMS protected as user content.
+    return {name: digest for name, digest in snapshot.items() if not is_runtime_cache(name)}
+
+
 def fingerprint(root, payload_only=False):
     result = {}
     for p in sorted(root.rglob('*')):
@@ -55,10 +65,10 @@ def fingerprint(root, payload_only=False):
             continue
         if not p.is_file():
             raise UpdateError(f'Non-regular file: {p}')
-        if payload_only and (p == root/'SHA256SUMS' or '__pycache__' in p.parts or
-                             p.name == '.DS_Store' or p.suffix in ('.pyc', '.pyo')):
+        name = p.relative_to(root).as_posix()
+        if payload_only and (name == 'SHA256SUMS' or is_runtime_cache(name)):
             continue
-        result[p.relative_to(root).as_posix()] = hashlib.sha256(p.read_bytes()).hexdigest()
+        result[name] = hashlib.sha256(p.read_bytes()).hexdigest()
     return result
 
 
@@ -388,7 +398,7 @@ def rollback(root, backup_id=None, replace_local=False):
         _, selected, record = records[0]
         before = fingerprint(root)
         latest = history(root)[0][2]
-        if before != latest['after'] and not replace_local:
+        if without_runtime_cache(before) != without_runtime_cache(latest['after']) and not replace_local:
             raise UpdateError('Installed files changed after the last operation; back up and review before --replace-local')
         previous = safe_path(state/selected/'previous')
         if fingerprint(previous) != record['before']:
