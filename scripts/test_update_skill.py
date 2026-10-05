@@ -266,6 +266,32 @@ class UpdateTests(unittest.TestCase):
         self.assertEqual(self.update()['status'], 'already_current')
         self.assertEqual(len(u.history(self.installed)), count)
 
+    def test_same_version_repairs_missing_or_damaged_manifest(self):
+        self.update()
+        for damage in ('missing', 'invalid', 'wrong_digest'):
+            with self.subTest(damage=damage):
+                manifest = self.installed/'SHA256SUMS'
+                if damage == 'missing':
+                    manifest.unlink()
+                elif damage == 'invalid':
+                    manifest.write_text('invalid manifest\n', encoding='utf-8')
+                else:
+                    lines = manifest.read_text(encoding='utf-8').splitlines(True)
+                    lines[0] = '0' * 64 + lines[0][64:]
+                    manifest.write_text(''.join(lines), encoding='utf-8')
+                before = u.fingerprint(self.installed)
+                with self.assertRaisesRegex(u.UpdateError, 'Local edits'):
+                    self.update()
+                self.assertEqual(u.fingerprint(self.installed), before)
+                result = self.update(replace_local=True)
+                self.assertEqual(result['status'], 'update_complete')
+                self.assertEqual(u.fingerprint(Path(result['backup_dir'])), before)
+                self.assertEqual(u.local_info(self.installed)['integrity'], 'clean')
+                self.assertEqual(manifest.read_bytes(), (self.source/'SHA256SUMS').read_bytes())
+                count = len(u.history(self.installed))
+                self.assertEqual(self.update()['status'], 'already_current')
+                self.assertEqual(len(u.history(self.installed)), count)
+
     def test_offline_check_has_no_writes_or_network(self):
         before = u.fingerprint(self.base)
         with patch.object(u, 'fetch', side_effect=AssertionError('must not network')):

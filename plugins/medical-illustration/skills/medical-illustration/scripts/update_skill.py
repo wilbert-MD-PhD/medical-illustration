@@ -365,7 +365,8 @@ def update(root, release=None, archive=None, checksum=None, replace_local=False)
             new_version = validate_package(staged, release['version'] if release else None)
             if info['version'] and version_key(new_version) < version_key(info['version']):
                 raise UpdateError('Downgrade refused; use rollback to restore a recorded backup')
-            if fingerprint(staged, True) == fingerprint(root, True):
+            # A matching payload cannot repair a missing or damaged manifest.
+            if info['integrity'] == 'clean' and fingerprint(staged, True) == fingerprint(root, True):
                 return {'status': 'already_current', 'install_dir': str(root), 'version': new_version}
             result = replace_install(root, staged, state, before, 'update',
                                      release['url'] if release else str(archive))

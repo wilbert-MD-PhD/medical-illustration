@@ -1,16 +1,16 @@
-# Medical Illustration v1.3.3
+# Medical Illustration v1.3.4
 
-修复运行 Illustrator 预检后，回退因 Python 自动缓存而误报本地修改的问题。
+修复同版本更新时，缺失或损坏的 `SHA256SUMS` 未被恢复，却返回 `already_current` 的问题。
 
-- 回退的修改判定忽略 `__pycache__`、`.pyc`、`.pyo` 和 `.DS_Store`，兼容已有事务记录。
-- 正文、脚本、用户新增文件和 `SHA256SUMS` 的真实修改仍受保护。
-- 备份保留所有文件。并发修改检查、备份完整性及恢复校验继续使用完整哈希。
-- 新增真实预检后回退、缓存增删改及真实修改保护回归测试。
+- 只有本地完整性为 `clean` 且载荷相同时，才跳过替换。
+- 清单缺失、格式损坏或哈希错误时，明确使用 `--replace-local` 后备份原安装并恢复完整包。
+- 未明确选择替换时继续保护本地文件。完整安装重复更新仍不创建额外备份。
+- 新增三种清单异常的回归验证，覆盖原文件保护、备份内容、修复结果和重复更新。
 
 ## 安装
 
-附件为 `medical-illustration-1.3.3.zip` 与同名 `.sha256`。安装与更新步骤见 [安装说明](https://github.com/wilbert-MD-PhD/medical-illustration/blob/v1.3.3/INSTALL.md)。
+附件为 `medical-illustration-1.3.4.zip` 与同名 `.sha256`。安装与更新步骤见 [安装说明](https://github.com/wilbert-MD-PhD/medical-illustration/blob/v1.3.4/INSTALL.md)。
 
 ## English
 
-Fix rollback being blocked by runtime caches created during normal use, including Illustrator preflight. Change detection now excludes `__pycache__`, `.pyc`, `.pyo` and `.DS_Store` from both current and historical snapshots. Real content changes, including `SHA256SUMS`, remain protected. Backups retain every file, and concurrency, backup integrity and restoration checks still compare complete fingerprints.
+Fix same-version updates returning `already_current` while leaving a missing or damaged `SHA256SUMS` unrepaired. A no-op now requires a clean local integrity check as well as matching payloads. Explicit `--replace-local` repairs missing, malformed or incorrect manifests through the existing backup-and-replace transaction. Local edits remain protected by default, and repeated updates of a clean installation remain no-ops.

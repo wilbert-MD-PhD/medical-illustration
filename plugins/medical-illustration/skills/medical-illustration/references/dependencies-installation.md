@@ -8,7 +8,7 @@
 - 有文件/资源访问能力：完整目录放到可访问位置，在请求中指定 `SKILL.md` 的实际路径或资源标识。
 - 仅附件或文本：提供入口和本次所需分支，按适配说明交接图像、文件执行与视觉检查。
 
-本版 VERSION 为 `1.3.3`。远端标签及附件可用后，从项目对应 Release 取得完整包并核验同名 `.sha256`。源码中的 Skill 位于 `plugins/medical-illustration/skills/medical-illustration/`，本地独立构建输出为 `medical-illustration/`。现有插件目录布局继续作为唯一维护源。
+本版 VERSION 为 `1.3.4`。远端标签及附件可用后，从项目对应 Release 取得完整包并核验同名 `.sha256`。源码中的 Skill 位于 `plugins/medical-illustration/skills/medical-illustration/`，本地独立构建输出为 `medical-illustration/`。现有插件目录布局继续作为唯一维护源。
 
 安装路径采用宿主配置或实际安装结果。刷新后核对加载路径与 VERSION。对于直接读取方式，重新读取入口及本次使用的资源。只有支持相应语法的宿主才使用 `$medical-illustration` 或 `$skill-installer`，自然语言和明确路径是通用入口。
 
