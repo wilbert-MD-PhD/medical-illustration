@@ -2,7 +2,7 @@
 
 **把医学知识画成读得懂的故事，把结构与机制画成看得清的图。**
 
-Medical Illustration 是面向 Codex、Claude Code 等 AI Agent 的医学绘图 Skill。支持原生 Skill 的宿主可加载完整目录，其他 Agent 可读取 `SKILL.md` 及相关资源，按自身工具能力执行。告诉它主题、读者和用途，它会帮助你查找医学参考、编写脚本、设计画面、生成插图，再完成可编辑排字和检查。
+Medical Illustration 是面向 Codex、Claude Code 等 AI Agent 的医学绘图 Skill。支持原生 Skill 的运行平台可加载完整目录，其他 Agent 可读取 `SKILL.md` 及相关资源，并根据自身可调用的工具来执行。告诉它主题、读者和用途，它会帮助你查找医学参考、编写脚本、设计画面、生成插图，再完成可编辑排字和检查。
 
 [![Validation](https://github.com/wilbert-MD-PhD/medical-illustration/actions/workflows/validate.yml/badge.svg)](https://github.com/wilbert-MD-PhD/medical-illustration/actions/workflows/validate.yml)
 [![Release v1.3.4](docs/assets/release-badge.svg)](https://github.com/wilbert-MD-PhD/medical-illustration/releases/tag/v1.3.4)
@@ -17,14 +17,14 @@ Medical Illustration 是面向 Codex、Claude Code 等 AI Agent 的医学绘图 
 | 教学与宣教用的医学插画 | 依据真实参考表现解剖层次、损伤位置与修复过程，配上清楚的标签 |
 | 涉及医学结构的科研示意图 | 根据你提供的研究论断与证据组织结构和机制，区分已证实关系与假说 |
 
-你可以指定角色、画风、篇幅和输出格式。文字、气泡、医学标签及后加箭头独立编辑，后续改词、移动标注和局部返修更方便。交付可包括 Markdown 脚本、彩色画面、排版源文件和 PDF。
+你可以指定角色、画风、篇幅和输出格式。文字、气泡、医学标签及后加箭头可以独立编辑，后续改词、移动标注和局部返修会更加方便。交付内容可包括 Markdown 脚本、彩色画面、排版源文件和 PDF。
 
 ## 看看实际产物
 
 <!-- wrist-showcase:start -->
 ### 八块腕骨，如何在漫画里讲清楚？
 
-医生与阿旋从桌上的八枚圆片聊起，逐步讲清腕骨的两排分组、不同视角，以及骨头之间的关节。这份六页《腕骨与关节组成》示例 v1.1，展示了从生活对白到有据可查的解剖讲解。
+医生与阿旋从桌上的八枚圆片聊起，逐步讲清腕骨的两排分组、不同视角，以及骨头之间的关节。这份六页《腕骨与关节组成》示例 v1.1，展示了从生活对白到有据可查解剖讲解的完整过程。
 
 | 从故事认识结构 | 转换观察角度 | 找到关节接口 |
 |---|---|---|
@@ -55,9 +55,9 @@ TFCC（腕关节三角纤维软骨复合体）漫画把日常动作、人物对�
 
 ## 每幅解剖图，都能追溯到具体参考
 
-**本 Skill 要求：作品中每项用于医学讲解的解剖结构，都有与部位、视角和层次相匹配的可信依据。** 制作时先核验图谱、教材、原始研究或可追溯模型，实际查看参考，再记录它支持的具体结构、是否附入生成，以及成图对照结果。已有合格参考与母版可以带完整来源链复用。
+**本 Skill 要求：作品中每项用于医学讲解的解剖结构，都有与部位、视角和层次相匹配的可信依据。** 制作时先核验图谱、教材、原始研究或可追溯模型，实际查看参考，再记录它支持的具体结构、是否作为生成时的参考附件，以及成图对照结果。已有合格参考与母版可以带完整来源记录复用。
 
-上面的医生漫画包含 **5 幅解剖底图、6 处放置**。以下按成图逐幅展开参考：既能看到骨骼分区、掌背侧形态与关节盘，也能查到具体图号、书页和实际输入文件。
+上面的医生漫画包含 **5 幅解剖底图，共使用6次**。以下按成图逐幅展开参考：既能看到骨骼分区、掌背侧形态与关节盘，也能查到具体图号、书页和实际输入文件。
 
 | 成图位置 | 图谱与教材实际附件 | 核对内容与其他输入 |
 |---|---|---|
@@ -71,25 +71,25 @@ TFCC（腕关节三角纤维软骨复合体）漫画把日常动作、人物对�
 
 [![全手掌面：漫画彩稿、右手模型与Gray219参考对照](docs/showcase/wrist/comparisons/hand.png)](docs/showcase/wrist/comparisons/hand.png)
 
-Gray219 的原图可同时查看指骨、掌骨与腕骨分区。模型给出本例采用的右手机位；图谱保留原有方向。教材 Fig.4.18 的采用范围限于腕部，不用一幅腕部图证明全手所有细节。
+Gray219 的原图可同时查看指骨、掌骨与腕骨分区。模型给出本例采用的右手的观察视角。图谱保留原有方向。教材 Fig.4.18 的采用范围限于腕部，不用一幅腕部图证明全手所有细节。
 
 ### 两排腕骨：分组、邻接与掌侧遮挡
 
 [![两排腕骨：B02彩稿、M02投影与Gray219局部对照](docs/showcase/wrist/comparisons/rows.png)](docs/showcase/wrist/comparisons/rows.png)
 
-本组对照着重看腕骨之间的邻接和豌豆骨的掌侧遮挡。颜色与教学编号由制作另加，原图中的英文骨名仍可沿来源图查阅。
+本组对照着重看腕骨之间的邻接和豌豆骨的掌侧遮挡。颜色与教学编号在制作时添加，原图中的英文骨名仍可查阅原始参考图。
 
 ### 腕骨背面：换一个角度核对可见结构
 
 [![腕骨背面：B03彩稿、M03投影与教材Fig.4.18a对照](docs/showcase/wrist/comparisons/dorsal.png)](docs/showcase/wrist/comparisons/dorsal.png)
 
-教材 Fig.4.18a 展示背侧腕部，含韧带及其骨性背景；Gray220 也曾作为实际附件参与原图生成。两者用于核对可见形态与遮挡，模型投影确定本例的观察方向。
+教材 Fig.4.18a 展示背侧腕部，含韧带及其骨性背景。Gray220 也曾作为原图生成时的参考附件。两者用于核对可见形态与遮挡，模型投影确定本例的观察方向。
 
 ### 三角骨与豌豆骨：核对掌尺侧的前后关系
 
 [![三角骨与豌豆骨：B04彩稿、M04投影与教材Fig.4.18b对照](docs/showcase/wrist/comparisons/pisiform.png)](docs/showcase/wrist/comparisons/pisiform.png)
 
-教材 Fig.4.18b 补充掌侧关系，Fig.4.19a 补充尺侧软组织背景。教材图含韧带遮挡且机位不同；彩稿和同机位模型可直接对照，教材按结构关系核对。
+教材 Fig.4.18b 补充掌侧关系，Fig.4.19a 补充尺侧软组织背景。教材图含韧带遮挡且机位不同。彩稿和同机位模型可直接对照，使用教材按结构关系进行核对。
 
 ### 关节面与关节盘：核对骨与软组织的空间关系
 
@@ -111,9 +111,9 @@ Gray336 展示腕关节冠状关系；教材 Fig.4.19a 的关节盘标为 **AD�
 
 Gray 图版出自 Henry Gray 的 *Anatomy of the Human Body*（1918）。教材为 Omid Khalilzadeh、Clarissa Canella、Laura M. Fayad 编写的 *Wrist and Hand*，收录于 Springer 的 *Musculoskeletal Diseases 2021–2024: Diagnostic Imaging*（2021），DOI [10.1007/978-3-030-71281-5_4](https://doi.org/10.1007/978-3-030-71281-5_4)。[NCBI 开放章节](https://www.ncbi.nlm.nih.gov/books/NBK570159/)保留正文与图注。几何来源为 [BodyParts3D / DBCLS](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html)，本例使用 v4.0 简化99模型的右手和远端前臂部件。
 
-**这些参考有明确的使用记录。** 图谱和完整教材页曾附入原解剖彩稿的生成；医生改编版沿用原底图及来源链。本页五组对照是展示用排版，裁切坐标与哈希见[裁切记录](docs/showcase/wrist/comparisons/crop-map.json)，原附件和提示词见[输入清单](docs/showcase/wrist/reference-map.json)。图谱、教材与模型按各自支持范围使用；同源多图不重复算作独立证据。第5页的[真人动作参考](docs/showcase/wrist/README.md#第5页新增动作的真实参考)与骨骼图谱分别登记，第6页圆片是教学道具。
+**这些参考有明确的使用记录。** 图谱和完整教材页曾作为原解剖彩稿生成时的参考附件。医生改编版沿用原底图及完整来源记录。本页五组对照是展示用排版，裁切坐标与哈希见[裁切记录](docs/showcase/wrist/comparisons/crop-map.json)，原附件和提示词见[输入清单](docs/showcase/wrist/reference-map.json)。图谱、教材与模型按各自支持范围使用。同源多图不重复算作独立证据。第5页的[真人动作参考](docs/showcase/wrist/README.md#第5页新增动作的真实参考)与骨骼图谱分别登记，第6页圆片是教学道具。
 
-[五页参考对照 PDF（18.18 MB）](docs/showcase/wrist/comparisons/reference-details.pdf) · [逐幅对应与检查范围](docs/showcase/wrist/README.md) · [来源与逐项许可](docs/showcase/wrist/CREDITS.md)。本示例为**制作完成，医学待审**；来源可追溯与人工医学审签分别记录。
+[五页参考对照 PDF（18.18 MB）](docs/showcase/wrist/comparisons/reference-details.pdf) · [逐幅对应与检查范围](docs/showcase/wrist/README.md) · [来源与逐项许可](docs/showcase/wrist/CREDITS.md)。本示例为**制作完成，医学待审**，来源可追溯与人工医学审签分别记录。
 
 ## 开始使用
 
@@ -133,13 +133,13 @@ Gray 图版出自 Henry Gray 的 *Anatomy of the Human Body*（1918）。教材�
 
 科研图可以附上研究论断、文献、结构关系和目标版式；已有脚本或图片也可以直接交给它继续制作、排字或返修。
 
-完整制图按任务配合图像工具、字体及矢量/PDF 编辑环境，脚本与分镜可独立使用。具体工具映射、无原生 Skill 的加载方法及能力不足时的交接见[Agent 接入说明](plugins/medical-illustration/skills/medical-illustration/references/agent-integration.md)。
+完整制图根据任务使用相应的图像工具、字体及矢量/PDF 编辑环境，脚本与分镜可独立使用。具体工具映射、无原生 Skill 的加载方法及能力不足时的交接见[Agent 接入说明](plugins/medical-illustration/skills/medical-illustration/references/agent-integration.md)。
 
-已安装用户可说“检查医学绘图 Skill 更新”“更新医学绘图 Skill”或“回退医学绘图 Skill”。从 1.1.1 起随包提供更新器；旧版首次接入见[安装与更新说明](INSTALL.md)。
+已经安装的用户可以说“检查医学绘图 Skill 更新”“更新医学绘图 Skill”或“回退医学绘图 Skill”。从 1.1.1 起随包提供更新器。旧版首次接入见[安装与更新说明](INSTALL.md)。
 
 ## 检查与使用范围
 
-制作过程中会对照参考检查结构，检查文字排版和跨页一致性，并保存来源及修改记录。这里的漫画可供查看制作效果；医学审签状态见各示例说明，人工医学审签仍待完成。[实际验证范围](docs/validation.md)
+制作过程中会对照参考检查结构，检查文字排版和跨页一致性，并保存来源及修改记录。这里的漫画可供查看制作效果。医学审签状态见各示例说明，人工医学审签仍待完成。[实际验证范围](docs/validation.md)
 
 ## 许可与反馈
 
