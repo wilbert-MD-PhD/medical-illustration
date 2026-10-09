@@ -5,7 +5,7 @@
 Medical Illustration 是面向 Codex、Claude Code 等 AI Agent 的医学绘图 Skill。支持原生 Skill 的运行平台可加载完整目录，其他 Agent 可读取 `SKILL.md` 及相关资源，并根据自身可调用的工具来执行。告诉它主题、读者和用途，它会帮助你查找医学参考、编写脚本、设计画面、生成插图，再完成可编辑排字和检查。
 
 [![Validation](https://github.com/wilbert-MD-PhD/medical-illustration/actions/workflows/validate.yml/badge.svg)](https://github.com/wilbert-MD-PhD/medical-illustration/actions/workflows/validate.yml)
-[![Release v1.3.4](docs/assets/release-badge.svg)](https://github.com/wilbert-MD-PhD/medical-illustration/releases/tag/v1.3.4)
+[![Release v1.3.5](docs/assets/release-badge.svg)](https://github.com/wilbert-MD-PhD/medical-illustration/releases/tag/v1.3.5)
 
 [English](README.en.md) · [安装](INSTALL.md) · [版本发布](https://github.com/wilbert-MD-PhD/medical-illustration/releases)
 
