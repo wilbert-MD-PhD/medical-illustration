@@ -5,7 +5,7 @@
 Medical Illustration is a medical drawing Skill for Codex, Claude Code and other AI agents. Hosts with native Skill support can load the complete folder. Other agents can read `SKILL.md` and the relevant resources, then use their available tools. Describe your topic, audience and intended use. It helps you find medical references, write a script, design and generate artwork, then add editable text and check the result.
 
 [![Validation](https://github.com/wilbert-MD-PhD/medical-illustration/actions/workflows/validate.yml/badge.svg)](https://github.com/wilbert-MD-PhD/medical-illustration/actions/workflows/validate.yml)
-[![Release v1.3.5](docs/assets/release-badge.svg?v=1.3.5)](https://github.com/wilbert-MD-PhD/medical-illustration/releases/tag/v1.3.5)
+[![Release v1.3.5](https://raw.githubusercontent.com/wilbert-MD-PhD/medical-illustration/48d12d3ec02b128441c1c60532aa187e707d56f2/docs/assets/release-badge.svg)](https://github.com/wilbert-MD-PhD/medical-illustration/releases/tag/v1.3.5)
 
 [中文](README.md) · [Installation](INSTALL.md#english-installation) · [Releases](https://github.com/wilbert-MD-PhD/medical-illustration/releases)
 
