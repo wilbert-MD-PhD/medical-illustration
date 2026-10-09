@@ -114,6 +114,75 @@ class UpdateTests(unittest.TestCase):
             self.update()
         self.assertEqual(u.fingerprint(self.installed), self.before)
 
+    def test_missing_required_scripts_refused_before_replacement(self):
+        (self.source/'VERSION').write_text((SKILL/'VERSION').read_text(encoding='utf-8'), encoding='utf-8')
+        for name in ('update_skill.py', 'illustrator_run.py', 'illustrator_preflight.py',
+                     'illustrator_session.jsx', 'illustrator_assets.py',
+                     'check_mechanism_graph.py', 'illustrator-lettering.jsx'):
+            with self.subTest(missing=name):
+                path = self.source/'scripts'/name
+                original = path.read_bytes()
+                try:
+                    path.unlink()
+                    self.pack(self.source)  # Both checksums describe the incomplete package.
+                    with self.assertRaisesRegex(u.UpdateError, 'Incomplete package: scripts/' + name):
+                        self.update()
+                    self.assertEqual(u.fingerprint(self.installed), self.before)
+                    self.assertEqual(u.history(self.installed), [])
+                    self.assertFalse(list(u.state_dir(self.installed).glob('*/transaction.json')))
+                    self.assertFalse((u.state_dir(self.installed)/'lock').exists())
+                finally:
+                    path.write_bytes(original)
+
+    def test_versioned_script_requirements_for_legacy_and_prerelease_packages(self):
+        runtime = ('illustrator_run.py', 'illustrator_preflight.py',
+                   'illustrator_session.jsx', 'illustrator_assets.py', 'check_mechanism_graph.py')
+        for version in ('1.0.0-rc.5', '1.0.0', '1.1.0-rc.1', '1.1.0', '1.1.1-rc.1', '1.1.1'):
+            with self.subTest(version=version):
+                package = self.base/version/u.NAME
+                shutil.copytree(self.source, package)
+                (package/'VERSION').write_text(version, encoding='utf-8')
+                if version.startswith('1.0.0'):
+                    for name in (*runtime, 'update_skill.py'):
+                        (package/'scripts'/name).unlink()
+                elif version.startswith('1.1.0'):
+                    (package/'scripts/update_skill.py').unlink()
+                self.seal(package)
+                self.assertEqual(u.validate_package(package), version)
+                # The runtime and updater are required from their introduction,
+                # including candidate versions of the same numeric release.
+                required = ('illustrator-lettering.jsx',)
+                if not version.startswith('1.0.0'):
+                    required += runtime
+                if version.startswith('1.1.1'):
+                    required += ('update_skill.py',)
+                for name in required:
+                    with self.subTest(missing=name):
+                        path = package/'scripts'/name
+                        original = path.read_bytes()
+                        path.unlink()
+                        self.seal(package)
+                        try:
+                            with self.assertRaisesRegex(u.UpdateError, 'Incomplete package: scripts/' + name):
+                                u.validate_package(package)
+                        finally:
+                            path.write_bytes(original)
+                            self.seal(package)
+
+    def test_upgrade_and_rollback_legacy_without_new_scripts(self):
+        for name in ('update_skill.py', 'illustrator_run.py', 'illustrator_preflight.py',
+                     'illustrator_session.jsx', 'illustrator_assets.py', 'check_mechanism_graph.py'):
+            (self.installed/'scripts'/name).unlink()
+        (self.installed/'VERSION').unlink()
+        (self.installed/'SHA256SUMS').unlink()
+        before = u.fingerprint(self.installed)
+        result = self.update(replace_local=True)
+        self.assertEqual(u.fingerprint(Path(result['backup_dir'])), before)
+        self.assertTrue((self.installed/'scripts/update_skill.py').is_file())
+        self.assertEqual(u.local_info(self.installed)['integrity'], 'clean')
+        u.rollback(self.installed)
+        self.assertEqual(u.fingerprint(self.installed), before)
+
     def test_archive_traversal_symlink_and_case_collision_rejected(self):
         for kind in ('traversal', 'symlink', 'case'):
             with self.subTest(kind=kind):

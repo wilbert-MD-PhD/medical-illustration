@@ -26,9 +26,9 @@
 
 - 本地源码：`plugins/medical-illustration/skills/medical-illustration/`。
 - 本地构建：在仓库根运行 `python3 scripts/release.py build`，生成 `dist/medical-illustration/`。已有输出会保留，可用 `--output` 指定新目录。
-- 正式 Release：[发布列表](https://github.com/wilbert-MD-PhD/medical-illustration/releases)。当前正式版为 [v1.3.4](https://github.com/wilbert-MD-PhD/medical-illustration/releases/tag/v1.3.4)，下载 `medical-illustration-1.3.4.zip` 及同名 `.sha256`。GitHub Source code 是完整仓库，Skill 位于上述源码路径。
+- 正式 Release：[发布列表](https://github.com/wilbert-MD-PhD/medical-illustration/releases)。当前正式版为 [v1.3.5](https://github.com/wilbert-MD-PhD/medical-illustration/releases/tag/v1.3.5)，下载 `medical-illustration-1.3.5.zip` 及同名 `.sha256`。GitHub Source code 是完整仓库，Skill 位于上述源码路径。
 
-本版 `VERSION` 为 `1.3.4`，安装后核对所选发布标签与实际目录版本。使用随包更新器离线检查文件完整性，命令见下文。
+本版 `VERSION` 为 `1.3.5`，安装后核对所选发布标签与实际目录版本。使用随包更新器离线检查文件完整性，命令见下文。
 
 ## 开始使用
 
@@ -74,7 +74,7 @@ Install the latest stable medical-illustration Skill from https://github.com/wil
 
 Provide the complete `medical-illustration/` folder to your agent. A native Skills host can load it from its configured skills location. Other agents can read `SKILL.md` and task-specific references through files, attachments, resource tools or injected context. Point to the actual entrypoint in your request. See [Agent Skills integration](https://agentskills.io/client-implementation/adding-skills-support) for the underlying loading model.
 
-Use the source directory `plugins/medical-illustration/skills/medical-illustration/` or build a standalone folder with `python3 scripts/release.py build`. The published [v1.3.4 Release](https://github.com/wilbert-MD-PhD/medical-illustration/releases/tag/v1.3.4) provides the standalone ZIP and `.sha256`. Keep existing edits and verify the loaded VERSION. Local builds and remote publication are tracked separately.
+Use the source directory `plugins/medical-illustration/skills/medical-illustration/` or build a standalone folder with `python3 scripts/release.py build`. The published [v1.3.5 Release](https://github.com/wilbert-MD-PhD/medical-illustration/releases/tag/v1.3.5) provides the standalone ZIP and `.sha256`. Keep existing edits and verify the loaded VERSION. Local builds and remote publication are tracked separately.
 
 `agents/openai.yaml` is optional host UI metadata. Other agents can ignore it while retaining the distributed files for checksum verification. The outer Codex plugin layout is a compatibility adapter. Native invocation syntax and installer names depend on the host; direct file/resource loading is also supported.
 

@@ -120,11 +120,20 @@ def local_info(root):
 def validate_package(root, expected_version=None):
     validate_identity(root)
     version = (root/'VERSION').read_text(encoding='utf-8').strip()
-    version_key(version)
+    release_version = version_key(version)[:3]
     if expected_version and version != expected_version:
         raise UpdateError('Release tag and package VERSION differ')
-    for name in ('README.md', 'LICENSE-CODE', 'LICENSE-CONTENT.md', 'NOTICE.md',
-                 'scripts/init_medical_project.py'):
+    required = ['README.md', 'LICENSE-CODE', 'LICENSE-CONTENT.md', 'NOTICE.md',
+                'scripts/init_medical_project.py', 'scripts/illustrator-lettering.jsx']
+    # Check known components independently of a package-supplied manifest.
+    # Numeric release boundaries include RCs; older packages predate these tools.
+    if release_version >= (1, 1, 0):
+        required.extend('scripts/' + name for name in (
+            'illustrator_run.py', 'illustrator_preflight.py', 'illustrator_session.jsx',
+            'illustrator_assets.py', 'check_mechanism_graph.py'))
+    if release_version >= (1, 1, 1):
+        required.append('scripts/update_skill.py')
+    for name in required:
         if not (root/name).is_file():
             raise UpdateError(f'Incomplete package: {name}')
     if not (root/'references').is_dir():
