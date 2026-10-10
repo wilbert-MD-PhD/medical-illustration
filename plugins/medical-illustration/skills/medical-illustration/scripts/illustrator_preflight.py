@@ -3,10 +3,15 @@
 import hashlib,re,ast
 from pathlib import Path
 
-def scrub(source):
-    # Retain newlines for diagnostics while hiding literals and comments.
+def scrub(source, keep_strings=False):
+    # Retain offsets/newlines; optionally keep literals for argument parsing.
     token=re.compile(r'//[^\n]*|/\*[\s\S]*?\*/|"(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'')
-    return token.sub(lambda m: ''.join('\n' if x=='\n' else ' ' for x in m.group()),source)
+    def mask(match):
+        value = match.group()
+        if keep_strings and value[0] in ('"', "'"):
+            return value
+        return ''.join('\n' if x=='\n' else ' ' for x in value)
+    return token.sub(mask, source)
 
 RULES=[
  ('unmanaged-open',r'\bapp\s*\.\s*open\s*\(', 'Use session.open(path, mode).'),
@@ -29,7 +34,11 @@ def inspect_script(script):
         for pattern,message in [(r'\.characters\b','Per-character DOM access: restrict to a diagnosed text defect.'),(r'\.embed\s*\(','embed removes the placed item; prefer linked construction.'),(r'\.createOutline\s*\(','createOutline removes its source; never read the old reference.')]:
             if re.search(pattern,clean):result['warnings'].append({'path':str(p),'message':message})
         literal=re.compile(r'\$\.evalFile\s*\(\s*File\s*\(\s*((?:"(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'))\s*\)\s*\)')
-        found=list(literal.finditer(source))
+        # Preserve argument literals and offsets, but match only actual code.
+        # Comments between call arguments become whitespace; examples inside
+        # comments or other strings cannot create dependencies or hide warnings.
+        found=[m for m in literal.finditer(scrub(source, keep_strings=True))
+               if clean[m.start():m.start()+2] == '$.']
         for m in found:
             value=ast.literal_eval(m.group(1));child=Path(value)
             if not child.is_absolute():

@@ -56,6 +56,75 @@ class RuntimeTests(unittest.TestCase):
         self.script.write_text('$.evalFile(File('+json.dumps(str(child))+'));',encoding='utf-8')
         code,call=self.invoke()
         self.assertEqual(code,65);call.assert_not_called();self.assertFalse(self.lock.exists())
+    def test_comments_and_strings_do_not_create_dependencies(self):
+        literal = '$.evalFile(File(' + json.dumps(str(self.base/'missing.jsx')) + '));'
+        for source in ('// ' + literal, '/* ' + literal + ' */',
+                       "var note = '" + literal + "';",
+                       'var note = ' + json.dumps('Example: "quoted" ' + literal) + ';'):
+            with self.subTest(source=source):
+                self.script.write_text(source + '\nvar s = IllustratorSession.current;\n', encoding='utf-8')
+                audit = inspect_script(self.script)
+                self.assertEqual(audit['errors'], [])
+                self.assertEqual(audit['warnings'], [])
+                self.assertEqual(len(audit['files']), 1)
+                code, call = self.invoke(['--check-only'], platform='win32')
+                self.assertEqual(code, 0);call.assert_not_called()
+                self.assertFalse(self.lock.exists());self.assertFalse(self.run.exists())
+    def test_real_dependency_with_inline_comments_is_still_inspected(self):
+        child = self.base/'real dependency.jsx'
+        child.write_text('app.documents.add();', encoding='utf-8')
+        self.script.write_text(
+            '// $.evalFile(File("/unused/example.jsx"));\n'
+            '$.evalFile(/* load */ File(/* path */ ' + json.dumps(str(child)) +
+            ' /* end path */) /* end load */);\n', encoding='utf-8')
+        audit = inspect_script(self.script)
+        self.assertEqual(len(audit['files']), 2)
+        self.assertEqual(audit['errors'], [{'path': str(child.resolve()), 'line': 1,
+            'code': 'unmanaged-create', 'message': 'Use session.create(...).'}])
+        self.assertEqual(audit['warnings'], [])
+    def test_inactive_literal_cannot_hide_computed_dependency_warning(self):
+        child = self.base/'unused.jsx'
+        child.write_text('var unused = true;', encoding='utf-8')
+        literal = '$.evalFile(File(' + json.dumps(str(child)) + '));'
+        for inactive in ('// ' + literal, "var note = '" + literal + "';"):
+            with self.subTest(inactive=inactive):
+                self.script.write_text(inactive + '\n$.evalFile(dynamicPath);', encoding='utf-8')
+                audit = inspect_script(self.script)
+                self.assertEqual(audit['errors'], [])
+                self.assertEqual(len(audit['files']), 1)
+                self.assertEqual(len(audit['warnings']), 1)
+                self.assertIn('Computed evalFile dependency', audit['warnings'][0]['message'])
+    def test_real_missing_and_relative_dependencies_remain_errors(self):
+        for path, error in ((str(self.base/'missing.jsx'), 'missing-dependency'),
+                            ('relative.jsx', 'relative-code-path')):
+            with self.subTest(path=path):
+                self.script.write_text('$.evalFile(File(' + json.dumps(path) + '));', encoding='utf-8')
+                self.assertEqual([e['code'] for e in inspect_script(self.script)['errors']], [error])
+                code, call = self.invoke()
+                self.assertEqual(code, 65);call.assert_not_called()
+                self.assertFalse(self.lock.exists());self.assertFalse(self.run.exists())
+    def test_wrapper_preserves_placeholder_words_and_escaped_paths(self):
+        for word in ('LIBRARY', 'RECOVERY', 'SCRIPT', 'COMPLETION', 'PROGRESS',
+                     'LIBRARY-RECOVERY-SCRIPT-COMPLETION-PROGRESS'):
+            with self.subTest(word=word):
+                folder = self.base/(word + " 中文 ' {paths} $-é")
+                folder.mkdir()
+                library = folder/'illustrator_session.jsx'
+                library.write_text('// mocked session library', encoding='utf-8')
+                self.script = folder/'job.jsx'
+                self.script.write_text('var s = IllustratorSession.current;', encoding='utf-8')
+                self.run = folder/'run'
+                self.lock = folder/'isolated.lock'
+                def dispatch(argv, **kwargs):
+                    wrapper = (self.run/'wrapper.jsx').read_text(encoding='utf-8')
+                    for path in (library, self.script, self.run/'recovery',
+                                 self.run/'progress.txt', self.run/'completion.txt'):
+                        self.assertIn(json.dumps(str(path.resolve()), ensure_ascii=True), wrapper)
+                    return self.completed('OK\n')(argv, **kwargs)
+                with patch.object(runner, '__file__', str(folder/'illustrator_run.py')):
+                    code, call = self.invoke(dispatch=dispatch)
+                self.assertEqual(code, 0);call.assert_called_once()
+                self.assertFalse(self.lock.exists())
     def test_occupied_lock_is_preserved(self):
         self.lock.mkdir();(self.lock/'owner.json').write_text('other owner')
         code,call=self.invoke()

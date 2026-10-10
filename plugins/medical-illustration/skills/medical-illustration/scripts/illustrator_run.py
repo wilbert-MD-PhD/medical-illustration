@@ -60,28 +60,33 @@ def main():
         complete = run_dir / 'completion.txt'
         progress = run_dir / 'progress.txt'
         wrapper = run_dir / 'wrapper.jsx'
-        q = lambda s: json.dumps(str(s), ensure_ascii=True)
+        paths = json.dumps({
+            'library': str(library), 'recovery': str(run_dir / 'recovery'),
+            'script': str(script), 'completion': str(complete), 'progress': str(progress),
+        }, ensure_ascii=True)
+        # Insert path data once; never substitute inside previously inserted paths.
         wrapper.write_text('''#target illustrator
 (function () {
+    var paths = ''' + paths + ''';
     var state = 'OK', message = '';
-    function progress(note) { var p=File(PROGRESS); if(p.open('w')) {p.write(note);p.close();} }
+    function progress(note) { var p=File(paths.progress); if(p.open('w')) {p.write(note);p.close();} }
     try {
         progress('loading session');
-        $.evalFile(File(LIBRARY));
-        IllustratorSession.run({recoveryDir: RECOVERY, progressPath: PROGRESS}, function (session) {
+        $.evalFile(File(paths.library));
+        IllustratorSession.run({recoveryDir: paths.recovery, progressPath: paths.progress}, function (session) {
             progress('executing script');
-            $.evalFile(File(SCRIPT));
+            $.evalFile(File(paths.script));
             progress('script returned; cleaning up');
         });
     } catch (e) { state = 'ERROR'; message = String(e) + ' line ' + e.line; }
     finally {
-        var f = File(COMPLETION); f.encoding = 'UTF-8';
+        var f = File(paths.completion); f.encoding = 'UTF-8';
         if (!f.open('w')) throw Error('Cannot write completion record.');
         f.write(state + '\\n' + message); f.close();
     }
     return state + '\\n' + message;
 }());
-'''.replace('LIBRARY', q(library)).replace('RECOVERY', q(run_dir / 'recovery')).replace('SCRIPT', q(script)).replace('COMPLETION', q(complete)).replace('PROGRESS', q(progress)), encoding='utf-8')
+''', encoding='utf-8')
         apple = run_dir / 'dispatch.applescript'
         apple.write_text('''on run argv
     with timeout of %d seconds

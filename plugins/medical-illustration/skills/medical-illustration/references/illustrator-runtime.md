@@ -20,7 +20,7 @@ python3 scripts/illustrator_run.py --status
 python3 scripts/illustrator_run.py /path/to/job.jsx --run-dir /path/to/new-run --timeout 600
 ```
 
-预检递归检查绝对路径字面量的 JSX 依赖；拒绝直接 app.open、app.documents.add、按 SaveOptions 直接关闭文档、activeDocument 和 app.quit。动态路径、别名和代码需另查；预检不是安全沙箱。
+预检递归检查绝对路径字面量的 JSX 依赖，忽略注释及说明字符串中的调用样例，可识别调用参数间的注释。拒绝直接 app.open、app.documents.add、按 SaveOptions 直接关闭文档、activeDocument 和 app.quit。动态路径、别名和代码需另查；预检不是安全沙箱。
 
 任务 JSX 由运行器加载，不自行再包一层 session.run：
 
