@@ -107,7 +107,8 @@ class RuntimeTests(unittest.TestCase):
         child = self.base/'依赖 🚀.jsx'
         child.write_text('app.documents.add();', encoding='utf-8')
         encoded = json.dumps(str(child), ensure_ascii=True).replace('/', r'\/')
-        for literal in (encoded, "'" + str(child).replace('/', r'\/') + "'"):
+        single_quoted = "'" + json.dumps(str(child), ensure_ascii=False)[1:-1].replace("'", r"\'").replace('/', r'\/') + "'"
+        for literal in (encoded, single_quoted):
             with self.subTest(literal=literal):
                 self.script.write_text('$.evalFile(File(' + literal + '));', encoding='utf-8')
                 audit = inspect_script(self.script)
