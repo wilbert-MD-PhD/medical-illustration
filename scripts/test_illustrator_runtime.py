@@ -103,6 +103,18 @@ class RuntimeTests(unittest.TestCase):
                 code, call = self.invoke()
                 self.assertEqual(code, 65);call.assert_not_called()
                 self.assertFalse(self.lock.exists());self.assertFalse(self.run.exists())
+    def test_javascript_escaped_literal_dependencies_are_inspected(self):
+        child = self.base/'依赖 🚀.jsx'
+        child.write_text('app.documents.add();', encoding='utf-8')
+        encoded = json.dumps(str(child), ensure_ascii=True).replace('/', r'\/')
+        for literal in (encoded, "'" + str(child).replace('/', r'\/') + "'"):
+            with self.subTest(literal=literal):
+                self.script.write_text('$.evalFile(File(' + literal + '));', encoding='utf-8')
+                audit = inspect_script(self.script)
+                self.assertEqual(len(audit['files']), 2)
+                self.assertEqual([e['code'] for e in audit['errors']], ['unmanaged-create'])
+                code, call = self.invoke()
+                self.assertEqual(code, 65); call.assert_not_called()
     def test_wrapper_preserves_placeholder_words_and_escaped_paths(self):
         for word in ('LIBRARY', 'RECOVERY', 'SCRIPT', 'COMPLETION', 'PROGRESS',
                      'LIBRARY-RECOVERY-SCRIPT-COMPLETION-PROGRESS'):

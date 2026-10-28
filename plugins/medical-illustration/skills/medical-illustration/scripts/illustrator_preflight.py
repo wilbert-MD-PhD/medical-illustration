@@ -1,7 +1,35 @@
 # MIT License; see ../LICENSE-CODE.
 """Conservative source checks, not a JavaScript sandbox or full static analyzer."""
-import hashlib,re,ast
+import hashlib,re
 from pathlib import Path
+
+def js_string(literal):
+    """Decode ES3 string escapes without applying Python's escape semantics."""
+    value = literal[1:-1]
+    result = []
+    i = 0
+    simple = {'b':'\b', 'f':'\f', 'n':'\n', 'r':'\r', 't':'\t', 'v':'\v'}
+    while i < len(value):
+        c = value[i]; i += 1
+        if c != '\\':
+            result.append(c); continue
+        if i >= len(value): raise ValueError('Incomplete JavaScript string escape')
+        c = value[i]; i += 1
+        if c in 'xu':
+            n = 2 if c == 'x' else 4
+            digits = value[i:i+n]
+            if len(digits) != n or not re.fullmatch(r'[0-9a-fA-F]+', digits):
+                raise ValueError('Invalid JavaScript hexadecimal escape')
+            result.append(chr(int(digits, 16))); i += n
+        elif c in '01234567':
+            digits = c
+            limit = 3 if c in '0123' else 2
+            while len(digits) < limit and i < len(value) and value[i] in '01234567':
+                digits += value[i]; i += 1
+            result.append(chr(int(digits, 8)))
+        else:
+            result.append(simple.get(c, c))
+    return ''.join(result).encode('utf-16', 'surrogatepass').decode('utf-16', 'surrogatepass')
 
 def scrub(source, keep_strings=False):
     # Retain offsets/newlines; optionally keep literals for argument parsing.
@@ -40,7 +68,7 @@ def inspect_script(script):
         found=[m for m in literal.finditer(scrub(source, keep_strings=True))
                if clean[m.start():m.start()+2] == '$.']
         for m in found:
-            value=ast.literal_eval(m.group(1));child=Path(value)
+            value=js_string(m.group(1));child=Path(value)
             if not child.is_absolute():
                 result['errors'].append({'path':str(p),'code':'relative-code-path','message':'Use an absolute literal path for JSX dependencies.'});continue
             if not child.is_file():result['errors'].append({'path':str(child),'code':'missing-dependency','message':'JSX dependency does not exist.'})
