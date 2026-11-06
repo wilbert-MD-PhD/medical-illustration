@@ -34,7 +34,7 @@ def check(data):
         if not isinstance(refs,list) or not refs: errors.append(f'{ident}: no evidence/proposal source')
         elif any(not isinstance(x,str) or x not in groups['sources'] for x in refs):errors.append(f'{ident}: unknown source ID')
         r=e.get('relation');status=e.get('evidence_status');style=e.get('line_style')
-        if r not in RELATIONS:errors.append(f'{ident}: invalid relation')
+        if not isinstance(r,str) or r not in RELATIONS:errors.append(f'{ident}: invalid relation')
         if status not in ('established','observed','hypothesis'):errors.append(f'{ident}: invalid evidence status')
         if e.get('directness') not in ('direct','indirect','unspecified'):errors.append(f'{ident}: invalid directness')
         if style not in ('solid','dashed','dotted'):errors.append(f'{ident}: invalid line style')

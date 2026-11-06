@@ -1,13 +1,11 @@
-# Medical Illustration v1.3.6
+# Medical Illustration v1.3.7
 
-修复 Illustrator JSX 依赖预检对 JavaScript 转义路径的误判。使用转义斜杠或 Unicode 的绝对路径现在能正确解析，并继续检查依赖脚本。
-
-本版同时发布此前合入 main 的运行器修复：保留包含占位符文字的路径，忽略注释和字符串中的假依赖，并保留对真实依赖和动态依赖的检查。
+修复机制图关系校验：当 `relation` 误填为数组或对象时，检查器会报告字段错误，并继续检查其余关系。新增无效类型和有效数据的回归测试。
 
 ## 安装
 
-附件为 `medical-illustration-1.3.6.zip` 和同名 `.sha256`。详见 [安装说明](https://github.com/wilbert-MD-PhD/medical-illustration/blob/v1.3.6/INSTALL.md)。
+附件为 `medical-illustration-1.3.7.zip` 和同名 `.sha256`。详见 [安装说明](https://github.com/wilbert-MD-PhD/medical-illustration/blob/v1.3.7/INSTALL.md)。
 
 ## English
 
-Fix JSX dependency preflight parsing of escaped JavaScript paths, including escaped slashes and Unicode. This release also includes the previously merged fixes for wrapper paths and inactive dependency examples.
+Fix mechanism graph validation to report invalid relation types without stopping validation of the remaining edges.
