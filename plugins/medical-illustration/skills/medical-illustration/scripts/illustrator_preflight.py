@@ -61,18 +61,23 @@ def inspect_script(script):
             for m in re.finditer(pattern,clean):result['errors'].append({'path':str(p),'line':clean[:m.start()].count('\n')+1,'code':code,'message':message})
         for pattern,message in [(r'\.characters\b','Per-character DOM access: restrict to a diagnosed text defect.'),(r'\.embed\s*\(','embed removes the placed item; prefer linked construction.'),(r'\.createOutline\s*\(','createOutline removes its source; never read the old reference.')]:
             if re.search(pattern,clean):result['warnings'].append({'path':str(p),'message':message})
-        literal=re.compile(r'\$\.evalFile\s*\(\s*File\s*\(\s*((?:"(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'))\s*\)\s*\)')
+        literal=re.compile(r'\$\.evalFile\s*\(\s*(?:new\s+)?File\s*\(\s*((?:"(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'))\s*\)\s*\)')
+        include=re.compile(r'^[ \t]*#include[ \t]+((?:"(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'))', re.M)
         # Preserve argument literals and offsets, but match only actual code.
         # Comments between call arguments become whitespace; examples inside
         # comments or other strings cannot create dependencies or hide warnings.
-        found=[m for m in literal.finditer(scrub(source, keep_strings=True))
+        with_strings=scrub(source, keep_strings=True)
+        found=[m for m in literal.finditer(with_strings)
                if clean[m.start():m.start()+2] == '$.']
-        for m in found:
+        includes=[m for m in include.finditer(with_strings)
+                  if re.match(r'[ \t]*#include\b', clean[m.start():])]
+        for m in found + includes:
             value=js_string(m.group(1));child=Path(value)
             if not child.is_absolute():
                 result['errors'].append({'path':str(p),'code':'relative-code-path','message':'Use an absolute literal path for JSX dependencies.'});continue
             if not child.is_file():result['errors'].append({'path':str(child),'code':'missing-dependency','message':'JSX dependency does not exist.'})
             else:visit(child)
         if len(re.findall(r'\$\.evalFile\s*\(',clean))>len(found):result['warnings'].append({'path':str(p),'message':'Computed evalFile dependency cannot be inspected; inspect it explicitly before execution.'})
+        if len(re.findall(r'^[ \t]*#include\b', clean, re.M))>len(includes):result['warnings'].append({'path':str(p),'message':'Unrecognized include dependency cannot be inspected; inspect it explicitly before execution.'})
     visit(script)
     return result

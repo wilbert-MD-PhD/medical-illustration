@@ -56,6 +56,33 @@ class RuntimeTests(unittest.TestCase):
         self.script.write_text('$.evalFile(File('+json.dumps(str(child))+'));',encoding='utf-8')
         code,call=self.invoke()
         self.assertEqual(code,65);call.assert_not_called();self.assertFalse(self.lock.exists())
+    def test_include_and_new_file_dependencies_are_checked(self):
+        child = self.base/'included.jsx'
+        child.write_text('app.quit();', encoding='utf-8')
+        path = json.dumps(str(child))
+        for source in ('#include ' + path, '$.evalFile(new File(' + path + '));'):
+            with self.subTest(source=source):
+                self.script.write_text(source, encoding='utf-8')
+                audit = inspect_script(self.script)
+                self.assertEqual(len(audit['files']), 2)
+                self.assertEqual([item['code'] for item in audit['errors']], ['quit-application'])
+                code, call = self.invoke()
+                self.assertEqual(code, 65); call.assert_not_called()
+    def test_include_missing_relative_and_inactive(self):
+        for path, error in ((str(self.base/'missing.jsx'), 'missing-dependency'),
+                            ('relative.jsx', 'relative-code-path')):
+            with self.subTest(path=path):
+                self.script.write_text('#include ' + json.dumps(path), encoding='utf-8')
+                self.assertEqual([e['code'] for e in inspect_script(self.script)['errors']], [error])
+        for source in ('// #include "missing.jsx"', '/*\n#include "missing.jsx"\n*/',
+                       'var text = "#include missing.jsx";'):
+            with self.subTest(source=source):
+                self.script.write_text(source, encoding='utf-8')
+                audit = inspect_script(self.script)
+                self.assertEqual(audit['errors'], [])
+                self.assertEqual(audit['warnings'], [])
+        self.script.write_text('#include dynamicPath', encoding='utf-8')
+        self.assertIn('Unrecognized include', inspect_script(self.script)['warnings'][0]['message'])
     def test_comments_and_strings_do_not_create_dependencies(self):
         literal = '$.evalFile(File(' + json.dumps(str(self.base/'missing.jsx')) + '));'
         for source in ('// ' + literal, '/* ' + literal + ' */',
