@@ -121,6 +121,29 @@ class RuntimeTests(unittest.TestCase):
                 self.assertEqual(len(audit['files']), 1)
                 self.assertEqual(len(audit['warnings']), 1)
                 self.assertIn('Computed evalFile dependency', audit['warnings'][0]['message'])
+    def test_regex_literals_cannot_hide_subsequent_restricted_code(self):
+        for literal in ('/"/', "/'/", r'/["\/]x/', r'/app\.quit\(\)/'):
+            with self.subTest(literal=literal):
+                self.script.write_text('var matcher = ' + literal + '; app.quit(); var label = "x";', encoding='utf-8')
+                audit = inspect_script(self.script)
+                self.assertEqual([e['code'] for e in audit['errors']], ['quit-application'])
+                code, call = self.invoke()
+                self.assertEqual(code, 65); call.assert_not_called()
+        self.script.write_text('var matcher = /app.quit()/; var label = "x";', encoding='utf-8')
+        self.assertEqual(inspect_script(self.script)['errors'], [])
+    def test_regex_literal_does_not_hide_real_dependency(self):
+        child = self.base/'dependency.jsx'
+        child.write_text('app.documents.add();', encoding='utf-8')
+        self.script.write_text('var pattern = /"/; $.evalFile(File(' + json.dumps(str(child)) + '));', encoding='utf-8')
+        audit = inspect_script(self.script)
+        self.assertEqual([e['code'] for e in audit['errors']], ['unmanaged-create'])
+        self.assertEqual(len(audit['files']), 2)
+    def test_ambiguous_slash_fails_closed(self):
+        self.script.write_text('if (true) /"/.test("x"); app.quit();', encoding='utf-8')
+        audit = inspect_script(self.script)
+        self.assertEqual([e['code'] for e in audit['errors']], ['unrecognized-syntax'])
+        code, call = self.invoke()
+        self.assertEqual(code, 65); call.assert_not_called()
     def test_real_missing_and_relative_dependencies_remain_errors(self):
         for path, error in ((str(self.base/'missing.jsx'), 'missing-dependency'),
                             ('relative.jsx', 'relative-code-path')):

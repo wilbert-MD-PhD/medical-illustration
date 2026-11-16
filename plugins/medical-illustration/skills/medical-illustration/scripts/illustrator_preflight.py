@@ -32,14 +32,81 @@ def js_string(literal):
     return ''.join(result).encode('utf-16', 'surrogatepass').decode('utf-16', 'surrogatepass')
 
 def scrub(source, keep_strings=False):
-    # Retain offsets/newlines; optionally keep literals for argument parsing.
-    token=re.compile(r'//[^\n]*|/\*[\s\S]*?\*/|"(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'')
-    def mask(match):
-        value = match.group()
-        if keep_strings and value[0] in ('"', "'"):
-            return value
-        return ''.join('\n' if x=='\n' else ' ' for x in value)
-    return token.sub(mask, source)
+    """Mask comments, strings and regex literals while preserving positions.
+
+    ES3 uses the same slash for division and regex. Where a regex following an
+    expression cannot be distinguished safely, reject it instead of silently
+    hiding later code. This is deliberately not a complete JavaScript parser.
+    """
+    out = list(source)
+    i, regex_allowed = 0, True
+
+    def mask(start, end):
+        for n in range(start, end):
+            if source[n] not in '\r\n': out[n] = ' '
+
+    def regex_end(start):
+        j, char_class = start + 1, False
+        while j < len(source) and source[j] not in '\r\n':
+            c = source[j]
+            if c == '\\':
+                j += 2
+                continue
+            if c == '[': char_class = True
+            elif c == ']': char_class = False
+            elif c == '/' and not char_class:
+                return j + 1
+            j += 1
+        return None
+
+    while i < len(source):
+        c = source[i]
+        if c.isspace():
+            i += 1
+        elif source.startswith('//', i):
+            end = source.find('\n', i)
+            end = len(source) if end < 0 else end
+            mask(i, end); i = end
+        elif source.startswith('/*', i):
+            end = source.find('*/', i + 2)
+            if end < 0: raise ValueError('Unterminated JavaScript comment')
+            end += 2; mask(i, end); i = end
+        elif c in ('"', "'"):
+            start = i; i += 1
+            while i < len(source) and source[i] not in '\r\n':
+                if source[i] == '\\': i += 2
+                elif source[i] == c:
+                    i += 1; break
+                else: i += 1
+            else: raise ValueError('Unterminated JavaScript string')
+            if not keep_strings: mask(start, i)
+            regex_allowed = False
+        elif c == '/':
+            end = regex_end(i)
+            if regex_allowed and end is not None:
+                mask(i, end); i = end
+                while i < len(source) and source[i].isalpha(): i += 1
+                regex_allowed = False
+            else:
+                # A slash after an expression might begin a regex statement
+                # (e.g. after `if (...)`). Quotes/escapes could conceal code.
+                if end is not None and any(x in source[i+1:end-1] for x in ('"', "'", '\\')):
+                    raise ValueError('Ambiguous division/regex literal; rewrite or inspect manually')
+                i += 1; regex_allowed = True
+        elif c.isalpha() or c in '_$':
+            match = re.match(r'[\w$]+', source[i:])
+            word = match.group(); i += len(word)
+            regex_allowed = word in ('return', 'throw', 'case', 'delete', 'void', 'typeof', 'new', 'in', 'instanceof', 'else', 'do')
+        elif c.isdigit():
+            match = re.match(r'[\w.]+', source[i:])
+            i += len(match.group()); regex_allowed = False
+        elif source[i:i+2] in ('++', '--'):
+            # Prefix keeps expecting an expression; postfix still ends one.
+            i += 2
+        else:
+            i += 1
+            regex_allowed = c not in ')]}'
+    return ''.join(out)
 
 RULES=[
  ('unmanaged-open',r'\bapp\s*\.\s*open\s*\(', 'Use session.open(path, mode).'),
@@ -55,8 +122,14 @@ def inspect_script(script):
         p=Path(p).resolve()
         if p in seen:return
         seen.add(p)
-        source=p.read_text(encoding='utf-8');clean=scrub(source)
+        source=p.read_text(encoding='utf-8')
         result['files'].append({'path':str(p),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
+        try:
+            clean=scrub(source)
+            with_strings=scrub(source, keep_strings=True)
+        except ValueError as exc:
+            result['errors'].append({'path':str(p),'code':'unrecognized-syntax','message':str(exc)})
+            return
         for code,pattern,message in RULES:
             for m in re.finditer(pattern,clean):result['errors'].append({'path':str(p),'line':clean[:m.start()].count('\n')+1,'code':code,'message':message})
         for pattern,message in [(r'\.characters\b','Per-character DOM access: restrict to a diagnosed text defect.'),(r'\.embed\s*\(','embed removes the placed item; prefer linked construction.'),(r'\.createOutline\s*\(','createOutline removes its source; never read the old reference.')]:
@@ -66,7 +139,6 @@ def inspect_script(script):
         # Preserve argument literals and offsets, but match only actual code.
         # Comments between call arguments become whitespace; examples inside
         # comments or other strings cannot create dependencies or hide warnings.
-        with_strings=scrub(source, keep_strings=True)
         found=[m for m in literal.finditer(with_strings)
                if clean[m.start():m.start()+2] == '$.']
         includes=[m for m in include.finditer(with_strings)

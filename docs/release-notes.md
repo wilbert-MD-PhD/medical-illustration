@@ -1,11 +1,11 @@
-# Medical Illustration v1.3.8
+# Medical Illustration v1.3.9
 
-修复 Illustrator 预检漏查 `#include` 和 `$.evalFile(new File(...))` 字面量依赖的问题。预检递归检查这些依赖，缺失文件和相对路径会报错，无法识别的引入会提示另查。
+修复 Illustrator 预检将正则表达式中的引号误判为字符串、从而漏查后续受限制调用和依赖的问题。无法可靠区分的斜杠语法会中止派发并提示改写。
 
 ## 安装
 
-附件为 `medical-illustration-1.3.8.zip` 和同名 `.sha256`。详见 [安装说明](https://github.com/wilbert-MD-PhD/medical-illustration/blob/v1.3.8/INSTALL.md)。
+附件为 `medical-illustration-1.3.9.zip` 和同名 `.sha256`。详见 [安装说明](https://github.com/wilbert-MD-PhD/medical-illustration/blob/v1.3.9/INSTALL.md)。
 
 ## English
 
-Fix Illustrator preflight to inspect literal `#include` and `$.evalFile(new File(...))` dependencies recursively and warn about unrecognized includes.
+Fix Illustrator preflight so quotes in regular expression literals do not hide subsequent restricted calls or dependencies. Ambiguous slash syntax stops dispatch for review.
